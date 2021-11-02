@@ -20,3 +20,7 @@ A MSP Client management tool used for managing processes, access information, pa
 * mongodb
 * mongoose
 * Auth0 (eventialuly)
+
+
+<img src="./.githubcontent/screenshot_clients.png" width="750" alt="CC preview" />
+<img src="./.githubcontent/screenshot_client_details.png" width="750" alt="CC preview" />
