@@ -24,3 +24,14 @@ A MSP Client management tool used for managing processes, access information, pa
 
 <img src="./.githubcontent/screenshot_clients.png" width="750" alt="CC preview" />
 <img src="./.githubcontent/screenshot_client_details.png" width="750" alt="CC preview" />
+
+## Setup project
+Create a .env file in root of /srv
+
+Add the following two lines and add username and password for your db.
+
+DB_USERNAME=
+
+DB_PASSWORD=
+
+And on line 14 of server.js change the MongoDB Atlas url to your DB
