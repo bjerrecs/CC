@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Modal, Form } from 'react-bootstrap';
-
-  export default class WarehouseLocationTable extends React.Component {
+  export default class WarehouseItemSelect extends React.Component {
 
     state = {
       loading: true,
@@ -28,17 +27,13 @@ import { Button, Modal, Form } from 'react-bootstrap';
       }
 
       return  <>
-                {this.state.items.map((itemsArray) => (
-                    <tr>
-                        <td>{itemsArray.location}</td>
-                        <td>{itemsArray.name}</td>
-                        <td>{itemsArray.assetid}</td>
-                    </tr>
-                ))}
+                <Form.Select id="id" name="id">
+                    <option>Select item</option>
+                    {this.state.items.map((itemsArray) => (
+                        <option value={itemsArray._id}>{itemsArray.name}</option> 
+                    ))}
+                </Form.Select>   
               </>
     }
   }
-
-
-
 

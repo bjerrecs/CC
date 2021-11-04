@@ -132,6 +132,15 @@ app.post("/api/warehouse/item", (req, res) => {
         }
     })
 });
+app.delete("/api/warehouse/item/:id", (req, res) => {
+    Items.findOneAndRemove({_id: req.params.id}, function(err, result) {
+        if(err) {
+            res.send(err);
+        } else {
+            res.redirect("http://localhost:3000/warehouse");
+        }
+    })
+});
 
 
 function newCustomer(data) {
