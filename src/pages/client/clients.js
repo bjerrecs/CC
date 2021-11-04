@@ -1,17 +1,20 @@
 import { Container, Form, InputGroup, Breadcrumb } from "react-bootstrap";
-import Test from '../get/companies';
+import Test from '../../get/companies';
+import PageHeader from '../../components/pageheader'
 
-function Customers() {
+function Clients() {
 
     return (
       <Container>
-
-
+        
           <br />
 
-          <h1>Customers</h1>
+            <Breadcrumb>
+              <Breadcrumb.Item href="#">Home</Breadcrumb.Item>
+              <Breadcrumb.Item active>Clients</Breadcrumb.Item>
+            </Breadcrumb>
 
-          <br />
+          <PageHeader h1="Clients" h3=""/>
 
           <Form>
             <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -30,5 +33,5 @@ function Customers() {
     );
   }
   
-  export default Customers;
+  export default Clients;
   

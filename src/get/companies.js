@@ -46,7 +46,7 @@ export default class FetchCompanies extends React.Component {
                                     Process Documentation
                                     </Tooltip>
                                 }>
-                                <Button variant="light" className="formstylebtn" href={'/customer/' + companyArray._id} > <img src="radar_dark.svg" width="24" alt="CC"/></Button>
+                                <Button variant="light" className="formstylebtn" href={'/client/' + companyArray._id} > <img src="radar_dark.svg" width="24" alt="CC"/></Button>
                                 </OverlayTrigger>
                                 <OverlayTrigger placement='top' overlay={
                                     <Tooltip >

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Badge , ListGroup, Breadcrumb } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import PageHeader from '../components/pageheader'
 
 
 export default class FetchCompany extends React.Component {
@@ -49,15 +50,13 @@ export default class FetchCompany extends React.Component {
             <br />
             <Breadcrumb>
               <Breadcrumb.Item href="#">Home</Breadcrumb.Item>
-              <Breadcrumb.Item href="/customers">
+              <Breadcrumb.Item href="/clients">
                 Client
               </Breadcrumb.Item>
               <Breadcrumb.Item active>{this.state.company.fullname}</Breadcrumb.Item>
             </Breadcrumb>
 
-              <h2><b>{this.state.company.fullname}</b><br /><h4>Support: {ServiceDeskLevel}</h4></h2>
-
-              <br />
+            <PageHeader h1={this.state.company.fullname} h3={'Support:' + ServiceDeskLevel}/>
 
               <ListGroup as="ol" numbered>
               <ListGroup.Item

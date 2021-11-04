@@ -22,9 +22,9 @@ function NavbarRoot() {
             <Nav.Link ><Link to="/dashboard" className="navbarA">Dashboard</Link></Nav.Link>
             
             <NavDropdown title="Clients" id="collasible-nav-dropdown">
-                <NavDropdown.Item ><Link to="/customers" >Search Clients</Link></NavDropdown.Item>
-                <NavDropdown.Item ><Link to="/customers/new" className="darkA">New Client</Link></NavDropdown.Item>
-                <NavDropdown.Item ><Link to="/customers/new" className="darkA">Update Client</Link></NavDropdown.Item>
+                <NavDropdown.Item ><Link to="/clients" >Search Clients</Link></NavDropdown.Item>
+                <NavDropdown.Item ><Link to="/client/new" className="darkA">New Client</Link></NavDropdown.Item>
+                <NavDropdown.Item ><Link to="/client/modify" className="darkA">Modify Client</Link></NavDropdown.Item>
             </NavDropdown>
             <NavDropdown title="Warehouse" id="collasible-nav-dropdown">
                 <NavDropdown.Item ><Link to="/warehouse" className="darkA">Dashboard</Link></NavDropdown.Item>

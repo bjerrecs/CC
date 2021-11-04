@@ -1,8 +1,21 @@
-import { Container, Form, Button } from "react-bootstrap";
+import { Container, Form, Button,Breadcrumb  } from "react-bootstrap";
+import PageHeader from '../../components/pageheader'
 
-function NewCustomer() {
+function ClientCreation() {
     return (
       <Container>
+            
+            <br />
+            <Breadcrumb>
+              <Breadcrumb.Item href="#">Home</Breadcrumb.Item>
+              <Breadcrumb.Item href="/clients">
+                Client
+              </Breadcrumb.Item>
+              <Breadcrumb.Item active>New Client</Breadcrumb.Item>
+            </Breadcrumb>
+
+        <PageHeader h1="Creat New Client" h3=""/>
+
         <Form action="http://localhost:4000/api/customers" method="post">
 
             <Form.Group className="mb-3" controlId="fullname">
@@ -48,5 +61,5 @@ function NewCustomer() {
     );
   }
   
-  export default NewCustomer;
+  export default ClientCreation;
   

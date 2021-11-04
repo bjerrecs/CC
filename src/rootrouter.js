@@ -8,23 +8,30 @@ import {
 /* IMPORT COMPONENTS*/
 import NavbarRoot from "./components/navbar";
 
-/* IMPORT PAGES*/
+/* Import random pages*/
 import Home from './pages/home';
 import Email from './pages/email';
 import Dashboard from "./pages/dashboard";
-import Warehouse from "./pages/warehouse/warehouse";
-import Customers from "./pages/customers";
-import NewCustomer from "./pages/newcustomer";
-import WarehouseLocation from "./pages/warehouse/locations";
-import WarehouseItems from "./pages/warehouse/items";
-import CustomerDetail from "./pages/CustomerDetail";
-import CustomerProcessDetail from './pages/CustomerProcessDetail'
+
+/* Clients Imports*/
+import Client from "./pages/client/client";
+import Clients from "./pages/client/clients";
+import ClientCreation from "./pages/client/client_creation";
+import ClientModify from "./pages/client/client_modify";
+
+/* Client CC Pages Import*/
 import AccessPage from "./pages/docs/access";
 import ApplicationPage from "./pages/docs/application";
 import UMPage from "./pages/docs/um";
 import SharesPage from "./pages/docs/shares";
 import LicensPage from "./pages/docs/licens";
 import PasswordsPage from "./pages/docs/passwords";
+
+/* Warehouse Imports*/
+import Warehouse from "./pages/warehouse/warehouse";
+import WarehouseLocation from "./pages/warehouse/locations";
+import WarehouseItems from "./pages/warehouse/items";
+
 
 
 function RootRouter() {
@@ -65,39 +72,43 @@ function RootRouter() {
           </Route>
 
           {/* Client Routes */}
-          <Route exact path="/customers">
+          <Route exact path="/clients">
             <NavbarRoot />
-            <Customers />
+            <Clients />
           </Route>
-          <Route exact path="/customers/new">
+          <Route exact path="/client/new">
             <NavbarRoot />
-            <NewCustomer />
+            <ClientCreation />
           </Route>
-          <Route exact path="/customer/:id">
+          <Route exact path="/client/modify">
             <NavbarRoot />
-            <CustomerDetail />
+            <ClientModify />
           </Route>
-          <Route exact path="/customer/:id/access">
+          <Route exact path="/client/:id">
+            <NavbarRoot />
+            <Client />
+          </Route>
+          <Route exact path="/client/:id/access">
             <NavbarRoot />
             <AccessPage />
           </Route>
-          <Route exact path="/customer/:id/applications">
+          <Route exact path="/client/:id/applications">
             <NavbarRoot />
             <ApplicationPage />
           </Route>
-          <Route exact path="/customer/:id/um">
+          <Route exact path="/client/:id/um">
             <NavbarRoot />
             <UMPage />
           </Route>
-          <Route exact path="/customer/:id/shares">
+          <Route exact path="/client/:id/shares">
             <NavbarRoot />
             <SharesPage />
           </Route>
-          <Route exact path="/customer/:id/licens">
+          <Route exact path="/client/:id/licens">
             <NavbarRoot />
             <LicensPage />
           </Route>
-          <Route exact path="/customer/:id/passwords">
+          <Route exact path="/client/:id/passwords">
             <NavbarRoot />
             <PasswordsPage />
           </Route>
