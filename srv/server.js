@@ -7,15 +7,17 @@ const dotenv = require("dotenv")
 dotenv.config()
 const Company = require("./models/companies");
 const Location = require("./models/warehouse/location");
+const Access = require("./models/client/access");
+const Item = require("./models/warehouse/item")
 
 const url = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cc.aslvc.mongodb.net/CC?retryWrites=true&w=majority`
 
 var bodyParser = require('body-parser');
 const { request } = require("express");
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded());
+//app.use(bodyParser.urlencoded());
 // in latest body-parser use like below.
-app.use(bodyParser.urlencoded({ extended: true }));
+//app.use(bodyParser.urlencoded({ extended: true }));
 
 
 app.use(cors());
@@ -27,7 +29,7 @@ const connectionParams={
 
 mongoose.connect(url,connectionParams)
 .then( () => {
-    console.log('Connected to database ')
+    //console.log('Connected to database ')
 })
 .catch( (err) => {
     console.error(`Error connecting to the database. \n${err}`);
@@ -42,6 +44,17 @@ app.get("/api/new-customer", (req, res) => {
 app.get('/api/customers',(req,res) => {
     Company.find().exec(function (err, Company) {
             res.json(Company);
+    })
+});
+
+app.get('/api/client/access',(req,res) => {
+    Access.find({clientid: req.query.clientid}).exec(function (err, Access) {
+            res.json(Access);
+    })
+});
+app.post('/api/client/access',(req,res) => {
+    Access.find({clientid: req.query.clientid}).exec(function (err, Access) {
+            res.json(Access);
     })
 });
 
@@ -65,12 +78,6 @@ app.post("/api/customers", (req, res) => {
         if(err) {
             res.send(err);
         } else {
-            console.log(data.fullname)
-            console.log(data.shortname)
-            console.log(data.device42id)
-            console.log(data.freshdeskid)
-            console.log(data.freshdesklink)
-
             //Redirects to the newly created RFC
             res.redirect("http://localhost:3000/customers");
         }
@@ -106,6 +113,19 @@ app.put("/api/warehouse/location", (req, res) => {
     })
 });
 
+// Warehouse add new item
+app.post("/api/warehouse/item", (req, res) => {
+    let data = req.body;
+    let newItem1 = new newItem(data);
+    Item.create(newItem1, function(err, result) {
+        if(err) {
+            res.send(err);
+        } else {
+            res.redirect("http://localhost:3000/warehouse");
+        }
+    })
+});
+
 
 function newCustomer(data) {
     this.fullname = data.fullname
@@ -119,9 +139,16 @@ function newCustomer(data) {
 function newLocation(data) {
     this.name = data.name
 }
+
 function updateLocation(data) {
     this.name = data.name
     this.newname = data.newname
+}
+
+function newItem(data) {
+    this.location = data.location
+    this.name = data.name
+    this.assetid = data.assetid
 }
 
 app.listen(PORT, function() {

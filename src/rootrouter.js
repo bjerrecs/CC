@@ -31,6 +31,7 @@ import PasswordsPage from "./pages/docs/passwords";
 import Warehouse from "./pages/warehouse/warehouse";
 import WarehouseLocation from "./pages/warehouse/locations";
 import WarehouseItems from "./pages/warehouse/items";
+import AccessPageView from "./pages/docs/access_page";
 
 
 
@@ -90,7 +91,7 @@ function RootRouter() {
           </Route>
           <Route exact path="/client/:id/access">
             <NavbarRoot />
-            <AccessPage />
+            <AccessPageView />
           </Route>
           <Route exact path="/client/:id/applications">
             <NavbarRoot />

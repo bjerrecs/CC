@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import { Table, Container, Row, Col, Button, Modal } from 'react-bootstrap';
+import React from 'react';
+import { Table, Container, Row, Col } from 'react-bootstrap';
 import { useLocation } from 'react-router-dom'
 
-  export default class AccessPage extends React.Component {
+  export default class NewAccess extends React.Component {
 
     state = {
       loading: true,
@@ -32,22 +32,20 @@ import { useLocation } from 'react-router-dom'
                 <Row>
                   <Col></Col>
                   <Col xs={12}>
-                    <Table striped bordered hover size="md" responsive>
+                    <Table striped bordered hover size="sm" responsive>
                       <thead>
                         <tr>
                           <th>Account Name</th>
                           <th>Description</th>
                           <th>Link</th>
-                          <th>Action</th>
                         </tr>
                       </thead>
                       <tbody>
                       {this.state.access.map((accessArray) => (
                         <tr>
-                          <td><b>{accessArray.name}</b></td>
+                          <td>{accessArray.name}</td>
                           <td>{accessArray.description}</td>
                           <td><a target="_blank" href={accessArray.link}>Link</a></td>
-                          <td><Button variant="dark">Edit</Button></td>
                         </tr>
                       ))}
                       </tbody>

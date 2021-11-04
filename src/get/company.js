@@ -8,17 +8,24 @@ export default class FetchCompany extends React.Component {
 
   state = {
     loading: true,
-    company: null
+    company: null,
+    access: null,
+    count: 0,
+    id: this.props.id
   }
   
 
   async componentDidMount() {
       console.log('prop: ' + this.props.id)
       const url = 'http://localhost:4000/api/customer/?id=' + this.props.id
+      const accessApi = 'http://localhost:4000/api/client/access/?id=' + this.props.id
       const response = await fetch(url);
+      const responseAccessApi = await fetch(accessApi);
       const data = await response.json();
-      this.setState({ company: data, loading: false })
+      const dataAccessApi = await responseAccessApi.json();
+      this.setState({ company: data, access: dataAccessApi, loading: false })
   }
+
 
   render() {
 
@@ -29,7 +36,6 @@ export default class FetchCompany extends React.Component {
     if (!this.state.company.fullname) {
       return <div> No data ... </div>
     }
-
     
 
     if (this.state.company.servicedesktier = "t1"){
@@ -51,9 +57,12 @@ export default class FetchCompany extends React.Component {
             <Breadcrumb>
               <Breadcrumb.Item href="#">Home</Breadcrumb.Item>
               <Breadcrumb.Item href="/clients">
-                Client
+                Clients
               </Breadcrumb.Item>
-              <Breadcrumb.Item active>{this.state.company.fullname}</Breadcrumb.Item>
+              <Breadcrumb.Item>
+                {this.state.company.fullname}
+              </Breadcrumb.Item>
+              <Breadcrumb.Item active>Process Information</Breadcrumb.Item>
             </Breadcrumb>
 
             <PageHeader h1={this.state.company.fullname} h3={'Support:' + ServiceDeskLevel}/>
@@ -64,11 +73,14 @@ export default class FetchCompany extends React.Component {
                   className="d-flex justify-content-between align-items-start"
                 >
                   <div className="ms-2 me-auto">
-                    <div className="fw-bold"><Link to={'/customer/' + this.props.id + '/access'} className="darkA">Access</Link></div>
+                    <div className="fw-bold"><Link to={'/client/' + this.props.id + '/access' }state={{ from: 'id' }} className="darkA">Access</Link></div>
                       Documents how to access customer enviorment
                   </div>
                   <Badge variant="primary" pill>
-                    XX
+                  {this.state.access.map((accessArray) => (
+                    this.state.count + 1
+                  ))}
+                  {this.state.count}
                   </Badge>
                 </ListGroup.Item>
                 <ListGroup.Item

@@ -1,5 +1,6 @@
 import React, { useState} from "react";
 import { Container, Table, Form, Button,InputGroup, Modal } from "react-bootstrap";
+import AddItemModal from "./additemmodal";
 
 function Warehouse() {
 
@@ -22,7 +23,9 @@ function Warehouse() {
                 
                 <InputGroup className="mb-2">
                     <Form.Control type="text" className="txtaligncenter"/>
-                    <InputGroup.Text><Button>Add item</Button></InputGroup.Text>
+                    <InputGroup.Text>
+                        <AddItemModal></AddItemModal>
+                    </InputGroup.Text>
                 </InputGroup>
             </Form.Group>
             </Form>
