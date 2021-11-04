@@ -1,5 +1,6 @@
 import React, { useState} from "react";
 import { Container, Table, Form, Button,InputGroup, Modal } from "react-bootstrap";
+import WarehouseLocationTable from "../../components/warehouse-item-table";
 import AddItemModal from "./additemmodal";
 
 function Warehouse() {
@@ -33,54 +34,14 @@ function Warehouse() {
           <Table striped bordered hover responsive>
             <thead>
                 <tr>
-                <th>#</th>
-                <th>Location</th>
-                <th>Item Name</th>
-                <th>Device42 ID</th>
-                <th>Actions</th>
+                    <th>Location</th>
+                    <th>Item Name</th>
+                    <th>Device42 ID</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>AA-01</td>
-                    <td>Intel Xeon E5-2667v2</td>
-                    <td>LO124151</td>
-                    <td className="tdCenter">
-                        <Button className="formButtonPadding" onClick={handleShow1}>Sign Out</Button>
-                        <Button className="formButtonPadding" onClick={handleShow}>Change Location</Button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>AA-01</td>
-                    <td>Intel Xeon E5-2667v2</td>
-                    <td>LO124152</td>
-                    <td className="tdCenter">
-                        <Button className="formButtonPadding">Sign Out</Button>
-                        <Button className="formButtonPadding">Change Location</Button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>AA-01</td>
-                    <td>Intel Xeon E5-2667v2</td>
-                    <td>LO124153</td>
-                    <td className="tdCenter">
-                        <Button className="formButtonPadding">Sign Out</Button>
-                        <Button className="formButtonPadding">Change Location</Button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>AA-02</td>
-                    <td>Samsung DDR4 64GB ECC 2660Mhz</td>
-                    <td>LO124154</td>
-                    <td className="tdCenter">
-                        <Button className="formButtonPadding">Sign Out</Button>
-                        <Button className="formButtonPadding">Change Location</Button>
-                    </td>
-                </tr>
+                <WarehouseLocationTable />
             </tbody>
             </Table>
 

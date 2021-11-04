@@ -5,19 +5,20 @@ const app = express();
 const PORT = 4000;
 const dotenv = require("dotenv")
 dotenv.config()
+
 const Company = require("./models/companies");
 const Location = require("./models/warehouse/location");
 const Access = require("./models/client/access");
-const Item = require("./models/warehouse/item")
+const Items = require("./models/warehouse/item")
 
 const url = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cc.aslvc.mongodb.net/CC?retryWrites=true&w=majority`
 
 var bodyParser = require('body-parser');
 const { request } = require("express");
 app.use(bodyParser.json());
-//app.use(bodyParser.urlencoded());
+app.use(bodyParser.urlencoded());
 // in latest body-parser use like below.
-//app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 
 app.use(cors());
@@ -61,6 +62,12 @@ app.post('/api/client/access',(req,res) => {
 app.get('/api/customer',(req,res) => {
     Company.findOne({_id: req.query.id}).exec(function (err, Company) {
             res.json(Company);
+    })
+});
+
+app.get('/api/warehouse/items',(req,res) => {
+    Items.find().exec(function (err, Items) {
+            res.json(Items);
     })
 });
 
@@ -116,8 +123,8 @@ app.put("/api/warehouse/location", (req, res) => {
 // Warehouse add new item
 app.post("/api/warehouse/item", (req, res) => {
     let data = req.body;
-    let newItem1 = new newItem(data);
-    Item.create(newItem1, function(err, result) {
+    let CreateNewItem = new newItem(data);
+    Items.create(CreateNewItem, function(err, result) {
         if(err) {
             res.send(err);
         } else {
@@ -146,8 +153,8 @@ function updateLocation(data) {
 }
 
 function newItem(data) {
-    this.location = data.location
     this.name = data.name
+    this.location = data.location
     this.assetid = data.assetid
 }
 

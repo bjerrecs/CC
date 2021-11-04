@@ -1,9 +1,9 @@
 const mongoose = require("mongoose");
-const itemSchema = new mongoose.Schema({
-    location:String,
+const Items = new mongoose.Schema({
     name:String,
+    location:String,
     assetid:String
 });
 
 
-module.exports = mongoose.model("Items",itemSchema);
+module.exports = mongoose.model("Items",Items);
