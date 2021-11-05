@@ -119,6 +119,17 @@ app.put("/api/warehouse/location", (req, res) => {
         }
     })
 });
+app.get("/api/warehouse/item/delete/", (req, res) => {
+    let data = req.body;
+    let CreateNewItem = new newItem(data);
+    Items.deleteOne({ id_ : CreateNewItem.id }, function(err, result) {
+        if (err) {
+            res.send(err);
+          } else {
+            res.redirect("http://localhost:3000/warehouse");
+          }
+    })
+});
 
 // Warehouse add new item
 app.post("/api/warehouse/item", (req, res) => {
@@ -130,13 +141,6 @@ app.post("/api/warehouse/item", (req, res) => {
         } else {
             res.redirect("http://localhost:3000/warehouse");
         }
-    })
-});
-app.post("/api/warehouse/item/delete", (req, res) => {
-    let data = req.body;
-    console.log(data)
-    Items.findOneAndRemove({_id: req.params.id}, function(err, result) {
-            res.redirect("http://localhost:3000/warehouse");
     })
 });
 

@@ -9,8 +9,6 @@ function SignOutItem() {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    
-
     return (
         <>
 
@@ -23,13 +21,13 @@ function SignOutItem() {
             <Modal.Title>Sign Item Out</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                <Form id="signout" method="delete" action="http://localhost:4000/api/warehouse/item/delete" >
+                <Form action="http://localhost:4000/api/warehouse/item/delete/" method="delete">
                     <Form.Group className="mb-3">
                         <Form.Label>Item</Form.Label>
                         <WarehouseItemSelect></WarehouseItemSelect>
                     </Form.Group>
 
-                    <Button variant="primary" type="submit">
+                    <Button variant="primary" type="submit" >
                         Submit
                     </Button>
                 </Form>

@@ -4,7 +4,8 @@ import { Form } from 'react-bootstrap';
 
     state = {
       loading: true,
-      items: null
+      items: null,
+      store: null
     }
   
     async componentDidMount() {
