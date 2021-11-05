@@ -42,13 +42,13 @@ export default class FetchCompany extends React.Component {
         var ServiceDeskLevel = "Office Hours (7:30-15:30) Only"
     }
     if (this.state.company.servicedesktier = "t2"){
-      var ServiceDeskLevel = "Office Hours (7:30-15:30) + Optinal Guard"
+      ServiceDeskLevel = "Office Hours (7:30-15:30) + Optinal Guard"
     }
     if (this.state.company.servicedesktier = "t3"){
-      var ServiceDeskLevel = "Office Hours (7:30-15:30) + 24/7"
+      ServiceDeskLevel = "Office Hours (7:30-15:30) + 24/7"
     } 
     if (this.state.company.servicedesktier){
-      var ServiceDeskLevel = "No SD defined"
+      ServiceDeskLevel = "No SD defined"
     }
 
 

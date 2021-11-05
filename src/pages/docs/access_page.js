@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import { Container, Breadcrumb, Form, Button, Modal } from 'react-bootstrap';
+import React from 'react';
+import { Container, Breadcrumb, Form, Button } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import PageHeader from '../../components/pageheader'
 import AccessPage from './access';
@@ -7,9 +7,6 @@ import AccessPage from './access';
 const AccessPageView = () => {
 
   const {id} = useParams();
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
 
   return  <Container>
             <br />

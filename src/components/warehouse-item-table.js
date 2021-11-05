@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { Button, Modal, Form } from 'react-bootstrap';
+import React from 'react';
 
   export default class WarehouseLocationTable extends React.Component {
 

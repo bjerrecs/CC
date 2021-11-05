@@ -1,20 +1,10 @@
-import React, { useState} from "react";
-import { Container, Table, Form, Button,InputGroup, Modal, Row, Col, ButtonGroup } from "react-bootstrap";
+import React from "react";
+import { Container, Table, Form,InputGroup, Row, Col, ButtonGroup } from "react-bootstrap";
 import WarehouseLocationTable from "../../components/warehouse-item-table";
 import AddItemModal from "./additemmodal";
 import SignOutItem from './signoutitemmodal';
 
 function Warehouse() {
-
-    const [show, setShow] = useState(false);
-    const [show1, setShow1] = useState(false);
-
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
-
-    const handleClose1 = () => setShow1(false);
-    const handleShow1 = () => setShow1(true);
-
 
     return (
       <Container>

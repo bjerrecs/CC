@@ -20,7 +20,6 @@ import ClientCreation from "./pages/client/client_creation";
 import ClientModify from "./pages/client/client_modify";
 
 /* Client CC Pages Import*/
-import AccessPage from "./pages/docs/access";
 import ApplicationPage from "./pages/docs/application";
 import UMPage from "./pages/docs/um";
 import SharesPage from "./pages/docs/shares";

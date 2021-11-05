@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
-import { Table, Container, Row, Col, Button, Modal } from 'react-bootstrap';
-import { useLocation } from 'react-router-dom'
+import React from 'react';
+import { Table, Container, Row, Col, Button } from 'react-bootstrap';
 
   export default class AccessPage extends React.Component {
 
@@ -46,7 +45,7 @@ import { useLocation } from 'react-router-dom'
                         <tr>
                           <td><b>{accessArray.name}</b></td>
                           <td>{accessArray.description}</td>
-                          <td><a target="_blank" href={accessArray.link}>Link</a></td>
+                          <td><a target="_blank" rel="noreferrer" href={accessArray.link}>Link</a></td>
                           <td><Button variant="dark">Edit</Button></td>
                         </tr>
                       ))}

@@ -23,7 +23,7 @@ function SignOutItem() {
             <Modal.Title>Sign Item Out</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                <Form action="http://localhost:4000/api/warehouse/item" method="delete">
+                <Form id="signout" method="delete" action="http://localhost:4000/api/warehouse/item/delete" >
                     <Form.Group className="mb-3">
                         <Form.Label>Item</Form.Label>
                         <WarehouseItemSelect></WarehouseItemSelect>

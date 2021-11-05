@@ -2,7 +2,6 @@ import React from 'react';
 import { Container } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import FetchCompany from '../../get/company';
-import PageHeader from '../../components/pageheader'
 
 const Client = () => {
 

@@ -132,13 +132,11 @@ app.post("/api/warehouse/item", (req, res) => {
         }
     })
 });
-app.delete("/api/warehouse/item/:id", (req, res) => {
+app.post("/api/warehouse/item/delete", (req, res) => {
+    let data = req.body;
+    console.log(data)
     Items.findOneAndRemove({_id: req.params.id}, function(err, result) {
-        if(err) {
-            res.send(err);
-        } else {
             res.redirect("http://localhost:3000/warehouse");
-        }
     })
 });
 
