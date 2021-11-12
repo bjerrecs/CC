@@ -18,6 +18,14 @@ function Email() {
         }
     }
 
+    if (sent) {
+        setTimeout(function(){
+            window.location.reload(false);
+        }, 1500); 
+        // 1.5 sec delay before page reload
+
+    }
+
 
   return (
     <Container >
@@ -36,7 +44,9 @@ function Email() {
                 <Button type="submit"> Send Email </Button>
             </Form>
         ):(
+            <div>
             <h1>Email Sent</h1>
+            </div>
         )}
 
 
