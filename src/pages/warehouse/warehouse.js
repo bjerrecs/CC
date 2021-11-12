@@ -1,8 +1,13 @@
 import React from "react";
-import { Container, Table, Form,InputGroup, Row, Col, ButtonGroup } from "react-bootstrap";
+import { Container, Table, Form,InputGroup, Row, Col, ButtonGroup, Breadcrumb, Button } from "react-bootstrap";
 import WarehouseLocationTable from "../../components/warehouse-item-table";
 import AddItemModal from "./additemmodal";
 import SignOutItem from './signoutitemmodal';
+import Pageheader from '../../components/pageheader'
+
+function handleSubmit(event) {
+    console.log("test")
+   }
 
 function Warehouse() {
 
@@ -11,7 +16,13 @@ function Warehouse() {
           <Row>
               <Col></Col>
                 <Col xs={10}>
-                    <h1>Warehouse</h1>
+
+                    <br />
+                    <Breadcrumb>
+                        <Breadcrumb.Item href="#">Home</Breadcrumb.Item>
+                        <Breadcrumb.Item active>Warehouse</Breadcrumb.Item>
+                    </Breadcrumb>
+                    <Pageheader h1="Warehouse"></Pageheader>                    
 
                     <Form>
                         <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -26,6 +37,8 @@ function Warehouse() {
                             </InputGroup>
                         </Form.Group>
                     </Form>
+
+                    <Button onSubmit={handleSubmit}> test</Button>
 
                     <Table striped bordered hover responsive>
                         <thead>
