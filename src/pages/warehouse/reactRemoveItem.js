@@ -1,5 +1,4 @@
 import React from 'react';
-import { Form } from 'react-bootstrap';
   export default class ReactRemoveItem extends React.Component {
 
     handleSubmit(event) {

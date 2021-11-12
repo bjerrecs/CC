@@ -4,9 +4,8 @@ const cors = require("cors");
 const app = express();
 const PORT = 4000;
 require('dotenv').config();
-const nodemailer = require("nodemailer")
 var nodeoutlook = require('nodejs-nodemailer-outlook')
-console.log(process.env);
+ 
 
 
 const Company = require("./models/companies");
@@ -148,7 +147,7 @@ app.post("/api/warehouse/item", (req, res) => {
 });
 
 app.post("/api/send_mail/maintenance", cors(), (req, res) => {
-    let {text,mailTo} = req.body
+    let {text,mailTo,maintenanceReason,maintenanceStartDate,maintenanceStartTime,maintenanceEndDate,maintenanceEndTime} = req.body
     nodeoutlook.sendEmail({
         auth: {
             user: process.env.MAIL_AUTH_USER,
@@ -215,17 +214,13 @@ app.post("/api/send_mail/maintenance", cors(), (req, res) => {
                       <tr valign="top">
                         <td align="center">
                             <div class="text">
-                                <p>MSP hereby announces a change for ${text}.</p>
-                                <p>Start of Change: 2021-05-20 00:01:00 CEST</p>
-                                <p>End of change: 2021-05-20 06:00:00 CEST</p>
+                                <p>MSP hereby announces a change for.</p>
+                                <p>Start of Change: ${maintenanceStartDate} ${maintenanceStartTime} CEST</p>
+                                <p>End of change: ${maintenanceEndDate} ${maintenanceEndTime} CEST</p>
                                 <p><b>Reason for change activity:</b></p>
-                                <p class="textcontainer">We need to move our fibre cable.
-                                During the planned work, the existing cable will be cut, moved and re-spliced onto the new path.</p>
-                                
-                                <p>Location: Funder, Silkeborg, Denmark</p>
+                                <p class="textcontainer">${maintenanceReason}</p>
                                 
                                 <p>Estimated downtime is up to 6 hours for services not protected</p>
-                        
         
                             </div>
                         </td>

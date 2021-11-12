@@ -37,14 +37,17 @@ export default class FetchCompany extends React.Component {
       return <div> No data ... </div>
     }
     
+    var Tier1 = "t1"
+    var Tier2 = "t2"
+    var Tier3 = "t3"
 
-    if (this.state.company.servicedesktier = "t1"){
+    if (this.state.company.servicedesktier === Tier1 ){
         var ServiceDeskLevel = "Office Hours (7:30-15:30) Only"
     }
-    if (this.state.company.servicedesktier = "t2"){
+    if (this.state.company.servicedesktier === Tier2 ){
       ServiceDeskLevel = "Office Hours (7:30-15:30) + Optinal Guard"
     }
-    if (this.state.company.servicedesktier = "t3"){
+    if (this.state.company.servicedesktier === Tier3 ){
       ServiceDeskLevel = "Office Hours (7:30-15:30) + 24/7"
     } 
     if (this.state.company.servicedesktier){
