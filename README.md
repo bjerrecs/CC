@@ -1,8 +1,8 @@
 <div align="center">
-  <img src="./public/radar.svg" width="100" alt="CC logo" />
+  <img src="./.githubcontent/github_topbar.png" alt="CC Bar logo" />
 </div>
 
-# CC - Control Center
+### Description
 A MSP Client management tool used for managing processes, access information, passwords, guide and know-how and links to common recources.
 
 ## Project Goals
@@ -25,10 +25,13 @@ A MSP Client management tool used for managing processes, access information, pa
 ## Setup project
 Create a .env file in root of /srv
 
-Add the following two lines and add username and password for your db.
-
-DB_USERNAME=
-
-DB_PASSWORD=
+Add the following lines to your .env withe the correct information.
+```
+DB_USERNAME
+DB_PASSWORD
+MAIL_FROM
+MAIL_AUTH_USER
+MAIL_AUTH_PASS
+```
 
 And on line 14 of server.js change the MongoDB Atlas url to your DB
