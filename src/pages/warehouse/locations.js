@@ -1,10 +1,17 @@
-import { Container, Form, Button } from "react-bootstrap";
+import { Container, Form, Button, Breadcrumb } from "react-bootstrap";
 import FetchWarehouseLocation from "../../get/location";
 
 function WarehouseLocation() {
     return (
       <Container>
-            <br/><br/>
+            <br />
+            <Breadcrumb>
+                <Breadcrumb.Item href="#">Home</Breadcrumb.Item>
+                    <Breadcrumb.Item href="/warehouse">
+                    Warehouse
+                    </Breadcrumb.Item>
+                <Breadcrumb.Item active>Locations</Breadcrumb.Item>
+            </Breadcrumb>
             <h1>Manage Locations of Warehouse</h1>
 
             <br/><br/>

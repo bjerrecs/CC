@@ -1,6 +1,7 @@
-import { Form, Container, Button } from 'react-bootstrap';
+import { Form, Container, Button, Breadcrumb } from 'react-bootstrap';
 import axios from 'axios';
 import React, {useState} from 'react';
+import PageHeader from '../components/pageheader'
 
 function Email() {
     const [sent, setSent] = useState(false)
@@ -52,6 +53,13 @@ function Email() {
 
   return (
     <Container >
+            <br />
+            <Breadcrumb>
+                <Breadcrumb.Item href="#">Home</Breadcrumb.Item>
+                <Breadcrumb.Item active>Maintenance Email</Breadcrumb.Item>
+            </Breadcrumb>
+
+            <PageHeader h1="Email Customers" h3="Maintenance Template"/>
         {!sent ? (
             <Form onSubmit={handleSend}>
 

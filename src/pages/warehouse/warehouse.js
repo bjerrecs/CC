@@ -13,9 +13,6 @@ function Warehouse() {
 
     return (
       <Container>
-          <Row>
-              <Col></Col>
-                <Col xs={10}>
 
                     <br />
                     <Breadcrumb>
@@ -52,9 +49,6 @@ function Warehouse() {
                             <WarehouseLocationTable />
                         </tbody>
                     </Table>
-                </Col>
-                <Col></Col>
-            </Row>
       </Container>
     );
   }

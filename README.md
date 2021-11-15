@@ -12,7 +12,6 @@ A MSP Client management tool used for managing processes, access information, pa
 * Simple warehouse module
 * Send Emails (via MS365)
 
-
 ## Project technologies/ Libs
 * React
 * React Router
@@ -21,9 +20,7 @@ A MSP Client management tool used for managing processes, access information, pa
 * mongoose
 * Auth0 (eventialuly)
 
-
-<img src="./.githubcontent/screenshot_clients.png" width="750" alt="CC preview" />
-<img src="./.githubcontent/screenshot_client_details.png" width="750" alt="CC preview" />
+<img src="./.githubcontent/screenshot_new_design.png" width="750" alt="CC preview" />
 
 ## Setup project
 Create a .env file in root of /srv

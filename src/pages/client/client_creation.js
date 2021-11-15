@@ -9,9 +9,9 @@ function ClientCreation() {
             <Breadcrumb>
               <Breadcrumb.Item href="#">Home</Breadcrumb.Item>
               <Breadcrumb.Item href="/clients">
-                Client
+                Clients
               </Breadcrumb.Item>
-              <Breadcrumb.Item active>New Client</Breadcrumb.Item>
+              <Breadcrumb.Item active>New</Breadcrumb.Item>
             </Breadcrumb>
 
         <PageHeader h1="Creat New Client" h3=""/>
