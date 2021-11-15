@@ -36,7 +36,16 @@ function NavbarRoot() {
             </NavDropdown>
             </Nav>
             <Nav>
-            <Nav.Link href="#deets">Simon Bjerre</Nav.Link>
+                <Nav.Link >
+                    <Link className="navbarA" to="/profile">Simon Bjerre</Link>
+                </Nav.Link>
+                <img
+                    src="/person.jpg"
+                    width="30"
+                    height="30"
+                    className="profileIcon"
+                    alt="React Bootstrap logo"
+                />
             </Nav>
         </Navbar.Collapse>
         </Container>

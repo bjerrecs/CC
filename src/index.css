@@ -1,5 +1,6 @@
 body {
   --cc: #1a475f;
+  --cc1: #2F1993;
   --Skobeloff: #297373;
   --Coral: #FF8552;
   --Platinum: #E6E6E6;
@@ -9,9 +10,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--Platinum);
-}
-.pr-10 {
-  margin-right: 10px;
 }
 .cardBody {
   background-color: #fff;
@@ -37,20 +35,6 @@ body {
   font-weight: 700!important;
   font-size: 1.25rem;
 }
-.alignRight {
-  display: flex;
-  align-content: flex-end;
-}
-.formButtonPadding {
-  margin: 2px;
-}
-.tdCenter {
-  display: block;
-  text-align: center;
-}
-.txtaligncenter {
-  text-align: center;
-}
 
 
 /* resets */
@@ -58,9 +42,15 @@ a {
   text-decoration: none;
   color: var(--cc);
 }
+
 a .navbarA {
   color: #fff!important;
 }
+.profileIcon {
+  margin-top: 5px;
+  border-radius: 50%;
+}
+/*
 .darkA {
   color: #2b2b2b;
 }
@@ -70,9 +60,27 @@ a:hover {
 }
 .dropdown-item:active {
   background-color: #fff!important;
-}
+}*/
 .bg-dark {
-  background-color: var(--Onyx)!important;
+  background-color: var(--cc1)!important;
+}
+.btn-primary {
+  background-color: var(--cc1)!important;
+  border-color: var(--cc1)!important;
+  color: #fff;
+}
+.btn-check:focus {
+  background-color: var(--cc1)!important;
+  border-color: var(--cc1)!important;
+  color: #fff;
+  box-shadow: var(--cc1)!important;
+}
+.navbar {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+.nav-item {
+  padding-left: 1rem;
 }
 .sidebar-brand {
   height: 4.375rem;

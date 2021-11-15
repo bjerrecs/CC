@@ -1,0 +1,20 @@
+.profileFlex {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.ProfileContainer {
+    display: flex;
+    flex-direction: row;
+}
+.ProfileContainerInformation {
+    display: flex;
+    flex-direction: column;
+    padding-left: 3rem;
+}
+h5 {
+    color: var(--cc1);
+    margin-top: -0.5rem;
+    font-size: 1rem;
+    font-weight: 100;
+}

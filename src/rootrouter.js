@@ -32,6 +32,8 @@ import WarehouseLocation from "./pages/warehouse/locations";
 import WarehouseItems from "./pages/warehouse/items";
 import AccessPageView from "./pages/docs/access_page";
 
+import Profile from "./pages/profile/profile";
+
 
 
 function RootRouter() {
@@ -112,6 +114,13 @@ function RootRouter() {
             <NavbarRoot />
             <PasswordsPage />
           </Route>
+
+          <Route exact path="/profile">
+            <NavbarRoot />
+            <Profile />
+          </Route>
+
+          
         </Switch>
       </div>
     </Router>
