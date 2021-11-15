@@ -31,7 +31,7 @@ function NavbarRoot() {
                 <NavDropdown.Item ><Link to="/warehouse/location" className="darkA">Locations</Link></NavDropdown.Item>
             </NavDropdown>
             <NavDropdown title="Tools" id="collasible-nav-dropdown">
-                <Nav.Link ><Link to="/email" className="darkA">Maintenance Email</Link></Nav.Link>
+                <Nav.Link ><Link to="/email" className="darkA">Email</Link></Nav.Link>
             </NavDropdown>
             </Nav>
             <Nav>
