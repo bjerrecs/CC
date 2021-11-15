@@ -5,10 +5,6 @@ import AddItemModal from "./additemmodal";
 import SignOutItem from './signoutitemmodal';
 import Pageheader from '../../components/pageheader'
 
-function handleSubmit(event) {
-    console.log("test")
-   }
-
 function Warehouse() {
 
     return (
@@ -34,8 +30,6 @@ function Warehouse() {
                             </InputGroup>
                         </Form.Group>
                     </Form>
-
-                    <Button onSubmit={handleSubmit}> test</Button>
 
                     <Table striped bordered hover responsive>
                         <thead>

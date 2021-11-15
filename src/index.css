@@ -44,6 +44,8 @@ body {
 a {
   text-decoration: none;
   color: var(--cc);
+  font-weight: 700;
+  color: #fff;
 }
 
 a .navbarA {
@@ -53,10 +55,22 @@ a .navbarA {
   margin-top: 5px;
   border-radius: 50%;
 }
-/*
-.darkA {
-  color: #2b2b2b;
+.dropdown-item a {
+  color: var(--cc1)!important;
 }
+.dropdown-item:active {
+  background-color: var(--cc1);
+  color: #fff!important;
+}
+.dropdown-item:active a{
+  color: #fff!important;
+}
+.breadcrumb-item a {
+  color: #2b2b2b
+}
+.breadcrumb-item .active{
+  color: #2b2b2b!important;
+}/*
 a:hover {
   text-decoration: none;
   color: rgb(182, 182, 182);

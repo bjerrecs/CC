@@ -19,20 +19,24 @@ function NavbarRoot() {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
-            <Nav.Link ><Link to="/dashboard" className="navbarA">Dashboard</Link></Nav.Link>
-            
-            <NavDropdown title="Clients" id="collasible-nav-dropdown">
-                <NavDropdown.Item ><Link to="/clients" >Search Clients</Link></NavDropdown.Item>
-                <NavDropdown.Item ><Link to="/client/new" className="darkA">New Client</Link></NavDropdown.Item>
-                <NavDropdown.Item ><Link to="/client/modify" className="darkA">Modify Client</Link></NavDropdown.Item>
-            </NavDropdown>
-            <NavDropdown title="Warehouse" id="collasible-nav-dropdown">
-                <NavDropdown.Item ><Link to="/warehouse" className="darkA">Search</Link></NavDropdown.Item>
-                <NavDropdown.Item ><Link to="/warehouse/location" className="darkA">Locations</Link></NavDropdown.Item>
-            </NavDropdown>
-            <NavDropdown title="Tools" id="collasible-nav-dropdown">
-                <Nav.Link ><Link to="/email" className="darkA">Email</Link></Nav.Link>
-            </NavDropdown>
+
+                <Nav.Link ><Link to="/dashboard" className="navbarA">Dashboard</Link></Nav.Link>
+                
+                <NavDropdown title="Clients">
+                    <NavDropdown.Item ><Link to="/clients" >Search Clients</Link></NavDropdown.Item>
+                    <NavDropdown.Item ><Link to="/client/new" className="darkA">New Client</Link></NavDropdown.Item>
+                    <NavDropdown.Item ><Link to="/client/modify" className="darkA">Modify Client</Link></NavDropdown.Item>
+                </NavDropdown>
+
+                <NavDropdown title="Warehouse">
+                    <NavDropdown.Item ><Link to="/warehouse" className="darkA">Search</Link></NavDropdown.Item>
+                    <NavDropdown.Item ><Link to="/warehouse/location" className="darkA">Locations</Link></NavDropdown.Item>
+                </NavDropdown>
+
+                <NavDropdown title="Tools">
+                    <NavDropdown.Item ><Link to="/email" >Email</Link></NavDropdown.Item>
+                </NavDropdown>
+
             </Nav>
             <Nav>
                 <Nav.Link >

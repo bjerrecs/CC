@@ -28,8 +28,8 @@ import { Form } from 'react-bootstrap';
       }
 
       return  <>
-                <Form.Select id="id" name="id">
-                    <option>Select item</option>
+                <Form.Select id="id" name="id" required>
+                    <option value="">Select item</option>
                     {this.state.items.map((itemsArray) => (
                         <option value={itemsArray._id}>{itemsArray.name}</option> 
                     ))}

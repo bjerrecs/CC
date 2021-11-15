@@ -16,7 +16,6 @@ export default class FetchCompany extends React.Component {
   
 
   async componentDidMount() {
-      console.log('prop: ' + this.props.id)
       const url = 'http://localhost:4000/api/customer/?id=' + this.props.id
       const accessApi = 'http://localhost:4000/api/client/access/?id=' + this.props.id
       const response = await fetch(url);
