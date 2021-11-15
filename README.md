@@ -20,7 +20,7 @@ A MSP Client management tool used for managing processes, access information, pa
 * mongoose
 * Auth0 (eventialuly)
 
-<img src="./.githubcontent/screenshot_new_design.png" width="750" alt="CC preview" />
+<img src="./.githubcontent/show.gif" width="750" alt="CC preview" />
 
 ## Setup project
 Create a .env file in root of /srv
