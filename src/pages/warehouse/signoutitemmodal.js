@@ -1,56 +1,55 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios';
 import { Button, Modal, Form } from 'react-bootstrap';
-import WarehouseItemSelect from '../../components/warehouse-item-select';
-
-
-
 
 function SignOutItem() {
-
-    useEffect(() => {
-        // ⬇ This calls my get request from the server
-        getItems();
-      }, []);
-
-    const [sent, setSent] = useState(false)
-    const [id, setID] = useState("")
 
     const [showSignOut, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    const getItems = async() => {
-        try {
-            await axios.get("http://localhost:4000/api/warehouse/items")
-        } catch (error) {
-            console.log(error)
-        }
-    }
 
-    const handleSignOut = async() => {
-        setSent(true)
-        try {
-            await axios.get("http://localhost:4000/api/warehouse/item/delete/", {
-                id
-            })
-        } catch (error) {
-            console.log(error)
-        }
-    }
+    const [items, setItems] = useState([]);
 
-
-    // Form Validation
-    const [validated, setValidated] = useState(false);
-    const handleSubmit = (event) => {
-        const form = event.currentTarget;
-        if (form.checkValidity() === false) {
-        event.preventDefault();
-        event.stopPropagation();
-        }
-    
-        setValidated(true);
+    const getItems = () => {
+        axios.get('http://localhost:4000/api/warehouse/items')
+        .then((response) => {
+            console.log(response)
+            const myItems = response.data
+            setItems(myItems);
+        });
     };
+
+    useEffect(() => getItems(), [])
+
+    const [formValue, setformValue] = React.useState({
+        id: ''
+      });
+
+      const handleSubmit = async() => {
+        // store the states in the form data
+        const loginFormData = new FormData();
+        loginFormData.append("id", formValue.id)
+      
+        try {
+          // make axios post request
+          const response = await axios({
+            method: "get",
+            url: "/api/warehouse/item/delete",
+            data: loginFormData
+          });
+        } catch(error) {
+          console.log(error)
+        }
+      }
+    
+    const handleChange = (event) => {
+    setformValue({
+        ...formValue,
+        [event.target.name]: event.target.value
+    });
+    }
+
 
     return (
         <>
@@ -64,13 +63,14 @@ function SignOutItem() {
             <Modal.Title>Sign Item Out</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                <Form onSubmit="handleSignOut">
+                <Form onSubmit={handleSubmit} >
                     <Form.Group className="mb-3">
                         <Form.Label>Item</Form.Label>
-                        <Form.Select id="id" name="id" required>
+                        <Form.Select id="id" name="id" required onChange={handleChange} value={formValue.id}>
                             <option value="">Select item</option>
-                            {((itemsArray) => (
-                                <option value={itemsArray._id}>{itemsArray.name}</option> 
+                            {items.map((items) => (
+                                <option value={items._id}>{items.name}</option>
+                                
                             ))}
                         </Form.Select>
                     </Form.Group>

@@ -9,9 +9,7 @@ import { Form } from 'react-bootstrap';
     }
   
     async componentDidMount() {
-        console.log('prop: ' + this.props.id)
         const url = 'http://localhost:4000/api/warehouse/items';
-        console.log(url)
         const response = await fetch(url);
         const data = await response.json();
         this.setState({ items: data, loading: false })

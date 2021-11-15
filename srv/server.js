@@ -100,7 +100,6 @@ app.post("/api/warehouse/location", (req, res) => {
         if(err) {
             res.send(err);
         } else {
-            console.log(data.name)
 
             //Redirects to the newly created RFC
             res.redirect("http://localhost:3000/warehouse/location");
@@ -114,7 +113,6 @@ app.put("/api/warehouse/location", (req, res) => {
         if(err) {
             res.send(err);
         } else {
-            console.log(data.name)
 
             //Redirects to the newly created RFC
             res.redirect("http://localhost:3000/warehouse/location");

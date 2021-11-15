@@ -9,9 +9,7 @@ import { Table, Container, Row, Col, Button } from 'react-bootstrap';
     }
   
     async componentDidMount() {
-        console.log('prop: ' + this.props.id)
         const url = 'http://localhost:4000/api/client/access/?clientid=' + this.props.id;
-        console.log(url)
         const response = await fetch(url);
         const data = await response.json();
         this.setState({ access: data, loading: false })
