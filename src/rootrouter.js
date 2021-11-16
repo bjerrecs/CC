@@ -11,7 +11,7 @@ import NavbarRoot from "./components/navbar";
 /* Import random pages*/
 import Home from './pages/home';
 import Email from './pages/email';
-import Dashboard from "./pages/dashboard";
+import Dashboard from "./pages/dashboard/dashboard";
 
 /* Clients Imports*/
 import Client from "./pages/client/client";
@@ -33,6 +33,8 @@ import WarehouseItems from "./pages/warehouse/items";
 import AccessPageView from "./pages/docs/access_page";
 
 import Profile from "./pages/profile/profile";
+import MaintenanceDashboard from "./pages/maintenance/dashboard";
+import MaintenanceShedule from "./pages/maintenance/schedule";
 
 
 
@@ -115,6 +117,17 @@ function RootRouter() {
             <PasswordsPage />
           </Route>
 
+          {/* Maintenance Routes */}
+          <Route exact path="/maintenance/dashboard">
+            <NavbarRoot />
+            <MaintenanceDashboard />
+          </Route>
+          <Route exact path="/maintenance/schedule">
+            <NavbarRoot />
+            <MaintenanceShedule />
+          </Route>
+
+          {/* Profile Routes */}
           <Route exact path="/profile">
             <NavbarRoot />
             <Profile />

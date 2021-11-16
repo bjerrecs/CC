@@ -13,7 +13,8 @@ function Warehouse() {
                     <br />
                     <Breadcrumb>
                         <Breadcrumb.Item href="#">Home</Breadcrumb.Item>
-                        <Breadcrumb.Item active>Warehouse</Breadcrumb.Item>
+                        <Breadcrumb.Item href="#">Warehouse</Breadcrumb.Item>
+                        <Breadcrumb.Item active>Search</Breadcrumb.Item>
                     </Breadcrumb>
                     <Pageheader h1="Warehouse"></Pageheader>                    
 

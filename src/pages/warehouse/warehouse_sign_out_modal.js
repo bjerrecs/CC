@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Form, Modal } from 'react-bootstrap'
+import { Button } from 'react-bootstrap'
 
 export default class SignOutItem extends React.Component {
 

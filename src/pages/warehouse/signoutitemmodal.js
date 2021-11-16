@@ -33,7 +33,7 @@ function SignOutItem() {
       
         try {
           // make axios post request
-          const response = await axios({
+          await axios({
             method: "get",
             url: "/api/warehouse/item/delete",
             data: loginFormData

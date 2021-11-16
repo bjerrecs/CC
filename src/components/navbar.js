@@ -33,8 +33,13 @@ function NavbarRoot() {
                     <NavDropdown.Item ><Link to="/warehouse/location" className="darkA">Locations</Link></NavDropdown.Item>
                 </NavDropdown>
 
+                <NavDropdown title="Maintenance">
+                    <NavDropdown.Item ><Link to="/maintenance/dashboard" className="darkA">View All planed</Link></NavDropdown.Item>
+                    <NavDropdown.Item ><Link to="/maintenance/schedule" className="darkA">Schedule Maintenance Window</Link></NavDropdown.Item>
+                </NavDropdown>
+
                 <NavDropdown title="Tools">
-                    <NavDropdown.Item ><Link to="/email" >Email</Link></NavDropdown.Item>
+                    <NavDropdown.Item ><Link to="/email" className="darkA">Email</Link></NavDropdown.Item>
                 </NavDropdown>
 
             </Nav>
