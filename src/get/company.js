@@ -75,7 +75,7 @@ export default class FetchCompany extends React.Component {
                   className="d-flex justify-content-between align-items-start"
                 >
                   <div className="ms-2 me-auto">
-                    <div className="fw-bold"><Link to={'/client/' + this.props.id + '/access' }state={{ from: 'id' }} className="darkA">Access</Link></div>
+                    <div className="fw-bold"><Link to={'/client/' + this.props.id + '/access' }state={{ from: 'id' }} className="darka">Access</Link></div>
                       Documents how to access customer enviorment
                   </div>
                   <Badge variant="primary" pill>

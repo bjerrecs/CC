@@ -12,6 +12,7 @@ const Company = require("./models/companies");
 const Location = require("./models/warehouse/location");
 const Access = require("./models/client/access");
 const Items = require("./models/warehouse/item")
+const MaintenanceWindow = require("./models/maintenance/model")
 
 const url = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cc.aslvc.mongodb.net/CC?retryWrites=true&w=majority`
 
@@ -144,6 +145,19 @@ app.post("/api/warehouse/item", (req, res) => {
     })
 });
 
+// Schedule Maintenance 
+app.post("/api/maintenance/schedule", (req, res) => {
+    let data = req.body;
+    let CreateNewMaintenanceWindow = new newMaintenanceWindow(data);
+    MaintenanceWindow.create(CreateNewMaintenanceWindow, function(err, result) {
+        if(err) {
+            res.send(err);
+        } else {
+            res.redirect("http://localhost:3000/warehouse");
+        }
+    })
+});
+
 app.post("/api/send_mail/maintenance", cors(), (req, res) => {
     let {text,mailTo,maintenanceReason,maintenanceStartDate,maintenanceStartTime,maintenanceEndDate,maintenanceEndTime} = req.body
     nodeoutlook.sendEmail({
@@ -245,6 +259,17 @@ app.post("/api/send_mail/maintenance", cors(), (req, res) => {
         onSuccess: (i) => console.log(i)
     })
 })
+
+function newMaintenanceWindow(data) {
+    this.type = data.type
+    this.reason = data.reason
+    this.responseble = data.responseble
+    this.datestart = data.datestart
+    this.dateend = data.dateend
+    this.timestart = data.timestart
+    this.timeend = data.timeend
+    this.status = data.status
+}
 
 
 function newCustomer(data) {

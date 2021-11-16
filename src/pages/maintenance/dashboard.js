@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Breadcrumb, Table } from "react-bootstrap";
+import { Container, Breadcrumb, Table, Button, ButtonGroup } from "react-bootstrap";
 
 
 function MaintenanceDashboard() {
@@ -25,6 +25,7 @@ function MaintenanceDashboard() {
                     <th>Responseble</th>
                     <th>Time</th>
                     <th>Status</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -35,6 +36,13 @@ function MaintenanceDashboard() {
                     <td>Simon Bjerre</td>
                     <td>12-11-2021 10:00:00 <br/> 12-11-21 11:00:00</td>
                     <td>Active</td>
+                    <td>
+                        <ButtonGroup>
+                            <Button>Start</Button>
+                            <Button>Update</Button>
+                            <Button>End</Button>
+                        </ButtonGroup>
+                    </td>
                 </tr>
                 <tr>
                     <td>227456</td>
@@ -43,6 +51,11 @@ function MaintenanceDashboard() {
                     <td>Simon Bjerre</td>
                     <td>10-11-2021 10:00:00 <br/> 11-11-21 10:00:00</td>
                     <td>Ended</td>
+                    <td>
+                        <ButtonGroup>
+                            <Button>Archive</Button>
+                        </ButtonGroup>
+                    </td>
                 </tr>
             </tbody>
         </Table>
