@@ -37,12 +37,7 @@ body {
   font-size: 1.25rem;
 }
 
-.darka {
-  color: var(--cc1)
-}
-.darka:hover {
-  color: var(--Onyx)
-}
+
 /* resets */
 a {
   text-decoration: none;

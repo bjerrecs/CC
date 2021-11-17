@@ -1,10 +1,10 @@
-import axios from "axios";
-import React, { useState } from "react";
-import { Container, Breadcrumb, Form, Button } from "react-bootstrap";
+import React from "react";
+import { Container, Breadcrumb } from "react-bootstrap";
 
 
 function MaintenanceShedule() {
 
+<<<<<<< HEAD:client/src/pages/maintenance/schedule.js
   const [sent, setSent] = useState(false)
   const [reason, setReason] = useState("")
   const [type, setType] = useState("")
@@ -39,6 +39,8 @@ function MaintenanceShedule() {
 
   }
 
+=======
+>>>>>>> parent of 9ea8187 (changes):src/pages/maintenance/schedule.js
 
   return (
       <Container>
@@ -48,9 +50,10 @@ function MaintenanceShedule() {
               <Breadcrumb.Item>Maintenance</Breadcrumb.Item>
               <Breadcrumb.Item active>Shedule</Breadcrumb.Item>
             </Breadcrumb> 
-        <h1><b>Shedule Maintenance</b></h1>
+        <h1><b>Maintenance Shedule</b></h1>
         <br />
 
+<<<<<<< HEAD:client/src/pages/maintenance/schedule.js
         <Form onSubmit={handleSend}>
 
             <Form.Group className="mb-3">
@@ -99,6 +102,8 @@ function MaintenanceShedule() {
                 Submit
             </Button>
         </Form>
+=======
+>>>>>>> parent of 9ea8187 (changes):src/pages/maintenance/schedule.js
 
 
       </Container>
