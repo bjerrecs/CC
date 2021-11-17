@@ -13,7 +13,7 @@ export default class FetchCompanies extends React.Component {
     }
 
     async componentDidMount() {
-        const url = "http://localhost:4000/api/customers";
+        const url = "/api/customers";
         const response = await fetch(url);
         const data = await response.json();
         console.log(data)

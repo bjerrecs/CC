@@ -17,7 +17,7 @@ function WarehouseLocation() {
             <br/><br/>
             <h3>Add new location</h3>
             <hr />
-            <Form action="http://localhost:4000/api/warehouse/location" method="post">
+            <Form action="/api/warehouse/location" method="post">
                 <Form.Group className="mb-3" controlId="formGroupEmail">
                     <Form.Label>Location Name</Form.Label>
                     <Form.Control type="text" placeholder="AA-99" id="name" name="name"/>
@@ -30,7 +30,7 @@ function WarehouseLocation() {
             <br/><br/>
             <h3>Rename location</h3>
             <hr />
-            <Form action="http://localhost:4000/api/warehouse/location" method="put">
+            <Form action="/api/warehouse/location" method="put">
                 <Form.Group className="mb-3" >
                     <Form.Label>Select Location</Form.Label>
                         <FetchWarehouseLocation />

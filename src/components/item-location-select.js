@@ -8,7 +8,7 @@ import { Form } from 'react-bootstrap';
     }
   
     async componentDidMount() {
-        const url = 'http://localhost:4000/api/warehouse/location';
+        const url = '/api/warehouse/location';
         const response = await fetch(url);
         const data = await response.json();
         this.setState({ items: data, loading: false })

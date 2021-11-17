@@ -8,7 +8,7 @@ import React from 'react';
     }
   
     async componentDidMount() {
-        const url = 'http://localhost:4000/api/warehouse/items';
+        const url = '/api/warehouse/items';
         const response = await fetch(url);
         const data = await response.json();
         this.setState({ items: data, loading: false })

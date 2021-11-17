@@ -16,7 +16,7 @@ function ClientCreation() {
 
         <PageHeader h1="Creat New Client" h3=""/>
 
-        <Form action="http://localhost:4000/api/customers" method="post">
+        <Form action="/api/customers" method="post">
 
             <Form.Group className="mb-3" controlId="fullname">
                 <Form.Label>Fullname</Form.Label>

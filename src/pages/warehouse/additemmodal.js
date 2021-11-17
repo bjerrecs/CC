@@ -23,7 +23,7 @@ function AddItemModal() {
             <Modal.Title>Add New Item</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                <Form action="http://localhost:4000/api/warehouse/item" method="POST">
+                <Form action="/api/warehouse/item" method="POST">
                     <Form.Group className="mb-3">
                         <Form.Label>Item Name</Form.Label>
                         <Form.Control type="text" placeholder="Intel Xeon E5-2667 v2" id="name" name="name"/>

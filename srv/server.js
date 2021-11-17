@@ -145,15 +145,21 @@ app.post("/api/warehouse/item", (req, res) => {
     })
 });
 
-// Schedule Maintenance 
+// Maintenance 
+
+app.get('/api/maintenance',(req,res) => {
+    MaintenanceWindow.find().exec(function (err, MaintenanceWindow) {
+            res.json(MaintenanceWindow);
+    })
+});
+
 app.post("/api/maintenance/schedule", (req, res) => {
+    let {reason,type,internal,startdate,enddate,starttime,endtime} = req.body
     let data = req.body;
     let CreateNewMaintenanceWindow = new newMaintenanceWindow(data);
     MaintenanceWindow.create(CreateNewMaintenanceWindow, function(err, result) {
         if(err) {
             res.send(err);
-        } else {
-            res.redirect("http://localhost:3000/warehouse");
         }
     })
 });
@@ -263,14 +269,13 @@ app.post("/api/send_mail/maintenance", cors(), (req, res) => {
 function newMaintenanceWindow(data) {
     this.type = data.type
     this.reason = data.reason
-    this.responseble = data.responseble
-    this.datestart = data.datestart
-    this.dateend = data.dateend
-    this.timestart = data.timestart
-    this.timeend = data.timeend
+    this.internal = data.internal
+    this.startdate = data.startdate
+    this.enddate = data.enddate
+    this.starttime = data.starttime
+    this.endtime = data.endtime
     this.status = data.status
 }
-
 
 function newCustomer(data) {
     this.fullname = data.fullname

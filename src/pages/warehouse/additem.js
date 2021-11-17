@@ -9,7 +9,7 @@ import { Table, Container, Row, Col, Button, Modal } from 'react-bootstrap';
     }
   
     async componentDidMount() {
-        const url = 'http://localhost:4000/api/warehouse/item';
+        const url = '/api/warehouse/item';
         const response = await fetch(url);
         const data = await response.json();
         this.setState({ items: data, loading: false })

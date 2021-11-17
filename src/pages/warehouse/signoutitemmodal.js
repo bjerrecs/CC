@@ -12,7 +12,7 @@ function SignOutItem() {
     const [items, setItems] = useState([]);
 
     const getItems = () => {
-        axios.get('http://localhost:4000/api/warehouse/items')
+        axios.get('/api/warehouse/items')
         .then((response) => {
             console.log(response)
             const myItems = response.data

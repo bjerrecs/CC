@@ -10,7 +10,7 @@ import { useLocation } from 'react-router-dom'
     }
   
     async componentDidMount() {
-        const url = 'http://localhost:4000/api/client/access/?clientid=' + this.props.id;
+        const url = '/api/client/access/?clientid=' + this.props.id;
         const response = await fetch(url);
         const data = await response.json();
         this.setState({ access: data, loading: false })

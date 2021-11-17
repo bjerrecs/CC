@@ -15,7 +15,7 @@ function Email() {
     const handleSend = async() => {
         setSent(true)
         try {
-            await axios.post("http://localhost:4000/api/send_mail/maintenance", {
+            await axios.post("/api/send_mail/maintenance", {
                 mailTo,
                 maintenanceReason,
                 maintenanceStartDate,

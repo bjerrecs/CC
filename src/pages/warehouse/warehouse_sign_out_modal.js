@@ -10,8 +10,8 @@ export default class SignOutItem extends React.Component {
   
 
   async componentDidMount() {
-      const url = 'http://localhost:4000/api/customer/?id=' + this.props.id
-      const accessApi = 'http://localhost:4000/api/client/access/?id=' + this.props.id
+      const url = '/api/customer/?id=' + this.props.id
+      const accessApi = '/api/client/access/?id=' + this.props.id
       const response = await fetch(url);
       const responseAccessApi = await fetch(accessApi);
       const data = await response.json();

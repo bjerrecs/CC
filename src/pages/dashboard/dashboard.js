@@ -12,7 +12,7 @@ function Dashboard() {
   const [clients, setClients] = useState([]);
 
   const getClients = () => {
-      axios.get('http://localhost:4000/api/customers')
+      axios.get('/api/customers')
       .then((response) => {
           console.log(response)
           const myClients = response.data
@@ -21,7 +21,7 @@ function Dashboard() {
   };
 
   const getItems = () => {
-    axios.get('http://localhost:4000/api/warehouse/items')
+    axios.get('/api/warehouse/items')
     .then((response) => {
         console.log(response)
         const myItems = response.data
