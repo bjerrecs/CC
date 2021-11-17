@@ -2,17 +2,19 @@ const express = require("express");
 const mongoose = require('mongoose')
 const cors = require("cors");
 const app = express();
+const dev = app.get('env') !== 'production';
 const PORT = 4000;
 require('dotenv').config();
 var nodeoutlook = require('nodejs-nodemailer-outlook')
+const path = require('path')
  
 
 
-const Company = require("./models/companies");
-const Location = require("./models/warehouse/location");
-const Access = require("./models/client/access");
-const Items = require("./models/warehouse/item")
-const MaintenanceWindow = require("./models/maintenance/model")
+const Company = require("./srv/models/companies");
+const Location = require("./srv/models/warehouse/location");
+const Access = require("./srv/models/client/access");
+const Items = require("./srv/models/warehouse/item")
+const MaintenanceWindow = require("./srv/models/maintenance/model")
 
 const url = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cc.aslvc.mongodb.net/CC?retryWrites=true&w=majority`
 
@@ -26,6 +28,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(cors());
 
+
+if (!dev) {
+    app.use(express.static(path.resolve(__dirname, 'build')))
+}
+
+
 const connectionParams={
     useNewUrlParser: true,
     useUnifiedTopology: true 
@@ -38,6 +46,12 @@ mongoose.connect(url,connectionParams)
 .catch( (err) => {
     console.error(`Error connecting to the database. \n${err}`);
 })
+
+/////////////////////////////////////////////////
+app.get('/', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'build', 'index.html'))
+})
+/////////////////////////////////////////////////
 
 app.get("/api/new-customer", (req, res) => {
     Company.find().exec(function(err, companies){
