@@ -6,6 +6,7 @@ const PORT = process.env.PORT || 4000;
 const favicon = require('express-favicon');
 const mongoose = require('mongoose')
 const cors = require("cors");
+app.use(cors());
 require('dotenv').config();
 var nodeoutlook = require('nodejs-nodemailer-outlook')
 
@@ -30,7 +31,7 @@ app.use(bodyParser.urlencoded());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
-app.use(cors());
+
 
 
 const connectionParams={
@@ -278,10 +279,10 @@ app.post("/api/send_mail/maintenance", cors(), (req, res) => {
 /////////////////////////////////////////////////
 
 // the __dirname is the current directory from where the script is running
-app.use(express.static(path.join(__dirname, 'build')));
+app.use(express.static(path.join(__dirname, 'client/build')));
 
 app.get('*', function (req, res) {
-  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+  res.sendFile(path.join(__dirname, '/client/build', 'index.html'));
 });
 /////////////////////////////////////////////////
 
