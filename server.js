@@ -1,4 +1,5 @@
 const express = require("express");
+const favicon = require('express-favicon');
 const mongoose = require('mongoose')
 const cors = require("cors");
 const app = express();
@@ -7,6 +8,11 @@ const PORT = 4000;
 require('dotenv').config();
 var nodeoutlook = require('nodejs-nodemailer-outlook')
 const path = require('path')
+
+// the __dirname is the current directory from where the script is running
+app.use(favicon(__dirname + '/build/favicon.ico'));
+app.use(express.static(__dirname));
+app.use(express.static(path.join(__dirname, 'build')));
  
 
 
@@ -27,11 +33,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 
 app.use(cors());
-
-
-if (!dev) {
-    app.use(express.static(path.resolve(__dirname, 'build')))
-}
 
 
 const connectionParams={
