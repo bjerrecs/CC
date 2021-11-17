@@ -35,6 +35,8 @@ import AccessPageView from "./pages/docs/access_page";
 import Profile from "./pages/profile/profile";
 import MaintenanceDashboard from "./pages/maintenance/dashboard";
 import MaintenanceShedule from "./pages/maintenance/schedule";
+import Login from "./pages/login";
+import Logout from "./pages/logout";
 
 
 
@@ -49,6 +51,16 @@ function RootRouter() {
           <Route exact path="/">
             <NavbarRoot />
             <Home />
+          </Route>
+
+          <Route exact path="/login">
+            <NavbarRoot />
+            <Login />
+          </Route>
+
+          <Route exact path="/logout">
+            <NavbarRoot />
+            <Logout />
           </Route>
 
           {/* Misc Routes */}
