@@ -318,6 +318,6 @@ function newItem(data) {
     this.assetid = data.assetid
 }
 
-app.listen(PORT, function() {
+app.listen(process.env.port || PORT, function() {
   console.log("Server is running on Port: " + PORT);
 });
