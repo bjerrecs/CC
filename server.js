@@ -47,11 +47,7 @@ mongoose.connect(url,connectionParams)
     console.error(`Error connecting to the database. \n${err}`);
 })
 
-/////////////////////////////////////////////////
-app.get('/', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'build', 'index.html'))
-})
-/////////////////////////////////////////////////
+
 
 app.get("/api/new-customer", (req, res) => {
     Company.find().exec(function(err, companies){
@@ -279,6 +275,12 @@ app.post("/api/send_mail/maintenance", cors(), (req, res) => {
         onSuccess: (i) => console.log(i)
     })
 })
+
+/////////////////////////////////////////////////
+app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'build', 'index.html'))
+})
+/////////////////////////////////////////////////
 
 function newMaintenanceWindow(data) {
     this.type = data.type
