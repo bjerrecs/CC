@@ -30,7 +30,7 @@
   },
   "scripts": {
     "start": "node server.js",
-    "heroku-postbuild": "cd client && npm install && npm install --only=dev && npm run build",
+    "heroku-postbuild": "cd client && npm install",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
