@@ -1,18 +1,16 @@
 const express = require("express");
+const path = require('path')
+const app = express();
+const PORT = process.env.PORT || 3000;
+
 const favicon = require('express-favicon');
 const mongoose = require('mongoose')
 const cors = require("cors");
-const app = express();
-const dev = app.get('env') !== 'production';
-const PORT = 4000;
 require('dotenv').config();
 var nodeoutlook = require('nodejs-nodemailer-outlook')
-const path = require('path')
 
-// the __dirname is the current directory from where the script is running
-app.use(favicon(__dirname + '/build/favicon.ico'));
-app.use(express.static(__dirname));
-app.use(express.static(path.join(__dirname, 'build')));
+
+
  
 
 
@@ -278,9 +276,13 @@ app.post("/api/send_mail/maintenance", cors(), (req, res) => {
 })
 
 /////////////////////////////////////////////////
-app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'build', 'index.html'))
-})
+
+// the __dirname is the current directory from where the script is running
+app.use(express.static(path.join(__dirname, 'build')));
+
+app.get('*', function (req, res) {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
 /////////////////////////////////////////////////
 
 function newMaintenanceWindow(data) {
@@ -318,6 +320,6 @@ function newItem(data) {
     this.assetid = data.assetid
 }
 
-app.listen(process.env.port || PORT, function() {
+app.listen(process.env.PORT || PORT, function() {
   console.log("Server is running on Port: " + PORT);
 });
