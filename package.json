@@ -28,8 +28,8 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "start": "node srv/server.js",
-    "heroku.postbuild":"npm install && npm run build",
+    "start": "cd srv && node server.js",
+    "heroku-postbuild":"npm install && npm run build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
