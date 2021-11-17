@@ -12,6 +12,7 @@ const Company = require("./models/companies");
 const Location = require("./models/warehouse/location");
 const Access = require("./models/client/access");
 const Items = require("./models/warehouse/item")
+const MaintenanceWindow = require("./models/maintenance/model")
 
 const url = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cc.aslvc.mongodb.net/CC?retryWrites=true&w=majority`
 
@@ -144,7 +145,6 @@ app.post("/api/warehouse/item", (req, res) => {
     })
 });
 
-<<<<<<< HEAD:server.js
 // Maintenance 
 
 app.get('/api/maintenance',(req,res) => {
@@ -164,8 +164,6 @@ app.post("/api/maintenance/schedule", (req, res) => {
     })
 });
 
-=======
->>>>>>> parent of 9ea8187 (changes):srv/server.js
 app.post("/api/send_mail/maintenance", cors(), (req, res) => {
     let {text,mailTo,maintenanceReason,maintenanceStartDate,maintenanceStartTime,maintenanceEndDate,maintenanceEndTime} = req.body
     nodeoutlook.sendEmail({
@@ -268,7 +266,6 @@ app.post("/api/send_mail/maintenance", cors(), (req, res) => {
     })
 })
 
-<<<<<<< HEAD:server.js
 function newMaintenanceWindow(data) {
     this.type = data.type
     this.reason = data.reason
@@ -279,8 +276,6 @@ function newMaintenanceWindow(data) {
     this.endtime = data.endtime
     this.status = data.status
 }
-=======
->>>>>>> parent of 9ea8187 (changes):srv/server.js
 
 function newCustomer(data) {
     this.fullname = data.fullname

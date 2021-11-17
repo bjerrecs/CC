@@ -1,5 +1,6 @@
 import React from "react";
-import { Container, Breadcrumb, Table } from "react-bootstrap";
+import { Container, Breadcrumb, Table, Button, ButtonGroup } from "react-bootstrap";
+import MaintenanceWindowTable from "../../components/maintenance/windowtable";
 
 
 function MaintenanceDashboard() {
@@ -19,31 +20,16 @@ function MaintenanceDashboard() {
         <Table responsive>
             <thead>
                 <tr>
-                    <th>ID</th>
                     <th>Type</th>
                     <th>Reason</th>
                     <th>Responseble</th>
                     <th>Time</th>
                     <th>Status</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>227457</td>
-                    <td>Minor Incident</td>
-                    <td>Virtual Layer Issue</td>
-                    <td>Simon Bjerre</td>
-                    <td>12-11-2021 10:00:00 <br/> 12-11-21 11:00:00</td>
-                    <td>Active</td>
-                </tr>
-                <tr>
-                    <td>227456</td>
-                    <td>Major Incident</td>
-                    <td>Virtual Layer Issue</td>
-                    <td>Simon Bjerre</td>
-                    <td>10-11-2021 10:00:00 <br/> 11-11-21 10:00:00</td>
-                    <td>Ended</td>
-                </tr>
+                <MaintenanceWindowTable />
             </tbody>
         </Table>
 
