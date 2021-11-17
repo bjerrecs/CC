@@ -29,7 +29,8 @@ function Dashboard() {
     });
 };
 
-  useEffect(() => getItems(),getClients(), [])
+  useEffect(() => getItems(), [])
+  useEffect(() => getClients(), [])
 
 
   return (
