@@ -14,7 +14,6 @@ function SignOutItem() {
     const getItems = () => {
         axios.get('/api/warehouse/items')
         .then((response) => {
-            console.log(response)
             const myItems = response.data
             setItems(myItems);
         });

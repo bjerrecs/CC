@@ -4,6 +4,7 @@ import DashboardCard1 from "../../components/dashboard/card";
 import './dashboard.css'
 
 import { Container, Row, Col, Breadcrumb } from "react-bootstrap";
+import NavbarRoot from "../../components/navbar";
 
 
 function Dashboard() {
@@ -14,7 +15,6 @@ function Dashboard() {
   const getClients = () => {
       axios.get('/api/customers')
       .then((response) => {
-          console.log(response)
           const myClients = response.data
           setClients(myClients);
       });
@@ -23,7 +23,6 @@ function Dashboard() {
   const getItems = () => {
     axios.get('/api/warehouse/items')
     .then((response) => {
-        console.log(response)
         const myItems = response.data
         setItems(myItems);
     });
@@ -34,6 +33,7 @@ function Dashboard() {
 
 
   return (
+
       <Container>
             <br />
             <Breadcrumb>

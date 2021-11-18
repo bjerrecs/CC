@@ -5,6 +5,7 @@ import './profile.css'
 
 function Profile() {
     return (
+      isAuthenticated && (
       <div>
           <Container>
 
@@ -43,6 +44,7 @@ function Profile() {
             
           </Container>
       </div>
+      )
     );
   }
   

@@ -1,0 +1,15 @@
+.load {
+    display: flex;
+    justify-content: center;
+    margin-top: 35vh;
+    flex-direction: row;
+}
+.bgcolor {
+    width: 100vw;
+    height: 100vh;
+    background-color: #2F1993;
+    position: absolute;
+}
+.sizeme {
+    width: 256px!important;
+}

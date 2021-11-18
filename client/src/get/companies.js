@@ -16,7 +16,6 @@ export default class FetchCompanies extends React.Component {
         const url = "/api/customers";
         const response = await fetch(url);
         const data = await response.json();
-        console.log(data)
         this.setState({ companies: data, loading: false })
     }
 

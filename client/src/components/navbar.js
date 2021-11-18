@@ -1,7 +1,11 @@
 import { Nav, NavDropdown, Navbar, Container} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { useAuth0 } from "@auth0/auth0-react";
 
 function NavbarRoot() {
+
+const { logout } = useAuth0();  
+
   return (
     <div>
 
@@ -20,33 +24,78 @@ function NavbarRoot() {
         <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
 
-                <Nav.Link ><Link to="/dashboard" className="navbarA">Dashboard</Link></Nav.Link>
+                <Nav.Link >
+                    <div>
+                        <Link to="/dashboard" className="navbarA">Dashboard</Link>
+                    </div>
+                </Nav.Link>
                 
                 <NavDropdown title="Clients">
-                    <NavDropdown.Item ><Link to="/clients" >Search Clients</Link></NavDropdown.Item>
-                    <NavDropdown.Item ><Link to="/client/new" className="darkA">New Client</Link></NavDropdown.Item>
-                    <NavDropdown.Item ><Link to="/client/modify" className="darkA">Modify Client</Link></NavDropdown.Item>
+                    <NavDropdown.Item >
+                        <div>
+                            <Link to="/clients" >Search Clients</Link>
+                        </div>
+                    </NavDropdown.Item>
+                    <NavDropdown.Item >
+                        <div>
+                            <Link to="/client/new" className="darkA">New Client</Link>
+                        </div>
+                    </NavDropdown.Item>
+                    <NavDropdown.Item >
+                        <div>
+                            <Link to="/client/modify" className="darkA">Modify Client</Link>
+                        </div>
+                    </NavDropdown.Item>
                 </NavDropdown>
 
                 <NavDropdown title="Warehouse">
-                    <NavDropdown.Item ><Link to="/warehouse" className="darkA">Search</Link></NavDropdown.Item>
-                    <NavDropdown.Item ><Link to="/warehouse/location" className="darkA">Locations</Link></NavDropdown.Item>
+                    <NavDropdown.Item >
+                        <div>
+                            <Link to="/warehouse" className="darkA">Search</Link>
+                        </div>
+                    </NavDropdown.Item>
+                    <NavDropdown.Item >
+                        <div>
+                            <Link to="/warehouse/location" className="darkA">Locations</Link>
+                        </div>
+                    </NavDropdown.Item>
                 </NavDropdown>
 
                 <NavDropdown title="Maintenance">
-                    <NavDropdown.Item ><Link to="/maintenance/dashboard" className="darkA">View All planed</Link></NavDropdown.Item>
-                    <NavDropdown.Item ><Link to="/maintenance/schedule" className="darkA">Schedule Maintenance Window</Link></NavDropdown.Item>
+                    <NavDropdown.Item >
+                        <div>
+                            <Link to="/maintenance/dashboard" className="darkA">View All planed</Link>
+                        </div>
+                    </NavDropdown.Item>
+                    <NavDropdown.Item >
+                        <div>
+                            <Link to="/maintenance/schedule" className="darkA">Schedule Maintenance Window</Link>
+                        </div>
+                    </NavDropdown.Item>
                 </NavDropdown>
 
                 <NavDropdown title="Tools">
-                    <NavDropdown.Item ><Link to="/email" className="darkA">Email</Link></NavDropdown.Item>
+                    <NavDropdown.Item >
+                        <div>
+                            <Link to="/email" className="darkA">Email</Link>
+                        </div>
+                    </NavDropdown.Item>
                 </NavDropdown>
 
             </Nav>
             <Nav>
-                <Nav.Link >
-                    <Link className="navbarA" to="/profile">Simon Bjerre</Link>
-                </Nav.Link>
+                <NavDropdown title="Simon Bjerre">
+                    <NavDropdown.Item >
+                        <Nav.Link >
+                            <Link to="/profile" className="darkA">Profile</Link>
+                        </Nav.Link >
+                    </NavDropdown.Item>
+                    <NavDropdown.Item>
+                        <Nav.Link >
+                            <Link to="" className="darkA" onClick={() => logout({ returnTo: window.location.origin })}>Logout</Link>
+                        </Nav.Link >
+                    </NavDropdown.Item>
+                </NavDropdown>
                 <img
                     src="/person.jpg"
                     width="30"

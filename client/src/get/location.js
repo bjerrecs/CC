@@ -15,7 +15,6 @@ export default class FetchWarehouseLocation extends React.Component {
         const url = "/api/warehouse/location";
         const response = await fetch(url);
         const data = await response.json();
-        console.log(data)
         this.setState({ locations: data, loading: false })
     }
 

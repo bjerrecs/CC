@@ -32,11 +32,14 @@ import WarehouseLocation from "./pages/warehouse/locations";
 import WarehouseItems from "./pages/warehouse/items";
 import AccessPageView from "./pages/docs/access_page";
 
-import Profile from "./pages/profile/profile";
+/*import Profile from "./pages/profile/profile";*/
+import Profile from "./pages/profile/auth0";
 import MaintenanceDashboard from "./pages/maintenance/dashboard";
 import MaintenanceShedule from "./pages/maintenance/schedule";
 import Login from "./pages/login";
 import Logout from "./pages/logout";
+import PrivateRoute from "./private-route";
+import LoadingComponent from "./components/loading";
 
 
 
@@ -45,108 +48,42 @@ function RootRouter() {
     <div>
     <Router>
       <div>
+        <NavbarRoot />
         <Switch>
 
-          {/* Default Route */}
-          <Route exact path="/">
-            <NavbarRoot />
-            <Home />
-          </Route>
-
           <Route exact path="/login">
-            <NavbarRoot />
             <Login />
           </Route>
 
-          <Route exact path="/logout">
-            <NavbarRoot />
-            <Logout />
-          </Route>
-
-          {/* Misc Routes */}
-          <Route path="/email">
-            <NavbarRoot />
-            <Email />
-          </Route>
-          <Route path="/dashboard">
-            <NavbarRoot />
-            <Dashboard />
-          </Route>
-
           {/* Warehouse Routes */}
-          <Route exact path="/warehouse">
-            <NavbarRoot />
-            <Warehouse />
-          </Route>
-          <Route exact path="/warehouse/location">
-            <NavbarRoot />
-            <WarehouseLocation />
-          </Route>
-          <Route exact path="/warehouse/items">
-            <NavbarRoot />
-            <WarehouseItems />
-          </Route>
+          <PrivateRoute path="/warehouse" component={Warehouse} />
+          <PrivateRoute path="/warehouse/location" component={WarehouseLocation} />
+          <PrivateRoute path="/warehouse/items" component={WarehouseItems} />
 
           {/* Client Routes */}
-          <Route exact path="/clients">
-            <NavbarRoot />
-            <Clients />
-          </Route>
-          <Route exact path="/client/new">
-            <NavbarRoot />
-            <ClientCreation />
-          </Route>
-          <Route exact path="/client/modify">
-            <NavbarRoot />
-            <ClientModify />
-          </Route>
-          <Route exact path="/client/:id">
-            <NavbarRoot />
-            <Client />
-          </Route>
-          <Route exact path="/client/:id/access">
-            <NavbarRoot />
-            <AccessPageView />
-          </Route>
-          <Route exact path="/client/:id/applications">
-            <NavbarRoot />
-            <ApplicationPage />
-          </Route>
-          <Route exact path="/client/:id/um">
-            <NavbarRoot />
-            <UMPage />
-          </Route>
-          <Route exact path="/client/:id/shares">
-            <NavbarRoot />
-            <SharesPage />
-          </Route>
-          <Route exact path="/client/:id/licens">
-            <NavbarRoot />
-            <LicensPage />
-          </Route>
-          <Route exact path="/client/:id/passwords">
-            <NavbarRoot />
-            <PasswordsPage />
-          </Route>
+          <PrivateRoute path="/clients" component={Clients} />
+          <PrivateRoute path="/client/new" component={ClientCreation} />
+          <PrivateRoute path="/client/modify" component={ClientModify} />
+          <PrivateRoute path="/client/:id" component={Client} />
+          <PrivateRoute path="/client/:id/access" component={AccessPageView} />
+          <PrivateRoute path="/client/:id/applications" component={ApplicationPage} />
+          <PrivateRoute path="/client/:id/um" component={UMPage} />
+          <PrivateRoute path="/client/:id/shares" component={SharesPage} />
+          <PrivateRoute path="/client/:id/licens" component={LicensPage} />
+          <PrivateRoute path="/client/:id/passwords" component={PasswordsPage} />
 
           {/* Maintenance Routes */}
-          <Route exact path="/maintenance/dashboard">
-            <NavbarRoot />
-            <MaintenanceDashboard />
-          </Route>
-          <Route exact path="/maintenance/schedule">
-            <NavbarRoot />
-            <MaintenanceShedule />
-          </Route>
+          <PrivateRoute path="/maintenance/dashboard" component={MaintenanceDashboard} />
+          <PrivateRoute path="/maintenance/schedule" component={MaintenanceShedule} />
 
-          {/* Profile Routes */}
-          <Route exact path="/profile">
-            <NavbarRoot />
-            <Profile />
-          </Route>
+          <PrivateRoute path="/demoloading" component={LoadingComponent} />
+          <PrivateRoute path="/dashboard" component={Dashboard} />
+          <PrivateRoute path="/email" component={Email} />
+          <PrivateRoute path="/profile" component={Profile} />
+          <PrivateRoute path="/" component={Dashboard} />
 
-          
         </Switch>
+        
       </div>
     </Router>
     </div>

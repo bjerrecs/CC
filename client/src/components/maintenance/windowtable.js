@@ -1,12 +1,15 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { ButtonGroup, Button } from 'react-bootstrap';
 
   export default class MaintenanceWindowTable extends React.Component {
 
     state = {
       loading: true,
-      windows: null
+      windows: null,
+      type: ""
     }
+
+
   
     async componentDidMount() {
         const url = '/api/maintenance';
