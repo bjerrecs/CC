@@ -10,11 +10,6 @@ app.use(cors());
 require('dotenv').config();
 var nodeoutlook = require('nodejs-nodemailer-outlook')
 
-
-
- 
-
-
 const Company = require("./srv/models/companies");
 const Location = require("./srv/models/warehouse/location");
 const Access = require("./srv/models/client/access");
@@ -30,10 +25,6 @@ app.use(bodyParser.urlencoded());
 // in latest body-parser use like below.
 app.use(bodyParser.urlencoded({ extended: true }));
 
-
-
-
-
 const connectionParams={
     useNewUrlParser: true,
     useUnifiedTopology: true 
@@ -46,8 +37,6 @@ mongoose.connect(url,connectionParams)
 .catch( (err) => {
     console.error(`Error connecting to the database. \n${err}`);
 })
-
-
 
 app.get("/api/new-customer", (req, res) => {
     Company.find().exec(function(err, companies){
@@ -277,10 +266,9 @@ app.post("/api/send_mail/maintenance", cors(), (req, res) => {
 })
 
 /////////////////////////////////////////////////
-
 app.use(express.static(path.join(__dirname, '/client/build')));
 
-app.get('*', function(req, res) {
+app.get('/*', function(req, res) {
   res.sendFile(path.join(__dirname, '/client/build', 'index.html'));
 });
 /////////////////////////////////////////////////

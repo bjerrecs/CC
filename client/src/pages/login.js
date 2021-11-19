@@ -8,7 +8,7 @@ function Login() {
 
     return (
       <div>
-          <Button onClick={() => loginWithRedirect()}>Log In</Button>
+          
       </div>
     );
   }

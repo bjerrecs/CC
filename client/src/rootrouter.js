@@ -33,7 +33,7 @@ import WarehouseItems from "./pages/warehouse/items";
 import AccessPageView from "./pages/docs/access_page";
 
 /*import Profile from "./pages/profile/profile";*/
-import Profile from "./pages/profile/auth0";
+import Profile from "./pages/profile/profile";
 import MaintenanceDashboard from "./pages/maintenance/dashboard";
 import MaintenanceShedule from "./pages/maintenance/schedule";
 import Login from "./pages/login";
@@ -48,10 +48,11 @@ function RootRouter() {
     <div>
     <Router>
       <div>
-        <NavbarRoot />
+      <NavbarRoot />     
         <Switch>
 
-          <Route exact path="/login">
+
+          <Route path="/login">
             <Login />
           </Route>
 
