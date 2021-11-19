@@ -4,6 +4,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import PageHeader from '../../components/pageheader'
 import ChnageProfile from './changeprofile';
 import './profile.css'
+import EmailVerified from "../../components/email_verified";
 
 const Profile = () => {
   const { user, isAuthenticated, isLoading } = useAuth0();
@@ -11,6 +12,7 @@ const Profile = () => {
   if (isLoading) {
     return <div>Loading ...</div>;
   }
+  console.log(user)
 
   return (
     isAuthenticated && (
@@ -22,7 +24,7 @@ const Profile = () => {
                 <Breadcrumb.Item active>Profile</Breadcrumb.Item>
               </Breadcrumb>   
             
-              <PageHeader h1="Profile" h3=""/>
+              <PageHeader h1="Profile" h3=""/> 
   
               <div className="profileFlex">
                   <div className="ProfileContainer">
@@ -37,7 +39,7 @@ const Profile = () => {
                           
                           <hr />
                           <h6><b>Phone:</b> +45 51757001</h6>
-                          <h6><b>Mail:</b> {user.email}</h6>
+                          <h6><b>Mail:</b> {user.email}<span><EmailVerified /></span></h6>
                           <h6><b>UID:</b> 1h61243xh812gf41jv8</h6>
                       </div>
                   </div>

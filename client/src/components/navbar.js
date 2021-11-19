@@ -11,7 +11,7 @@ const { logout } = useAuth0();
 
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
         <Container>
-        <Navbar.Brand href="#home">
+        <Navbar.Brand href="/dashboard">
             <img
                 src="/radar.svg"
                 width="30"
