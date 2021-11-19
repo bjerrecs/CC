@@ -47,7 +47,11 @@ function RootRouter() {
   return (
     <div>
     <Router>
-      <div>
+      <Switch>
+        <PrivateRoute path="/" component={Login} />
+      </Switch>
+    </Router>
+    <Router>
       <NavbarRoot />     
         <Switch>
 
@@ -81,11 +85,8 @@ function RootRouter() {
           <PrivateRoute path="/dashboard" component={Dashboard} />
           <PrivateRoute path="/email" component={Email} />
           <PrivateRoute path="/profile" component={Profile} />
-          <PrivateRoute path="/" component={Dashboard} />
 
         </Switch>
-        
-      </div>
     </Router>
     </div>
   );

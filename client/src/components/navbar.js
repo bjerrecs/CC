@@ -4,7 +4,16 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 function NavbarRoot() {
 
-const { logout } = useAuth0();  
+const { user, logout } = useAuth0();  
+
+
+if (!user) {
+    var username = "Loading ..."
+    var profilepicture = "person.jpg"
+} else {
+    var username = user.name
+    var profilepicture = user.picture
+}
 
   return (
     <div>
@@ -84,7 +93,7 @@ const { logout } = useAuth0();
 
             </Nav>
             <Nav>
-                <NavDropdown title="Simon Bjerre">
+                <NavDropdown title={username}>
                     <NavDropdown.Item >
                         <Nav.Link >
                             <Link to="/profile" className="darkA">Profile</Link>
@@ -97,7 +106,7 @@ const { logout } = useAuth0();
                     </NavDropdown.Item>
                 </NavDropdown>
                 <img
-                    src="/person.jpg"
+                    src={profilepicture}
                     width="30"
                     height="30"
                     className="profileIcon"
