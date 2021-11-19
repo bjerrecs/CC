@@ -40,6 +40,7 @@ import Login from "./pages/login";
 import Logout from "./pages/logout";
 import PrivateRoute from "./private-route";
 import LoadingComponent from "./components/loading";
+import Sms from "./pages/sms";
 
 
 
@@ -84,6 +85,7 @@ function RootRouter() {
           <PrivateRoute path="/demoloading" component={LoadingComponent} />
           <PrivateRoute path="/dashboard" component={Dashboard} />
           <PrivateRoute path="/email" component={Email} />
+          <PrivateRoute path="/sms" component={Sms} />
           <PrivateRoute path="/profile" component={Profile} />
 
         </Switch>
