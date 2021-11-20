@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import { ButtonGroup, Button } from 'react-bootstrap';
 
   export default class MaintenanceWindowTable extends React.Component {
@@ -32,20 +32,20 @@ import { ButtonGroup, Button } from 'react-bootstrap';
         var status="No Status"
       }
 
-      if (this.state.windows.type = "gencha") {
+      if (this.state.windows.type === "gencha") {
         var type="General Change"
       }
-      if (this.state.windows.type = "majcha") {
-        var type="Major Change"
+      if (this.state.windows.type === "majcha") {
+         type="Major Change"
       }
-      if (this.state.windows.type = "gn") {
-        var type="General Maintenance"
+      if (this.state.windows.type === "gn") {
+         type="General Maintenance"
       }
-      if (this.state.windows.type = "mininc") {
-        var type="Minor Incident"
+      if (this.state.windows.type === "mininc") {
+         type="Minor Incident"
       }
-      if (this.state.windows.type = "majinc") {
-        var type="Major Incident"
+      if (this.state.windows.type === "majinc") {
+         type="Major Incident"
       }
 
       return  <>

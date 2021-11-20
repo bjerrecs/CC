@@ -9,7 +9,6 @@ import {
 import NavbarRoot from "./components/navbar";
 
 /* Import random pages*/
-import Home from './pages/home';
 import Email from './pages/email';
 import Dashboard from "./pages/dashboard/dashboard";
 
@@ -37,7 +36,6 @@ import Profile from "./pages/profile/profile";
 import MaintenanceDashboard from "./pages/maintenance/dashboard";
 import MaintenanceShedule from "./pages/maintenance/schedule";
 import Login from "./pages/login";
-import Logout from "./pages/logout";
 import PrivateRoute from "./private-route";
 import LoadingComponent from "./components/loading";
 import Sms from "./pages/sms";

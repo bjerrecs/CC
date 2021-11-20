@@ -11,8 +11,8 @@ if (!user) {
     var username = "Loading ..."
     var profilepicture = "person.jpg"
 } else {
-    var username = user.name
-    var profilepicture = user.picture
+    username = user.name
+    profilepicture = user.picture
 }
 
   return (

@@ -4,7 +4,6 @@ import DashboardCard1 from "../../components/dashboard/card";
 import './dashboard.css'
 
 import { Container, Row, Col, Breadcrumb } from "react-bootstrap";
-import NavbarRoot from "../../components/navbar";
 
 
 function Dashboard() {

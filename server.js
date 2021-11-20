@@ -1,7 +1,9 @@
 const express = require("express");
 const path = require('path')
 const app = express();
+const axios = require("axios");
 const PORT = process.env.PORT || 4000;
+var http = require('http');
 
 const favicon = require('express-favicon');
 const mongoose = require('mongoose')
@@ -142,6 +144,24 @@ app.post("/api/warehouse/item", (req, res) => {
             res.redirect("http://localhost:3000/warehouse");
         }
     })
+});
+
+//SMS
+app.get('/api/sms',(req,res) => {
+    const config = {
+        headers: { Authorization: `Bearer ` + process.env.TELAVOX_KEY }
+    };
+    
+    axios.get('https://api.telavox.se/sms/4551757001?message=hello')
+    .then(response => {
+        console.log(response.json);
+        // console.log(response.data);
+        res.send(response.json);
+    })
+    .catch(error => {
+        console.log(error);
+    });
+
 });
 
 // Maintenance 

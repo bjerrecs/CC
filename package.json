@@ -8,8 +8,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "startlocal":"nodemon server.js",
-    "dev":"cd client && react-scripts start",
+    "startlocal": "nodemon server.js",
+    "dev": "cd client && react-scripts start",
     "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "repository": {
@@ -24,11 +24,13 @@
   },
   "homepage": "https://github.com/bjerrecs/CC#readme",
   "dependencies": {
+    "axios": "^0.24.0",
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "express-favicon": "^2.0.1",
     "mongoose": "^6.0.13",
-    "nodejs-nodemailer-outlook": "^1.2.4"
+    "nodejs-nodemailer-outlook": "^1.2.4",
+    "request": "^2.88.2"
   }
 }
