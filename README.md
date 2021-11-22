@@ -11,14 +11,17 @@ A MSP Client management tool used for managing processes, access information, pa
 * Manage/ link to password store
 * Simple warehouse module
 * Send Emails (via MS365)
+* Print Labels
+* Location Item
 
 ## Project technologies/ Libs
 * React
-* React Router
-* React Bootstrap
-* mongodb
-* mongoose
-* Auth0 (eventialuly)
+* React Router ( Routes )
+* React Bootstrap ( UI Framework )
+* mongodb ( Database )
+* mongoose ( Database Connector )
+* Auth0 ( Central Authentication )
+* Dymojs (Print Labels useing Dymo Printers)
 
 <img src="./.githubcontent/show.gif" width="750" alt="CC preview" />
 
