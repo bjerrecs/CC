@@ -87,6 +87,7 @@ function RootRouter() {
           <PrivateRoute path="/sms" component={Sms} />
           <PrivateRoute path="/profile" component={Profile} />
           <PrivateRoute path="/DymoTest" component={DymoTest} />
+          <PrivateRoute path="/" component={Dashboard} />
 
         </Switch>
     </Router>

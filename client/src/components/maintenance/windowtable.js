@@ -6,7 +6,8 @@ import { ButtonGroup, Button } from 'react-bootstrap';
     state = {
       loading: true,
       windows: null,
-      type: ""
+      type: "",
+      typename: ""
     }
 
 
@@ -33,25 +34,25 @@ import { ButtonGroup, Button } from 'react-bootstrap';
       }
 
       if (this.state.windows.type === "gencha") {
-        var type="General Change"
+        this.state.typename="General Change"
       }
       if (this.state.windows.type === "majcha") {
-         type="Major Change"
+        this.state.typename="Major Change"
       }
       if (this.state.windows.type === "gn") {
-         type="General Maintenance"
+        this.state.typename="General Maintenance"
       }
       if (this.state.windows.type === "mininc") {
-         type="Minor Incident"
+        this.state.typename="Minor Incident"
       }
       if (this.state.windows.type === "majinc") {
-         type="Major Incident"
+        this.state.typename="Major Incident"
       }
 
       return  <>
                 {this.state.windows.map((windowArray) => (
                     <tr>
-                        <td><b>{type}</b></td>
+                        <td><b>{this.state.typename}</b></td>
                         <td>{windowArray.reason}</td>
                         <td>{windowArray.internal}</td>
                         <td>{windowArray.startdate} - {windowArray.starttime} <br />{windowArray.enddate} - {windowArray.endtime}</td>
