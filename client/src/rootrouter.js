@@ -39,6 +39,7 @@ import Login from "./pages/login";
 import PrivateRoute from "./private-route";
 import LoadingComponent from "./components/loading";
 import Sms from "./pages/sms";
+import DymoTest from "./pages/labels/test";
 
 
 
@@ -85,6 +86,7 @@ function RootRouter() {
           <PrivateRoute path="/email" component={Email} />
           <PrivateRoute path="/sms" component={Sms} />
           <PrivateRoute path="/profile" component={Profile} />
+          <PrivateRoute path="/DymoTest" component={DymoTest} />
 
         </Switch>
     </Router>

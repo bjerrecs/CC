@@ -56,15 +56,9 @@ a .navbarA {
   margin-top: 5px;
   border-radius: 50%;
 }
-.dropdown-item a {
+.dropdown-item {
   color: var(--cc1)!important;
-}
-.dropdown-item:active {
-  background-color: var(--cc1);
-  color: #fff!important;
-}
-.dropdown-item:active a{
-  color: #fff!important;
+  font-weight: 600;
 }
 .breadcrumb-item a {
   color: #2b2b2b
