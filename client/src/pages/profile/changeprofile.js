@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import { Button, Modal, Form } from 'react-bootstrap';
+import PageTitle from '../../components/title'
 
 function ChnageProfile() {
 
@@ -9,7 +10,7 @@ function ChnageProfile() {
 
     return (
         <>
-
+        <PageTitle title="Profile" />
         <Button variant="primary" onClick={handleShow}>
             Change Profile
         </Button>

@@ -1,9 +1,11 @@
 import { Container, Form, Button, Breadcrumb } from "react-bootstrap";
 import FetchWarehouseLocation from "../../get/location";
+import PageTitle from '../../components/title'
 
 function WarehouseLocation() {
     return (
       <Container>
+            <PageTitle title="Warehouse Locations" />
             <br />
             <Breadcrumb>
                 <Breadcrumb.Item href="#">Home</Breadcrumb.Item>

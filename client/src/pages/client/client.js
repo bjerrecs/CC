@@ -8,7 +8,7 @@ const Client = () => {
   const {id} = useParams();
 
   return  <Container>
-    
+            
             <FetchCompany id={id}/>
           </Container>
 }

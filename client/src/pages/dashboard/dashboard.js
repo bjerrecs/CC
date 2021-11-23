@@ -4,6 +4,7 @@ import DashboardCard1 from "../../components/dashboard/card";
 import './dashboard.css'
 
 import { Container, Row, Col, Breadcrumb } from "react-bootstrap";
+import PageTitle from "../../components/title";
 
 
 function Dashboard() {
@@ -34,6 +35,7 @@ function Dashboard() {
   return (
 
       <Container>
+            <PageTitle title="Dashboard"/>
             <br />
             <Breadcrumb>
               <Breadcrumb.Item href="/dashboard">Home</Breadcrumb.Item>

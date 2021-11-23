@@ -49,8 +49,8 @@ function RootRouter() {
           </Route>
 
           {/* Warehouse Routes */}
+          <PrivateRoute path="/warehouse/locations" component={WarehouseLocation} />
           <PrivateRoute path="/warehouse" component={Warehouse} />
-          <PrivateRoute path="/warehouse/location" component={WarehouseLocation} />
           <PrivateRoute path="/warehouse/items" component={WarehouseItems} />
 
           {/* Client Routes */}
@@ -74,7 +74,6 @@ function RootRouter() {
           <PrivateRoute path="/email" component={Email} />
           <PrivateRoute path="/sms" component={Sms} />
           <PrivateRoute path="/profile" component={Profile} />
-          <PrivateRoute path="/DymoTest" component={DymoTest} />
           <PrivateRoute path="/" component={Dashboard} />
 
         </Switch>

@@ -4,12 +4,13 @@ import WarehouseLocationTable from "../../components/warehouse-item-table";
 import AddItemModal from "./additemmodal";
 import SignOutItem from './signoutitemmodal';
 import Pageheader from '../../components/pageheader'
+import PageTitle from '../../components/title'
 
 function Warehouse() {
 
     return (
       <Container>
-
+                    <PageTitle title="Warehouse" />
                     <br />
                     <Breadcrumb>
                         <Breadcrumb.Item href="#">Home</Breadcrumb.Item>

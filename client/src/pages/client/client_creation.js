@@ -1,10 +1,11 @@
 import { Container, Form, Button,Breadcrumb  } from "react-bootstrap";
 import PageHeader from '../../components/pageheader'
+import PageTitle from '../../components/title'
 
 function ClientCreation() {
     return (
       <Container>
-            
+            <PageTitle title="New Client" />
             <br />
             <Breadcrumb>
               <Breadcrumb.Item href="#">Home</Breadcrumb.Item>

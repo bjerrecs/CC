@@ -1,6 +1,7 @@
 import React from "react";
 import { Container, Breadcrumb, Table } from "react-bootstrap";
 import MaintenanceWindowTable from "../../components/maintenance/windowtable";
+import PageTitle from '../../components/title'
 
 
 function MaintenanceDashboard() {
@@ -8,6 +9,7 @@ function MaintenanceDashboard() {
 
   return (
       <Container>
+            <PageTitle title="Maintenance Dashboard" />
             <br />
             <Breadcrumb>
               <Breadcrumb.Item href="/dashboard">Home</Breadcrumb.Item>

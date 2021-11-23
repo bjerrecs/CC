@@ -2,6 +2,7 @@ import React from 'react';
 import { Badge , ListGroup, Breadcrumb } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import PageHeader from '../components/pageheader'
+import PageTitle from "../components/title";
 
 
 export default class FetchCompany extends React.Component {
@@ -23,6 +24,7 @@ export default class FetchCompany extends React.Component {
       const data = await response.json();
       const dataAccessApi = await responseAccessApi.json();
       this.setState({ company: data, access: dataAccessApi, loading: false })
+      document.title = 'Control Center | ' + this.state.company.fullname; 
   }
 
 

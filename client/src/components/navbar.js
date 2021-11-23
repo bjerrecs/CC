@@ -53,7 +53,7 @@ const NavbarRoot = () => {
                         <NavDropdown.Item href="/warehouse">
                             Search
                         </NavDropdown.Item>
-                        <NavDropdown.Item href="/warehouse/location">
+                        <NavDropdown.Item href="/warehouse/locations">
                             Locations
                         </NavDropdown.Item>
                     </NavDropdown>

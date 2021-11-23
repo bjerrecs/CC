@@ -1,12 +1,13 @@
 import { Container, Form, InputGroup, Breadcrumb } from "react-bootstrap";
 import Test from '../../get/companies';
 import PageHeader from '../../components/pageheader'
+import PageTitle from "../../components/title";
 
 function Clients() {
 
     return (
       <Container>
-        
+        <PageTitle title="Clients"/>
           <br />
 
             <Breadcrumb>
