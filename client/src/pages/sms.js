@@ -9,14 +9,12 @@ function Sms() {
     const [phonenumber, setPhonenumber] = useState("")
     const [message, setMessage] = useState("")
 
+    const config = {
+        headers: { Authorization: `Bearer ` + key }
+    };
+
     const handleSend = async() => {
         setSent(true)
-        let config = {
-            headers: {
-              'Authorization': 'Bearer ' + key,
-              'Access-Control-Allow-Origin': '*'
-            }
-          }
         try {
             await axios.post('https://api.telavox.se/sms/' + phonenumber + '?message=' + message, {
 

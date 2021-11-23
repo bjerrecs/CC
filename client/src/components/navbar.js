@@ -1,124 +1,109 @@
-import { Nav, NavDropdown, Navbar, Container} from 'react-bootstrap';
+import { useState} from 'react'
+import { Nav, NavDropdown, Navbar, Container, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { useAuth0 } from "@auth0/auth0-react";
 
-function NavbarRoot() {
+const NavbarRoot = () => {
+    const { user, logout } = useAuth0();  
 
-const { user, logout } = useAuth0();  
 
-
-if (!user) {
-    var username = "Loading ..."
-    var profilepicture = "person.jpg"
-} else {
-    username = user.name
-    profilepicture = user.picture
-}
-
-  return (
-    <div>
-
-        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-        <Container>
-        <Navbar.Brand href="/dashboard">
-            <img
-                src="/radar.svg"
-                width="30"
-                height="30"
-                className="d-inline-block align-top pr-10"
-                alt="React Bootstrap logo"
-            />
-            <b className="color-Onyx sidebar-brand-text">CONTROL<br/>CENTER</b></Navbar.Brand>
-        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className="me-auto">
-
-                <Nav.Link >
-                    <div>
-                        <Link to="/dashboard" className="navbarA">Dashboard</Link>
-                    </div>
-                </Nav.Link>
-                
-                <NavDropdown title="Clients">
-                    <NavDropdown.Item >
-                        <div>
-                            <Link to="/clients" >Search Clients</Link>
-                        </div>
-                    </NavDropdown.Item>
-                    <NavDropdown.Item >
-                        <div>
-                            <Link to="/client/new" className="darkA">New Client</Link>
-                        </div>
-                    </NavDropdown.Item>
-                    <NavDropdown.Item >
-                        <div>
-                            <Link to="/client/modify" className="darkA">Modify Client</Link>
-                        </div>
-                    </NavDropdown.Item>
-                </NavDropdown>
-
-                <NavDropdown title="Warehouse">
-                    <NavDropdown.Item >
-                        <div>
-                            <Link to="/warehouse" className="darkA">Search</Link>
-                        </div>
-                    </NavDropdown.Item>
-                    <NavDropdown.Item >
-                        <div>
-                            <Link to="/warehouse/location" className="darkA">Locations</Link>
-                        </div>
-                    </NavDropdown.Item>
-                </NavDropdown>
-
-                <NavDropdown title="Maintenance">
-                    <NavDropdown.Item >
-                        <div>
-                            <Link to="/maintenance/dashboard" className="darkA">View All planed</Link>
-                        </div>
-                    </NavDropdown.Item>
-                    <NavDropdown.Item >
-                        <div>
-                            <Link to="/maintenance/schedule" className="darkA">Schedule Maintenance Window</Link>
-                        </div>
-                    </NavDropdown.Item>
-                </NavDropdown>
-
-                <NavDropdown title="Tools">
-                    <NavDropdown.Item >
-                        <div>
-                            <Link to="/email" className="darkA">Email</Link>
-                        </div>
-                    </NavDropdown.Item>
-                </NavDropdown>
-
-            </Nav>
-            <Nav>
-                <NavDropdown title={username}>
-                    <NavDropdown.Item >
-                        <Nav.Link >
-                            <Link to="/profile" className="darkA">Profile</Link>
-                        </Nav.Link >
-                    </NavDropdown.Item>
-                    <NavDropdown.Item>
-                        <Nav.Link >
-                            <Link to="" className="darkA" onClick={() => logout({ returnTo: window.location.origin })}>Logout</Link>
-                        </Nav.Link >
-                    </NavDropdown.Item>
-                </NavDropdown>
+    if (user) {
+        username = user.name
+        profilepicture = user.picture
+    } else {
+        var username = "Loading ..."
+        var profilepicture = "person.jpg"
+    }
+  
+    if (user) {
+      return (
+        <div>
+            <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+            <Container>
+            <Navbar.Brand href="/dashboard">
                 <img
-                    src={profilepicture}
+                    src="/radar.svg"
                     width="30"
                     height="30"
-                    className="profileIcon"
+                    className="d-inline-block align-top pr-10"
                     alt="React Bootstrap logo"
                 />
-            </Nav>
-        </Navbar.Collapse>
-        </Container>
-        </Navbar>
+                <b className="color-Onyx sidebar-brand-text">CONTROL<br/>CENTER</b></Navbar.Brand>
+            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+            <Navbar.Collapse id="responsive-navbar-nav">
+                <Nav className="me-auto">
 
-    </div>
-  );
-}
+                    <Nav.Link href="/dashboard">
+                        Dashboard
+                    </Nav.Link>
 
-export default NavbarRoot;
+                    <NavDropdown title="Clients">
+                        <NavDropdown.Item href="/clients">
+                            Search Clients
+                        </NavDropdown.Item>
+                        <NavDropdown.Item  href="/client/new">
+                            New client
+                        </NavDropdown.Item>
+                        <NavDropdown.Item href="/client/modify">
+                                Modify Client
+                        </NavDropdown.Item>
+                    </NavDropdown>
+
+                    <NavDropdown title="Warehouse">
+                        <NavDropdown.Item href="/warehouse">
+                            Search
+                        </NavDropdown.Item>
+                        <NavDropdown.Item href="/warehouse/location">
+                            Locations
+                        </NavDropdown.Item>
+                    </NavDropdown>
+
+                    <NavDropdown title="Maintenance">
+                        <NavDropdown.Item href="/maintenance/dashboard">
+                            View All planed
+                        </NavDropdown.Item>
+                        <NavDropdown.Item href="/maintenance/schedule">
+                            Schedule Maintenance Window
+                        </NavDropdown.Item>
+                    </NavDropdown>
+
+                    <NavDropdown title="Tools">
+                        <NavDropdown.Item href="/email">
+                            Email
+                        </NavDropdown.Item>
+                    </NavDropdown>
+
+                </Nav>
+                <Nav>
+                    <NavDropdown title={username}>
+                        <NavDropdown.Item href="/profile">
+                                Profile
+                        </NavDropdown.Item>
+                        <NavDropdown.Divider />
+                        <NavDropdown.Item>
+                                <Button onClick={() => logout({ returnTo: window.location.origin })}>Logout</Button>
+                        </NavDropdown.Item>
+                    </NavDropdown>
+                    <img
+                        src={profilepicture}
+                        width="30"
+                        height="30"
+                        className="profileIcon"
+                        alt="React Bootstrap logo"
+                    />
+                </Nav>
+            </Navbar.Collapse>
+            </Container>
+            </Navbar>
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <p>no navbar</p>
+        </div>
+      );
+    }
+  };
+  
+  export default NavbarRoot;
