@@ -33,8 +33,8 @@ function SignOutItem() {
         try {
           // make axios post request
           await axios({
-            method: "get",
-            url: "/api/warehouse/item/delete",
+            method: "delete",
+            url: "/api/warehouse/item/" + formValue.id,
             data: loginFormData
           });
         } catch(error) {

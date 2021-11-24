@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap');
 body {
   --cc: #1a475f;
-  --cc1: #2F1993;
+  --cc1: #191D3B;
+  --cc2: #0019AD;
+  --cc3: #010FF2;
   --Platinum: #E6E6E6;
   --Onyx: #39393A;
   margin: 0;
@@ -11,7 +13,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--Platinum);
-  overflow: hidden;
+  overflow:scroll;
 }
 .cardBody {
   background-color: #fff;

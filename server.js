@@ -133,6 +133,14 @@ app.get("/api/warehouse/item/delete/", (req, res) => {
     })
 });
 
+app.delete('/api/warehouse/item/:id', (req, res) => {
+    Items.remove({ _id: req.params.id }, (err, result) => {
+      if (err) return console.log(err)
+      console.log(req.body)
+      res.redirect('http://localhost:3000/warehouse')
+    })
+  })
+
 // DYMO
 app.post("/api/dymo/test", (req, res) => {
 

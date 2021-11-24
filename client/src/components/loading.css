@@ -7,7 +7,7 @@
 .bgcolor {
     width: 100vw;
     height: 100vh;
-    background-color: #2F1993;
+    background-color: var(--cc1);
     position: absolute;
     overflow: hidden;
 }
