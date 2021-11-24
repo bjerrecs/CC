@@ -11,6 +11,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--Platinum);
+  overflow: hidden;
 }
 .cardBody {
   background-color: #fff;

@@ -9,6 +9,7 @@
     height: 100vh;
     background-color: #2F1993;
     position: absolute;
+    overflow: hidden;
 }
 .sizeme {
     width: 256px!important;
