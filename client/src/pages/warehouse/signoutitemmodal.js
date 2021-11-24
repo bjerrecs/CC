@@ -25,22 +25,22 @@ function SignOutItem() {
         id: ''
       });
 
-      const handleSubmit = async() => {
-        // store the states in the form data
-        const loginFormData = new FormData();
-        loginFormData.append("id", formValue.id)
-      
-        try {
-          // make axios post request
-          await axios({
-            method: "delete",
-            url: "/api/warehouse/item/" + formValue.id,
-            data: loginFormData
-          });
-        } catch(error) {
-          console.log(error)
-        }
-      }
+    const handleSubmit = async() => {
+    // store the states in the form data
+    const loginFormData = new FormData();
+    loginFormData.append("id", formValue.id)
+    
+    try {
+        // make axios post request
+        await axios({
+        method: "delete",
+        url: "/api/warehouse/item/" + formValue.id,
+        data: loginFormData
+        });
+    } catch(error) {
+        console.log(error)
+    }
+    }
     
     const handleChange = (event) => {
     setformValue({

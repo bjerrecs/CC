@@ -5,6 +5,8 @@ import './dashboard.css'
 
 import { Container, Row, Col, Breadcrumb } from "react-bootstrap";
 import PageTitle from "../../components/title";
+import Datacard from "../../components/datacard";
+import DatacardTable from "../../components/dashboard/datacard-table";
 
 
 function Dashboard() {
@@ -51,7 +53,7 @@ function Dashboard() {
                 }/>
             </Col>
             <Col className="flexCenter">
-              <DashboardCard1 title='Warehouse Items' content={items.length}/>
+              <Datacard title="Latest Warehouse Items" subtitle="" component={<DatacardTable />}/>
             </Col>
           </Row>
 
