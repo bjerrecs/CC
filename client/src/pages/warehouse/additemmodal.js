@@ -1,11 +1,12 @@
 import React, {useState} from 'react'
 import { Button, Modal, Form } from 'react-bootstrap';
 import ItemLocationSelect from '../../components/item-location-select';
+import { useAuth0 } from "@auth0/auth0-react";
 
 function AddItemModal() {
 
+    const { user } = useAuth0(); 
     const [show, setShow] = useState(false);
-
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
@@ -36,6 +37,11 @@ function AddItemModal() {
                         <Form.Label>Asset Number</Form.Label>
                         <Form.Control type="text" placeholder="ABC12345" id="assetid" name="assetid"/>
                     </Form.Group>
+
+                    <Form.Group className="mb-3">
+                        <Form.Control type="hidden" placeholder={user.name} defaultValue={user.name}id="addedby" name="addedby"/>
+                    </Form.Group>
+
                     <Button variant="primary" type="submit">
                         Submit
                     </Button>

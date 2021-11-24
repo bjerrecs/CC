@@ -376,6 +376,7 @@ function newItem(data) {
     this.name = data.name
     this.location = data.location
     this.assetid = data.assetid
+    this.addedby = data.addedby
 }
 
 app.listen(process.env.PORT || PORT, function() {

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Tooltip, OverlayTrigger } from 'react-bootstrap';
 
   export default class WarehouseLocationTable extends React.Component {
 
@@ -23,12 +24,19 @@ import React from 'react';
       if (!this.state.items) {
         return <div> No data ... </div>
       }
+      console.log(this.state.items)
 
       return  <>
                 {this.state.items.map((itemsArray) => (
                     <tr>
                         <td>{itemsArray.location}</td>
-                        <td>{itemsArray.name}</td>
+                          <td>
+                            <OverlayTrigger placement='top' overlay={
+                              <Tooltip >Added by {itemsArray.addedby}</Tooltip>
+                            }>
+                              <p>{itemsArray.name}</p>
+                            </OverlayTrigger>
+                          </td>
                         <td>{itemsArray.assetid}</td>
                     </tr>
                 ))}
