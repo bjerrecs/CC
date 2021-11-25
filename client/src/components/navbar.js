@@ -1,5 +1,6 @@
 import { Nav, NavDropdown, Navbar, Container, Button } from 'react-bootstrap';
 import { useAuth0 } from "@auth0/auth0-react";
+import ProfilePicture from './profile-picture';
 
 const NavbarRoot = () => {
     const { user, logout } = useAuth0();  
@@ -73,7 +74,7 @@ const NavbarRoot = () => {
 
                 </Nav>
                 <Nav>
-                    <NavDropdown title={username}>
+                    <NavDropdown title={<ProfilePicture />}>
                         <NavDropdown.Item href="/profile">
                                 Profile
                         </NavDropdown.Item>
@@ -82,13 +83,6 @@ const NavbarRoot = () => {
                                 <Button onClick={() => logout({ returnTo: window.location.origin })}>Logout</Button>
                         </NavDropdown.Item>
                     </NavDropdown>
-                    <img
-                        src={profilepicture}
-                        width="30"
-                        height="30"
-                        className="profileIcon"
-                        alt="React Bootstrap logo"
-                    />
                 </Nav>
             </Navbar.Collapse>
             </Container>
