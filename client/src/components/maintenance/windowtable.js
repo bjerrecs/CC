@@ -48,11 +48,12 @@ import { ButtonGroup, Button } from 'react-bootstrap';
       if (this.state.windows.type === "majinc") {
         this.setState({typename: "Major Incident"})
       }
+      console.log(this.state.windows)
 
       return  <>
                 {this.state.windows.map((windowArray) => (
                     <tr>
-                        <td><b>{this.state.typename}</b></td>
+                        <td><b>{windowArray.type}</b></td>
                         <td>{windowArray.reason}</td>
                         <td>{windowArray.internal}</td>
                         <td>{windowArray.startdate} - {windowArray.starttime} <br />{windowArray.enddate} - {windowArray.endtime}</td>

@@ -1,7 +1,7 @@
 function ApplicationPage() {
     return (
       <div>
-          <h1>test</h1>
+          <h1>Applications</h1>
       </div>
     );
   }

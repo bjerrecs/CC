@@ -77,7 +77,7 @@ export default class FetchCompany extends React.Component {
                   className="d-flex justify-content-between align-items-start"
                 >
                   <div className="ms-2 me-auto">
-                    <div className="fw-bold"><Link to={'/client/' + this.props.id + '/access' }state={{ from: 'id' }} className="darkA">Access</Link></div>
+                    <div className="fw-bold"><a className="a-dark" href={'/client/' + this.props.id + '/access' }>Access</a></div>
                       Documents how to access customer enviorment
                   </div>
                   <Badge variant="primary" pill>
@@ -92,7 +92,7 @@ export default class FetchCompany extends React.Component {
                   className="d-flex justify-content-between align-items-start"
                 >
                   <div className="ms-2 me-auto">
-                    <div className="fw-bold">Application</div>
+                    <div className="fw-bold"><a className="a-dark" href={'/client/' + this.props.id + '/applications' }>Application</a></div>
                       Documents how to manage customer applications
                   </div>
                   <Badge variant="primary" pill>
@@ -104,7 +104,7 @@ export default class FetchCompany extends React.Component {
                   className="d-flex justify-content-between align-items-start"
                 >
                   <div className="ms-2 me-auto">
-                    <div className="fw-bold">User-Management</div>
+                    <div className="fw-bold"><a className="a-dark" href={'/client/' + this.props.id + '/um' }>User-Management</a></div>
                       Documents user life cycle
                   </div>
                   <Badge variant="primary" pill>
@@ -116,7 +116,7 @@ export default class FetchCompany extends React.Component {
                   className="d-flex justify-content-between align-items-start"
                 >
                   <div className="ms-2 me-auto">
-                    <div className="fw-bold">Shares</div>
+                    <div className="fw-bold"><a className="a-dark" href={'/client/' + this.props.id + '/shares' }>Shares</a></div>
                       Documents user shares & mapped drives
                   </div>
                   <Badge variant="primary" pill>
@@ -128,7 +128,7 @@ export default class FetchCompany extends React.Component {
                   className="d-flex justify-content-between align-items-start"
                 >
                   <div className="ms-2 me-auto">
-                    <div className="fw-bold">Licens</div>
+                    <div className="fw-bold"><a className="a-dark" href={'/client/' + this.props.id + '/licens' }>Licens</a></div>
                       Documents customers licenses
                   </div>
                   <Badge variant="primary" pill>
@@ -140,7 +140,7 @@ export default class FetchCompany extends React.Component {
                   className="d-flex justify-content-between align-items-start"
                 >
                   <div className="ms-2 me-auto">
-                    <div className="fw-bold">Passwords</div>
+                    <div className="fw-bold"><a className="a-dark" href={'/client/' + this.props.id + '/passwords' }>Passwords</a></div>
                       Documents shared passwords and service accounts
                   </div>
                   <Badge variant="primary" pill>

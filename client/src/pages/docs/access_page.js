@@ -5,6 +5,7 @@ import PageHeader from '../../components/pageheader'
 import AccessPage from './access';
 
 const AccessPageView = () => {
+  console.log('access page')
 
   const {id} = useParams();
 

@@ -1,7 +1,7 @@
 function UMPage() {
     return (
       <div>
-          <h1>test</h1>
+          <h1>User Management</h1>
       </div>
     );
   }

@@ -57,13 +57,13 @@ function RootRouter() {
           <PrivateRoute path="/clients" component={Clients} />
           <PrivateRoute path="/client/new" component={ClientCreation} />
           <PrivateRoute path="/client/modify" component={ClientModify} />
-          <PrivateRoute path="/client/:id" component={Client} />
           <PrivateRoute path="/client/:id/access" component={AccessPageView} />
           <PrivateRoute path="/client/:id/applications" component={ApplicationPage} />
           <PrivateRoute path="/client/:id/um" component={UMPage} />
           <PrivateRoute path="/client/:id/shares" component={SharesPage} />
           <PrivateRoute path="/client/:id/licens" component={LicensPage} />
           <PrivateRoute path="/client/:id/passwords" component={PasswordsPage} />
+          <PrivateRoute path="/client/:id" component={Client} />
 
           {/* Maintenance Routes */}
           <PrivateRoute path="/maintenance/dashboard" component={MaintenanceDashboard} />
