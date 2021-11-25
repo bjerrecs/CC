@@ -1,38 +1,14 @@
-import React, {useState, useEffect} from "react";
-import axios from "axios";
-import DashboardCard1 from "../../components/dashboard/card";
+import React from "react";
 import './dashboard.css'
 
 import { Container, Row, Col, Breadcrumb } from "react-bootstrap";
 import PageTitle from "../../components/title";
 import Datacard from "../../components/datacard";
-import DatacardTable from "../../components/dashboard/datacard-table";
+import DatacardTable from "../../components/dashboard/datacard-table-warehouse";
+import DatacardTableMaintenance from "../../components/dashboard/datacard-table-maintenance";
 
 
 function Dashboard() {
-
-  const [items, setItems] = useState([]);
-  const [clients, setClients] = useState([]);
-
-  const getClients = () => {
-      axios.get('/api/customers')
-      .then((response) => {
-          const myClients = response.data
-          setClients(myClients);
-      });
-  };
-
-  const getItems = () => {
-    axios.get('/api/warehouse/items')
-    .then((response) => {
-        const myItems = response.data
-        setItems(myItems);
-    });
-};
-
-  useEffect(() => getItems(), [])
-  useEffect(() => getClients(), [])
-
 
   return (
 
@@ -48,9 +24,7 @@ function Dashboard() {
 
           <Row>
            <Col className="flexCenter">
-              <DashboardCard1 title="Total Customers" content={
-                clients.length
-                }/>
+              <Datacard title="Upcomming Maintenance" subtitle="" component={<DatacardTableMaintenance />}/>
             </Col>
             <Col className="flexCenter">
               <Datacard title="Latest Warehouse Items" subtitle="" component={<DatacardTable />}/>

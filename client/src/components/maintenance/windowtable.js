@@ -34,19 +34,19 @@ import { ButtonGroup, Button } from 'react-bootstrap';
       }
 
       if (this.state.windows.type === "gencha") {
-        this.state.typename="General Change"
+        this.setState({typename: "General Change"})
       }
       if (this.state.windows.type === "majcha") {
-        this.state.typename="Major Change"
+        this.setState({typename: "Major Change" })
       }
       if (this.state.windows.type === "gn") {
-        this.state.typename="General Maintenance"
+        this.setState({typename: "General Maintenance"})
       }
       if (this.state.windows.type === "mininc") {
-        this.state.typename="Minor Incident"
+        this.setState({typename: "Minor Incident"})
       }
       if (this.state.windows.type === "majinc") {
-        this.state.typename="Major Incident"
+        this.setState({typename: "Major Incident"})
       }
 
       return  <>

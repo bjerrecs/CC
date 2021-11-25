@@ -24,7 +24,6 @@ import { Tooltip, OverlayTrigger } from 'react-bootstrap';
       if (!this.state.items) {
         return <div> No data ... </div>
       }
-      console.log(this.state.items)
 
       return  <>
                 {this.state.items.map((itemsArray) => (

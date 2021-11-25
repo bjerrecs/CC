@@ -1,7 +1,7 @@
 import React from 'react';
 import { Table } from 'react-bootstrap';
 
-  export default class DatacardTable extends React.Component {
+  export default class DatacardTableWarehouse extends React.Component {
 
     state = {
       loading: true,
@@ -18,8 +18,6 @@ import { Table } from 'react-bootstrap';
     
 
     render() {
-
-    console.log(this.state.items)
 
       if (this.state.loading) {
         return <div> Loading ... </div>

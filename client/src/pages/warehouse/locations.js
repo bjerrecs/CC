@@ -1,7 +1,6 @@
 import { Container, Form, Button, Breadcrumb } from "react-bootstrap";
 import FetchWarehouseLocation from "../../get/location";
 import PageTitle from '../../components/title'
-import axios from 'axios';
 
 function WarehouseLocation() {
     return (

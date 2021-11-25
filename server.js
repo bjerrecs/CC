@@ -124,7 +124,6 @@ app.put("/api/warehouse/location", (req, res) => {
 app.delete('/api/warehouse/location/:id', (req, res) => {
     Location.remove({ _id: req.params.id }, (err, result) => {
       if (err) return console.log(err)
-      console.log(req.body)
       res.redirect('http://localhost:3000/warehouse')
     })
   })
@@ -143,7 +142,6 @@ app.get("/api/warehouse/item/delete/", (req, res) => {
 app.delete('/api/warehouse/item/:id', (req, res) => {
     Items.remove({ _id: req.params.id }, (err, result) => {
       if (err) return console.log(err)
-      console.log(req.body)
       res.redirect('http://localhost:3000/warehouse')
     })
   })
@@ -219,8 +217,6 @@ app.get('/api/sms',(req,res) => {
     
     axios.get('https://api.telavox.se/sms/4551757001?message=hello')
     .then(response => {
-        console.log(response.json);
-        // console.log(response.data);
         res.send(response.json);
     })
     .catch(error => {

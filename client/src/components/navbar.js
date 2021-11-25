@@ -1,6 +1,4 @@
-import { useState} from 'react'
 import { Nav, NavDropdown, Navbar, Container, Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
 import { useAuth0 } from "@auth0/auth0-react";
 
 const NavbarRoot = () => {
@@ -8,11 +6,11 @@ const NavbarRoot = () => {
 
 
     if (user) {
-        username = user.name
-        profilepicture = user.picture
+        var username = user.name
+        var profilepicture = user.picture
     } else {
-        var username = "Loading ..."
-        var profilepicture = "person.jpg"
+        username = "Loading ..."
+        profilepicture = "person.jpg"
     }
   
     if (user) {
