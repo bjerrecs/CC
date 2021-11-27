@@ -11,7 +11,7 @@ import { SharesPage,
   Warehouse,
   WarehouseItems,
   WarehouseLocation,
-  PasswordsPage,
+  SecretsPage,
   LicensPage,
   UMPage,
   ApplicationPage,
@@ -57,12 +57,12 @@ function RootRouter() {
           <PrivateRoute path="/clients" component={Clients} />
           <PrivateRoute path="/client/new" component={ClientCreation} />
           <PrivateRoute path="/client/modify" component={ClientModify} />
-          <PrivateRoute path="/client/:id/access" component={AccessPageView} />
-          <PrivateRoute path="/client/:id/applications" component={ApplicationPage} />
-          <PrivateRoute path="/client/:id/um" component={UMPage} />
-          <PrivateRoute path="/client/:id/shares" component={SharesPage} />
-          <PrivateRoute path="/client/:id/licens" component={LicensPage} />
-          <PrivateRoute path="/client/:id/passwords" component={PasswordsPage} />
+          <PrivateRoute path="/client/access/:id" component={AccessPageView} />
+          <PrivateRoute path="/client/applications/:id" component={ApplicationPage} />
+          <PrivateRoute path="/client/um/:id" component={UMPage} />
+          <PrivateRoute path="/client/shares/:id" component={SharesPage} />
+          <PrivateRoute path="/client/licens/:id" component={LicensPage} />
+          <PrivateRoute path="/client/secrets/:id" component={SecretsPage} />
           <PrivateRoute path="/client/:id" component={Client} />
 
           {/* Maintenance Routes */}

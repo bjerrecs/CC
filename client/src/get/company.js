@@ -1,9 +1,6 @@
 import React from 'react';
 import { Badge , ListGroup, Breadcrumb } from 'react-bootstrap';
 import PageHeader from '../components/pageheader'
-
-
-
 export default class FetchCompany extends React.Component {
 
   state = {
@@ -13,7 +10,6 @@ export default class FetchCompany extends React.Component {
     count: 0,
     id: this.props.id
   }
-  
 
   async componentDidMount() {
       const url = '/api/customer/?id=' + this.props.id
@@ -76,7 +72,7 @@ export default class FetchCompany extends React.Component {
                   className="d-flex justify-content-between align-items-start"
                 >
                   <div className="ms-2 me-auto">
-                    <div className="fw-bold"><a className="a-dark" href={'/client/' + this.props.id + '/access' }>Access</a></div>
+                    <div className="fw-bold"><a className="a-dark" href={'/client/access/' + this.props.id }>Access</a></div>
                       Documents how to access customer enviorment
                   </div>
                   <Badge variant="primary" pill>
@@ -91,7 +87,7 @@ export default class FetchCompany extends React.Component {
                   className="d-flex justify-content-between align-items-start"
                 >
                   <div className="ms-2 me-auto">
-                    <div className="fw-bold"><a className="a-dark" href={'/client/' + this.props.id + '/applications' }>Application</a></div>
+                    <div className="fw-bold"><a className="a-dark" href={'/client/applications/' + this.props.id }>Application</a></div>
                       Documents how to manage customer applications
                   </div>
                   <Badge variant="primary" pill>
@@ -103,7 +99,7 @@ export default class FetchCompany extends React.Component {
                   className="d-flex justify-content-between align-items-start"
                 >
                   <div className="ms-2 me-auto">
-                    <div className="fw-bold"><a className="a-dark" href={'/client/' + this.props.id + '/um' }>User-Management</a></div>
+                    <div className="fw-bold"><a className="a-dark" href={'/client/um/' + this.props.id }>User-Management</a></div>
                       Documents user life cycle
                   </div>
                   <Badge variant="primary" pill>
@@ -115,7 +111,7 @@ export default class FetchCompany extends React.Component {
                   className="d-flex justify-content-between align-items-start"
                 >
                   <div className="ms-2 me-auto">
-                    <div className="fw-bold"><a className="a-dark" href={'/client/' + this.props.id + '/shares' }>Shares</a></div>
+                    <div className="fw-bold"><a className="a-dark" href={'/client/shares/' + this.props.id }>Shares</a></div>
                       Documents user shares & mapped drives
                   </div>
                   <Badge variant="primary" pill>
@@ -127,7 +123,7 @@ export default class FetchCompany extends React.Component {
                   className="d-flex justify-content-between align-items-start"
                 >
                   <div className="ms-2 me-auto">
-                    <div className="fw-bold"><a className="a-dark" href={'/client/' + this.props.id + '/licens' }>Licens</a></div>
+                    <div className="fw-bold"><a className="a-dark" href={'/client/licens/' + this.props.id }>Licens</a></div>
                       Documents customers licenses
                   </div>
                   <Badge variant="primary" pill>
@@ -139,7 +135,7 @@ export default class FetchCompany extends React.Component {
                   className="d-flex justify-content-between align-items-start"
                 >
                   <div className="ms-2 me-auto">
-                    <div className="fw-bold"><a className="a-dark" href={'/client/' + this.props.id + '/passwords' }>Passwords</a></div>
+                    <div className="fw-bold"><a className="a-dark" href={'/client/secrets/' + this.props.id }>Passwords</a></div>
                       Documents shared passwords and service accounts
                   </div>
                   <Badge variant="primary" pill>

@@ -17,6 +17,7 @@ const Location = require("./srv/models/warehouse/location");
 const Access = require("./srv/models/client/access");
 const Items = require("./srv/models/warehouse/item")
 const MaintenanceWindow = require("./srv/models/maintenance/model")
+const SecretsModel = require("./srv/models/secrets/model")
 
 const url = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cc.aslvc.mongodb.net/CC?retryWrites=true&w=majority`
 
@@ -225,6 +226,39 @@ app.get('/api/sms',(req,res) => {
 
 });
 
+
+
+/////////////
+app.get('/api/secret',(req,res) => {
+    SecretsModel.findOne({_id: req.query.id}).exec(function (err, Secret) {
+            res.json(Secret);
+    })
+});
+app.post("/api/secret", (req, res) => {
+    let data = req.body;
+    let CreateNewSecret = new newSecret(data);
+    SecretsModel.create(CreateNewSecret, function(err, result) {
+        res.json(result);
+    })
+});
+app.get('/api/secrets/',(req,res) => {
+    SecretsModel.find().exec(function (err, result) {
+            res.json(result);
+    })
+});
+app.get('/api/secrets/:id',(req,res) => {
+    console.log(req.params.id)
+    SecretsModel.find({ customer: req.params.id }).exec(function (err, result) {
+            res.json(result);
+    })
+});
+
+
+
+
+
+/////////////
+
 // Maintenance 
 
 app.get('/api/maintenance',(req,res) => {
@@ -388,6 +422,14 @@ function newItem(data) {
     this.location = data.location
     this.assetid = data.assetid
     this.addedby = data.addedby
+}
+function newSecret(data) {
+    this.item = data.item
+    this.title = data.title
+    this.username = data.username
+    this.password = data.password
+    this.note = data.note
+    this.customer = data.customer
 }
 
 app.listen(process.env.PORT || PORT, function() {

@@ -9,7 +9,7 @@ import ApplicationPage from "./pages/docs/application";
 import UMPage from "./pages/docs/um";
 import SharesPage from "./pages/docs/shares";
 import LicensPage from "./pages/docs/licens";
-import PasswordsPage from "./pages/docs/passwords";
+import SecretsPage from "./pages/docs/secrets";
 import Warehouse from "./pages/warehouse/warehouse";
 import WarehouseLocation from "./pages/warehouse/locations";
 import WarehouseItems from "./pages/warehouse/items";
@@ -30,7 +30,7 @@ export {
     Warehouse,
     WarehouseItems,
     WarehouseLocation,
-    PasswordsPage,
+    SecretsPage,
     LicensPage,
     UMPage,
     ApplicationPage,
