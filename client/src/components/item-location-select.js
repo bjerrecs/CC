@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form } from 'react-bootstrap';
+import { Form, Row, Col, FloatingLabel } from 'react-bootstrap';
   export default class ItemLocationSelect extends React.Component {
 
     state = {
@@ -25,12 +25,14 @@ import { Form } from 'react-bootstrap';
       }
 
       return  <>
-                <Form.Select id="location" name="location">
-                    <option>Select location</option>
+                <FloatingLabel label="Warehouse Location">
+                  <Form.Select id="location" name="location">
+                    <option>Open this select menu</option>
                     {this.state.items.map((itemsArray) => (
                         <option value={itemsArray.name}>{itemsArray.name}</option> 
                     ))}
-                </Form.Select>   
+                  </Form.Select>
+                </FloatingLabel>
               </>
     }
   }

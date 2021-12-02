@@ -70,6 +70,9 @@ const NavbarRoot = () => {
                         <NavDropdown.Item href="/email">
                             Email
                         </NavDropdown.Item>
+                        <NavDropdown.Item href="/patch">
+                            Patch
+                        </NavDropdown.Item>
                     </NavDropdown>
 
                 </Nav>

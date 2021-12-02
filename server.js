@@ -210,6 +210,16 @@ app.post("/api/warehouse/item", (req, res) => {
     })
 });
 
+app.post("/api/warehouse/addone/item", (req, res) => {
+    let data = req.body;
+    let CreateNewItem = new newItem(data);
+    Items.patch(CreateNewItem, function(err, result) {
+        if(err) {
+            res.send(err);
+        }
+    })
+});
+
 //SMS
 app.get('/api/sms',(req,res) => {
     const config = {
@@ -277,6 +287,132 @@ app.post("/api/maintenance/schedule", (req, res) => {
         }
     })
 });
+
+
+
+
+app.post("/api/send_mail/patch", cors(), (req, res) => {
+    let {mailTo,saturdaystartdate,saturdaystarttime,saturdayenddate,saturdayendtime,sundaystartdate,sundaystarttime,sundayenddate,sundayendtime} = req.body
+    nodeoutlook.sendEmail({
+        auth: {
+            user: process.env.MAIL_AUTH_USER,
+            pass: process.env.MAIL_AUTH_PASS
+        },
+        from: process.env.MAIL_AUTH_USER,
+        to: mailTo,
+        subject: 'Announcement of planned patch window',
+        html: `
+        <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+        <html xmlns="http://www.w3.org/1999/xhtml">
+        <head>
+            <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+            <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>LEAN-ON PATCH</title>
+            <style type="text/css">
+                body {
+                    Margin: 0;
+                    padding: 0;
+                    height: 100%!important;
+                }
+                table {
+                    color: #2b2b2b;
+                    background-color: #f6f9fc;
+                    font-family: Helvetica, sans-serif;
+                    height: 100%!important;
+                }
+                .header {
+                    padding: 5px;
+                    width: 75%;
+                    background-color: #404577;
+                    color: #fff;
+                    justify-content: center;
+                    justify-self: center;
+                }
+                .text {
+                    padding: 5px;
+                    width: 50%;
+                    text-align: center;
+                }
+                .text-center {
+                    text-align: center;
+                }
+                .textcontainer {
+                    word-wrap:break-word;
+                }
+                @media screen and (max-width: 600px) { 
+                }
+                @media screen and (max-width: 400px) { 
+                }
+                .customtable {
+                    width: 150%;
+                    margin-left: -25%;
+                }
+            </style>
+        </head>
+        <body>
+        <table border="0" cellpadding="0" cellspacing="0" width="100%" height="100%" style="border-collapse:collapse; padding:0; margin:0px;" bgcolor="#ffffff">
+            <tr valign="top">
+              <td align="center">
+                  <!-- Body Content -->
+                  <table border="0" cellpadding="0" cellspacing="0" width="750" style="border-collapse:collapse; padding:0; margin:0px;">
+                      <tr valign="top">
+                          <td align="center" class="header">
+                                <h1 class="text-center">Announcement of Patch Window</h1>
+                          </td>
+                      </tr>
+                      <tr valign="top">
+                        <td align="center">
+                            <div class="text">
+                                <br />
+                                <h3>Lean-On hereby announces a patch window</h3>
+        
+                                <table class="customtable">
+                                    <tr>
+                                        <th>Saturday</th>
+                                        <th>Sunday</th>
+                                    </tr>
+                                    <tr class="text-center">
+                                        <td class="text-center">${saturdaystartdate} ${saturdaystarttime}</td>
+                                        <td class="text-center">${sundaystartdate} ${sundaystarttime}</td>
+                                    </tr>
+                                    <tr class="text-center">
+                                        <td class="text-center">${saturdayenddate} ${saturdayendtime}</td>
+                                        <td class="text-center">${sundayenddate} ${sundayendtime}</td>
+                                    </tr>
+                                </table>
+        
+                                <p>
+                                    <b>Reason for change activity:</b>
+                                </p>
+                                <p class="textcontainer">Monthly patch window.<br />
+                                During the planned work, your enviorment will be unstable/ unavialable.</p>
+                            </div>
+                        </td>
+                    </tr>
+                    <br />
+                    <tr>
+                        <td align="center">
+                            <p class="textcontainer">
+                            Please reply to this email should you have any inquiries regarding this change <br />
+                            If no feedback has been received from you within 2 days,<br /> 
+                            the change is automatically regarded as accepted. .
+                            </p>
+                        </td>
+                    </tr>
+                  </table>
+              </td>
+            </tr>
+          </table>
+        
+        
+        </body>
+        </html>
+        `,
+        onError: (e) => console.log(e),
+        onSuccess: (i) => console.log(i)
+    })
+})
 
 app.post("/api/send_mail/maintenance", cors(), (req, res) => {
     let {text,mailTo,maintenanceReason,maintenanceStartDate,maintenanceStartTime,maintenanceEndDate,maintenanceEndTime} = req.body
@@ -419,6 +555,16 @@ function updateLocation(data) {
 
 function newItem(data) {
     this.name = data.name
+    this.fullname = data.fullname
+    this.shortname = data.shortname
+    this.vendor = data.vendor
+    this.model = data.model
+    this.amount = data.amount
+    this.restockamount = data.restockamount
+    this.buyprice = data.buyprice
+    this.sellprice = data.sellprice
+    this.addeddate = data.addeddate
+    this.signedoutdate = data.signedoutdate
     this.location = data.location
     this.assetid = data.assetid
     this.addedby = data.addedby

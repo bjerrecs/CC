@@ -30,6 +30,7 @@ import { SharesPage,
   MaintenanceDashboard,
   Profile 
 } from "./component"
+import Patch from "./pages/patch";
 
 function RootRouter() {
   return (
@@ -72,6 +73,7 @@ function RootRouter() {
           <PrivateRoute path="/demoloading" component={LoadingComponent} />
           <PrivateRoute path="/dashboard" component={Dashboard} />
           <PrivateRoute path="/email" component={Email} />
+          <PrivateRoute path="/patch" component={Patch} />
           <PrivateRoute path="/sms" component={Sms} />
           <PrivateRoute path="/profile" component={Profile} />
           <PrivateRoute path="/" component={Dashboard} />

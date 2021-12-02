@@ -1,10 +1,12 @@
 import React from "react";
-import { Container, Table, Form,InputGroup, ButtonGroup, Breadcrumb } from "react-bootstrap";
+import { Container, Table, Form,InputGroup, ButtonGroup, Breadcrumb, Tooltip, OverlayTrigger } from "react-bootstrap";
 import WarehouseLocationTable from "../../components/warehouse-item-table";
 import AddItemModal from "./additemmodal";
 import SignOutItem from './signoutitemmodal';
 import Pageheader from '../../components/pageheader'
 import PageTitle from '../../components/title'
+import '../../components/warehouse.css'
+
 
 function Warehouse() {
 
@@ -38,7 +40,21 @@ function Warehouse() {
                             <tr>
                                 <th>Location</th>
                                 <th>Item Name</th>
-                                <th>Device42 ID</th>
+                                <th>Vendor</th>
+                                <th>Model</th>
+                                <OverlayTrigger placement='top' overlay={
+                                    <Tooltip >Current amount of this item</Tooltip>
+                                }>
+                                  <th>Amount</th>
+                                </OverlayTrigger>  
+                                <OverlayTrigger placement='top' overlay={
+                                    <Tooltip >When we need to reorder the item?</Tooltip>
+                                }>
+                                  <th>Restock</th>
+                                </OverlayTrigger>  
+                                <th>Actions</th>
+
+                                
                             </tr>
                         </thead>
                         <tbody>

@@ -68,7 +68,7 @@ function AddSecretsModal(props) {
                     Title
                     </Form.Label>
                     <Col sm="10">
-                    <Form.Control type="text" placeholder="Google GCP" className="specialtext" alue={title} onChange={(e) => setTitle(e.target.value)}/>
+                    <Form.Control type="text" placeholder="Google GCP" className="specialtext" value={title} onChange={(e) => setTitle(e.target.value)}/>
                     </Col>
                 </Form.Group>
 

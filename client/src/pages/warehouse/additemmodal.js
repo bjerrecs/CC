@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { Button, Modal, Form } from 'react-bootstrap';
+import { Button, Modal, Form, Row, Col, FloatingLabel } from 'react-bootstrap';
 import ItemLocationSelect from '../../components/item-location-select';
 import { useAuth0 } from "@auth0/auth0-react";
 
@@ -25,26 +25,61 @@ function AddItemModal() {
             </Modal.Header>
             <Modal.Body>
                 <Form action="/api/warehouse/item" method="POST">
-                    <Form.Group className="mb-3">
-                        <Form.Label>Item Name</Form.Label>
-                        <Form.Control type="text" placeholder="Intel Xeon E5-2667 v2" id="name" name="name"/>
-                    </Form.Group>
-                    <Form.Group className="mb-3" >
-                    <Form.Label>Warehouse Location</Form.Label>
+                <Row className="g-2">
+                    <Col md>
+                        <FloatingLabel label="Full Name">
+                            <Form.Control id="name" type="text" placeholder="Intel Xeon E5-2667 v2" name="name"/>
+                        </FloatingLabel>
+                    </Col>
+                    <Col md>
+                        <FloatingLabel label="Short Name">
+                            <Form.Control type="text" placeholder="E5-2667v2" id="shortname" name="shortname"/>
+                        </FloatingLabel>
+                    </Col>
+                </Row>
+                <Row className="g-2">
+                    <Col md>
+                        <FloatingLabel label="Vendor">
+                            <Form.Control type="text" placeholder="NVIDIA" id="vendor" name="vendor"/>
+                        </FloatingLabel>
+                    </Col>
+                    <Col md>
+                        <FloatingLabel label="Model Number">
+                            <Form.Control type="text" placeholder="E5-2667v2" id="model" name="model"/>
+                        </FloatingLabel>
+                    </Col>
+                </Row>
+                <Row className="g-2">
+                    <Col md>
+                        <FloatingLabel label="Amount">
+                            <Form.Control type="text" placeholder="NVIDIA" id="amount" name="amount"/>
+                        </FloatingLabel>
+                    </Col>
+                    <Col md>
+                        <FloatingLabel label="Restock Amount">
+                            <Form.Control type="text" placeholder="E5-2667v2" id="restockamount" name="restockamount"/>
+                        </FloatingLabel>
+                    </Col>
+                </Row>
+                <Row className="g-2">
+                    <Col>
                         <ItemLocationSelect></ItemLocationSelect>
-                    </Form.Group>
-                    <Form.Group className="mb-3">
-                        <Form.Label>Asset Number</Form.Label>
-                        <Form.Control type="text" placeholder="ABC12345" id="assetid" name="assetid"/>
-                    </Form.Group>
+                    </Col>
+                </Row>
+                    
 
                     <Form.Group className="mb-3">
                         <Form.Control type="hidden" placeholder={user.name} defaultValue={user.name}id="addedby" name="addedby"/>
                     </Form.Group>
 
-                    <Button variant="primary" type="submit">
-                        Submit
-                    </Button>
+
+                    <Row>
+                        <Col>
+                            <Button variant="primary" type="submit">
+                                Submit
+                            </Button>
+                        </Col>
+                    </Row>
                 </Form>
             </Modal.Body>
             <Modal.Footer>
