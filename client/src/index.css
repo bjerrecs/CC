@@ -1,4 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap');
+:root {
+  --dark: rgb(45,53,60);
+  --light: rgb(242,243,244);
+  --body-bg: rgb(222, 226, 230);
+  --blue: rgb(73, 182, 214);
+  --blue-dark: rgb(52, 143, 226);
+}
 body {
   --cc: #1a475f;
   --cc1: #191D3B;
@@ -12,7 +19,7 @@ body {
   font-weight: 500;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--Platinum);
+  background-color: var(--body-bg);
 }
 .fullheight {
   height: 100%;
@@ -32,10 +39,7 @@ body {
   background-color: #fff;
   width: 100%;
   height: 100%!important;
-  border-left: .25rem solid var(--Coral)!important;
-  padding-top: 0.5rem !important;
-  padding-bottom: 0.5rem !important;
-  box-shadow: 0 .15rem 1.75rem 0 rgba(58,59,69,.15)!important;
+  box-shadow: inset 0 0 0 1px var(--app-component-border-color-transparent);
   flex: 1 1 auto;
   padding: 1.25rem;
 }
