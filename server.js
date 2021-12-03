@@ -139,9 +139,39 @@ app.get("/api/warehouse/item/delete/", (req, res) => {
           }
     })
 });
+app.get('/api/warehouse/item/:id', (req, res) => {
+    Items.findOne({ _id: req.params.id }).exec(function (err, Location) {
+        res.json(Location);
+    })
+  })
 
+app.put('/api/warehouse/item/:id', function (req, res) {
+    const {id: _id} = req.params 
+    const {amount} = req.body
+
+    const newAmount = {
+        _id,
+        amount
+      }
+
+    Items.findByIdAndUpdate(
+        _id,
+        newAmount,
+        (err, newItem) => {
+            if (err) {
+            res.json({
+                newAmount,
+                success: false,
+                msg: 'Failed to update'
+            })
+        } else {
+            res.json({newAmount, success: true, msg: 'Amount added'})
+          }
+        }
+      )
+    })
 app.delete('/api/warehouse/item/:id', (req, res) => {
-    Items.remove({ _id: req.params.id }, (err, result) => {
+    Items.findByIdAndUpdate({ _id: req.params.id }, (err, result) => {
       if (err) return console.log(err)
       res.redirect('http://localhost:3000/warehouse')
     })

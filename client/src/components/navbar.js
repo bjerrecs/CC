@@ -4,15 +4,6 @@ import ProfilePicture from './profile-picture';
 
 const NavbarRoot = () => {
     const { user, logout } = useAuth0();  
-
-
-    if (user) {
-        var username = user.name
-        var profilepicture = user.picture
-    } else {
-        username = "Loading ..."
-        profilepicture = "person.jpg"
-    }
   
     if (user) {
       return (

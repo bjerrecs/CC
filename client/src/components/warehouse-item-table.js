@@ -1,7 +1,6 @@
 import React from 'react';
-import { Tooltip, OverlayTrigger, ButtonGroup, Button } from 'react-bootstrap';
-import { BsFillPlusCircleFill, BsFillDashCircleFill } from "react-icons/bs";
-import AddOneItem from './add-one-item';
+import { Tooltip, OverlayTrigger, ButtonGroup } from 'react-bootstrap';
+import UpdateOneItem from './add-one-item';
 import './warehouse.css'
 
 
@@ -46,22 +45,7 @@ import './warehouse.css'
                         <td>{itemsArray.restockamount}</td>
                         <td>
                           <ButtonGroup>
-
-                            <OverlayTrigger placement='top' overlay={
-                                <Tooltip >Add Item</Tooltip>
-                              }>
-                              <Button>
-                              <BsFillPlusCircleFill />
-                              </Button>
-                            </OverlayTrigger>
-                            <AddOneItem id="61a619613212a80832f21d1e"/>
-                              <OverlayTrigger placement='top' overlay={
-                                <Tooltip >Remove Item</Tooltip>
-                              }>
-                              <Button>
-                                <BsFillDashCircleFill />
-                              </Button>
-                            </OverlayTrigger>  
+                            <UpdateOneItem id={itemsArray._id} amount={itemsArray.amount} amountrestock={itemsArray.restockamount}/> 
                           </ButtonGroup>
                         </td>
                     </tr>

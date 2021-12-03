@@ -54,7 +54,7 @@ function SignOutItem() {
         <>
 
         <Button variant="primary" onClick={handleShow}>
-            Sign Item Out
+            Remove Item
         </Button>
 
         <Modal show={showSignOut} onHide={handleClose}>

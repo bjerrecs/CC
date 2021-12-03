@@ -14,6 +14,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--Platinum);
 }
+.fullheight {
+  height: 100%;
+  width: 100%;
+}
 .a-dark {
   color: var(--cc1)
 }

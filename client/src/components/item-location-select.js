@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, Row, Col, FloatingLabel } from 'react-bootstrap';
+import { Form, FloatingLabel } from 'react-bootstrap';
   export default class ItemLocationSelect extends React.Component {
 
     state = {
