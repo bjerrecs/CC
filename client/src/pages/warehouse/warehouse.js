@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Table, Form,InputGroup, ButtonGroup, Breadcrumb, Tooltip, OverlayTrigger } from "react-bootstrap";
+import { Container,Form,InputGroup,ButtonGroup,Breadcrumb } from "react-bootstrap";
 import WarehouseLocationTable from "../../components/warehouse-item-table";
 import AddItemModal from "./additemmodal";
 import SignOutItem from './signoutitemmodal';
@@ -34,33 +34,7 @@ function Warehouse() {
                             </InputGroup>
                         </Form.Group>
                     </Form>
-
-                    <Table striped bordered hover responsive>
-                        <thead>
-                            <tr>
-                                <th>Location</th>
-                                <th>Item Name</th>
-                                <th>Vendor</th>
-                                <th>Model</th>
-                                <OverlayTrigger placement='top' overlay={
-                                    <Tooltip >Current amount of this item</Tooltip>
-                                }>
-                                  <th>Amount</th>
-                                </OverlayTrigger>  
-                                <OverlayTrigger placement='top' overlay={
-                                    <Tooltip >When we need to reorder the item?</Tooltip>
-                                }>
-                                  <th>Restock</th>
-                                </OverlayTrigger>  
-                                <th>Actions</th>
-
-                                
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <WarehouseLocationTable />
-                        </tbody>
-                    </Table>
+                 <WarehouseLocationTable />
       </Container>
     );
   }

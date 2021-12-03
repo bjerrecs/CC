@@ -68,7 +68,7 @@ function SignOutItem() {
                         <Form.Select id="id" name="id" required onChange={handleChange} value={formValue.id}>
                             <option value="">Select item</option>
                             {items.map((items) => (
-                                <option value={items._id}>{items.name}</option>
+                                <option key={items._id} value={items._id}>{items.name}</option>
                                 
                             ))}
                         </Form.Select>

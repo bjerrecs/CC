@@ -145,13 +145,13 @@ app.get('/api/warehouse/item/:id', (req, res) => {
     })
   })
 
-app.put('/api/warehouse/item/:id', function (req, res) {
+app.put('/api/warehouse/item/restock/:id', function (req, res) {
     const {id: _id} = req.params 
-    const {amount} = req.body
+    const {restockamount} = req.body
 
     const newAmount = {
         _id,
-        amount
+        restockamount
       }
 
     Items.findByIdAndUpdate(
@@ -165,11 +165,38 @@ app.put('/api/warehouse/item/:id', function (req, res) {
                 msg: 'Failed to update'
             })
         } else {
-            res.json({newAmount, success: true, msg: 'Amount added'})
+            res.json({newAmount, success: true, msg: 'RestockAmount added'})
           }
         }
       )
     })
+
+    app.put('/api/warehouse/item/:id', function (req, res) {
+        const {id: _id} = req.params 
+        const {amount} = req.body
+    
+        const newAmount = {
+            _id,
+            amount
+          }
+    
+        Items.findByIdAndUpdate(
+            _id,
+            newAmount,
+            (err, newItem) => {
+                if (err) {
+                res.json({
+                    newAmount,
+                    success: false,
+                    msg: 'Failed to update'
+                })
+            } else {
+                res.json({newAmount, success: true, msg: 'Amount added'})
+              }
+            }
+          )
+        })    
+    
 app.delete('/api/warehouse/item/:id', (req, res) => {
     Items.findByIdAndUpdate({ _id: req.params.id }, (err, result) => {
       if (err) return console.log(err)

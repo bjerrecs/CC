@@ -1,5 +1,5 @@
 import React from 'react';
-import { Tooltip, OverlayTrigger, ButtonGroup } from 'react-bootstrap';
+import { Tooltip, OverlayTrigger, ButtonGroup, Table } from 'react-bootstrap';
 import UpdateOneItem from './add-one-item';
 import './warehouse.css'
 
@@ -29,8 +29,29 @@ import './warehouse.css'
       }
 
       return  <>
-                {this.state.items.map((itemsArray) => (
+                <Table striped bordered hover responsive>
+                  <thead>
                     <tr>
+                      <th>Location</th>
+                      <th>Item Name</th>
+                      <th>Vendor</th>
+                      <th>Model</th>
+                      <OverlayTrigger placement='top' overlay={
+                          <Tooltip >Current amount of this item</Tooltip>
+                      }>
+                        <th>Amount</th>
+                      </OverlayTrigger>  
+                      <OverlayTrigger placement='top' overlay={
+                          <Tooltip >When we need to reorder the item?</Tooltip>
+                      }>
+                        <th>Restock</th>
+                      </OverlayTrigger>  
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  {this.state.items.map((itemsArray) => (
+                    <tr key={itemsArray._id}>
                         <td>{itemsArray.location}</td>
                           <td>
                             <OverlayTrigger placement='top' overlay={
@@ -49,7 +70,9 @@ import './warehouse.css'
                           </ButtonGroup>
                         </td>
                     </tr>
-                ))}
+                  ))}
+                  </tbody>
+                </Table>
               </>
     }
   }

@@ -4,7 +4,10 @@ import { Button, OverlayTrigger, Tooltip, Form, Modal, Row, Col, FloatingLabel }
 import { GoPencil } from "react-icons/go";
 
 function UpdateOneItem(props)  {
+    
     const [show, setShow] = useState(false);
+    const [amountinput, setAmountInput] = useState("")
+    const [restockamountinput, setRestockAmountInput] = useState("")
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
@@ -12,9 +15,20 @@ function UpdateOneItem(props)  {
     var amountRestock = props.amountrestock
     var id = props.id
 
+    if (!amountinput) {
+        var newAmount = amount
+    } else {
+        newAmount = amountinput
+    }
+
+    if (restockamountinput) {
+        newRestockAmount = restockamountinput
+    } else {
+        var newRestockAmount = amountRestock
+    }
+
     const handleSend = async() => {
         try {
-            var newAmount = amount + 1
             await axios.put('/api/warehouse/item/' + id, { amount: newAmount })
         } catch (error) {
             console.log(error)
@@ -22,9 +36,9 @@ function UpdateOneItem(props)  {
     }
 
     const handleSendRestock = async() => {
+        console.log('New Restock: ' + restockamountinput)
         try {
-            var newAmountRestock = amountRestock + 1
-            await axios.put('/api/warehouse/item/' + id, { restockamount: newAmountRestock })
+            await axios.put('/api/warehouse/item/restock/' + id, { restockamount: newRestockAmount })
         } catch (error) {
             console.log(error)
         }
@@ -49,11 +63,11 @@ function UpdateOneItem(props)  {
                     <Row className="g-2">
                         <Col md>
                             <FloatingLabel label="New Amount">
-                            <Form.Control type="text" />
+                                <Form.Control type="number" value={amountinput} onChange={(e)   => setAmountInput(e.target.value)} />
                             </FloatingLabel>
                         </Col>
                         <Col md>
-                            <Button className="fullheight" onClick="handleSend">Update</Button>
+                            <Button className="fullheight" onClick={handleSend}>Update</Button>
                         </Col>
                     </Row>
 
@@ -62,11 +76,11 @@ function UpdateOneItem(props)  {
                     <Row className="g-2">
                         <Col md>
                             <FloatingLabel label="New Restock Amount">
-                            <Form.Control type="text" />
+                                <Form.Control type="number" value={restockamountinput} onChange={(e) => setRestockAmountInput(e.target.value)}/>
                             </FloatingLabel>
                         </Col>
                         <Col md>
-                            <Button className="fullheight" onClick="handleSendRestock">Update</Button>
+                            <Button className="fullheight" onClick={handleSendRestock}>Update</Button>
                         </Col>
                     </Row>
                     
@@ -74,9 +88,6 @@ function UpdateOneItem(props)  {
             <Modal.Footer>
                 <Button variant="secondary" onClick={handleClose}>
                     Close
-                </Button>
-                <Button variant="primary" onClick={handleClose}>
-                    Save Changes
                 </Button>
             </Modal.Footer>
         </Modal>
