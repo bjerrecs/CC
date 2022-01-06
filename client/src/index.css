@@ -30,7 +30,11 @@ body {
 }
 .profilePicture  {
   border-radius: 50%;
-  margin-left: 5px;
+  margin-right: 5px;
+  z-index: 10;
+}
+.pro-inner-item {
+  padding: 10px 20px 10px 20px!important;
 }
 .col {
   margin: 20px;

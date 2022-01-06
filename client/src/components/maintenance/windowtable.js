@@ -48,7 +48,7 @@ import { ButtonGroup, Button } from 'react-bootstrap';
       if (this.state.windows.type === "majinc") {
         this.setState({typename: "Major Incident"})
       }
-      console.log(this.state.windows)
+
 
       return  <>
                 {this.state.windows.map((windowArray) => (

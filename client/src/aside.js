@@ -1,4 +1,5 @@
 import React from 'react';
+import Switch1 from 'react-switch';
 import {
   ProSidebar,
   Menu,
@@ -8,13 +9,17 @@ import {
   SidebarFooter,
   SidebarContent,
 } from 'react-pro-sidebar';
-import { FaTachometerAlt, FaWarehouse, FaTools, FaGithub, FaUserAlt, FaWrench } from 'react-icons/fa';
+import { FaTachometerAlt, FaWarehouse, FaTools, FaUserAlt, FaWrench, FaBookOpen, FaUsersCog } from 'react-icons/fa';
 import { useAuth0 } from "@auth0/auth0-react";
 import ProfilePicture from './components/profile-picture';
 import { LoadingComponent } from './component';
+import generatedGitInfo from './generatedGitInfo.json';
 
-const Aside = ({ image, collapsed, rtl, toggled, handleToggleSidebar }) => {
-  const { user, logout } = useAuth0();
+const Aside = ({ 
+  image, collapsed, rtl, toggled, handleToggleSidebar, handleCollapsedChange
+}) => {
+  const { user } = useAuth0();
+
   if (user) {
   return (
     <ProSidebar
@@ -49,13 +54,13 @@ const Aside = ({ image, collapsed, rtl, toggled, handleToggleSidebar }) => {
       </SidebarHeader>
 
       <SidebarContent>
-        <Menu iconShape="circle">
+        <Menu iconShape="circle" popperArrow="true">
           <MenuItem
             icon={<FaTachometerAlt />}
           >
             <a href="/dashboard">Dashboard</a>
           </MenuItem>
-        </Menu>
+        </Menu >
         <Menu iconShape="circle">
           <SubMenu
             title="Clients"
@@ -82,10 +87,8 @@ const Aside = ({ image, collapsed, rtl, toggled, handleToggleSidebar }) => {
               <a href="/warehouse/locations">Locations</a>
             </MenuItem>
           </SubMenu>
-          <SubMenu
-            title='Maintenance'
-            icon={<FaWrench />}
-          >
+
+          <SubMenu title='Maintenance' icon={<FaWrench />} >
             <MenuItem>
               <a href="/maintenance/dashboard">View Planed</a>
             </MenuItem>
@@ -93,6 +96,19 @@ const Aside = ({ image, collapsed, rtl, toggled, handleToggleSidebar }) => {
               <a href="/maintenance/schedule">Schedule New</a>
             </MenuItem>
           </SubMenu>
+
+          <SubMenu title='Reports' icon={<FaBookOpen />} >
+            <MenuItem>
+              <a href="">Patch Management</a>
+            </MenuItem>
+            <MenuItem>
+              <a href="">LOAD</a>
+            </MenuItem>
+            <MenuItem>
+              <a href="">Zabbix</a>
+            </MenuItem>
+          </SubMenu>
+
           <SubMenu
             title='Tools'
             icon={<FaTools />}
@@ -103,14 +119,21 @@ const Aside = ({ image, collapsed, rtl, toggled, handleToggleSidebar }) => {
             <MenuItem>
               <a href="/patch">Patch</a>
             </MenuItem>
+            <MenuItem>
+              <a href="/patch">SMS</a>
+            </MenuItem>
+            <MenuItem>
+              <a href="">Powerstack</a>
+            </MenuItem>
           </SubMenu>
         </Menu>
 
         <Menu iconShape="square">
-          <SubMenu title="Admin Tools" icon={<FaTools />}>
+          <SubMenu title="Admin" icon={<FaUsersCog />}>
             <MenuItem>Component 1</MenuItem>
-            <SubMenu title="Sub Component 1" icon={<FaTools />}>
-            <MenuItem>Component 1</MenuItem>
+            <SubMenu title="Git Version" icon={<FaTools />}>
+            <MenuItem>Branch: {generatedGitInfo.gitBranch}</MenuItem>
+            <MenuItem>Hash: {generatedGitInfo.gitCommitHash}</MenuItem>
             </SubMenu>
           </SubMenu>
         </Menu>
@@ -118,7 +141,7 @@ const Aside = ({ image, collapsed, rtl, toggled, handleToggleSidebar }) => {
 
       <SidebarFooter style={{ textAlign: 'center' }}>
       <Menu>
-        <SubMenu
+        <SubMenu className="pro-inner-item-custom"
             title={ <ProfilePicture small={collapsed} /> }
         >
             <MenuItem>
@@ -135,17 +158,21 @@ const Aside = ({ image, collapsed, rtl, toggled, handleToggleSidebar }) => {
             padding: '20px 24px',
           }}
         >
-          <a
-            href="https://github.com/azouaoui-med/react-pro-sidebar"
-            target="_blank"
-            className="sidebar-btn"
-            rel="noopener noreferrer"
-          >
-            <FaGithub />
             <span style={{ whiteSpace: 'nowrap', textOverflow: 'ellipsis', overflow: 'hidden' }}>
-              Github
+            <div className="block ">
+              <Switch1
+                height={16}
+                width={30}
+                checkedIcon={false}
+                uncheckedIcon={false}
+                onChange={handleCollapsedChange}
+                checked={collapsed}
+                onColor="#084298"
+                offColor="#bbbbbb"
+              />
+              <span>Toggle Sidebar</span>
+            </div>
             </span>
-          </a>
         </div>
       </SidebarFooter>
     </ProSidebar>

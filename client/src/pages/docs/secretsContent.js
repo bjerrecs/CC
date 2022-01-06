@@ -28,7 +28,6 @@ export default class SecretsPageContent extends React.Component {
   };
 
   render() {
-    console.log(this.state.secrets)
     return <>
 
 

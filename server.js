@@ -314,7 +314,6 @@ app.get('/api/secrets/',(req,res) => {
     })
 });
 app.get('/api/secrets/:id',(req,res) => {
-    console.log(req.params.id)
     SecretsModel.find({ customer: req.params.id }).exec(function (err, result) {
             res.json(result);
     })

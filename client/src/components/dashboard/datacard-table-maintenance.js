@@ -22,8 +22,6 @@ import { Table } from 'react-bootstrap';
       if (this.state.loading) {
         return <div> Loading ... </div>
       }
-      var today = new Date();
-      var todayFormat = today.getFullYear() + "-" + today.getMonth() + "-" + today.getDate()
 
       return  <>
       <Table striped bordered hover>
@@ -37,7 +35,7 @@ import { Table } from 'react-bootstrap';
         <tbody>
             {/* Get the last 3 elements from the items list*/}
             {this.state.maintenance.reverse().slice(0, 3).map((itemsArray) => (
-                <tr>
+                <tr key={itemsArray._id}>
                     <td>{itemsArray.startdate}</td>
                     <td>{itemsArray.starttime}</td>
                     <td>{itemsArray.reason}</td>

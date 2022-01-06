@@ -8,13 +8,14 @@ function ProfilePicture(props) {
     } else {
         profilepicture = "person.jpg"
     }
-    if (props.small == 'true') {
+    if (props.small === 'true') {
     return (
       <>
         <img
             src={profilepicture}
-            width="35"
-            height="35"
+            width="30"
+            height="30"
+            alt="Profile"
             className="profilePicture"
         >
         </img>
@@ -22,14 +23,15 @@ function ProfilePicture(props) {
     );} else {
       return (
         <>
-        {user.name}
         <img
             src={profilepicture}
-            width="35"
-            height="35"
+            width="30"
+            height="30"
+            alt="Profile"
             className="profilePicture"
         >
         </img>
+        {user.name}
       </>
       )
     }

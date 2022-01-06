@@ -1,6 +1,4 @@
 import React from 'react';
-import { FaBars } from 'react-icons/fa';
-import Switch1 from 'react-switch';
 import {
   BrowserRouter as Router,
   Switch,
@@ -16,7 +14,6 @@ import { SharesPage,
   LicensPage,
   UMPage,
   ApplicationPage,
-  NavbarRoot,
   ClientModify,
   Client,
   Clients,
@@ -34,34 +31,13 @@ import { SharesPage,
 
 import Patch from "./pages/patch";
 import './aside.scss';
-import { Button } from 'react-bootstrap';
 
 
-const Main = ({
-  collapsed,
-  handleToggleSidebar,
-  handleCollapsedChange,
-}) => {
+const Main = () => {
   return (
     <main>
-      <div className="btn-toggle" onClick={() => handleToggleSidebar(true)}>
-        <FaBars />
-      </div>
 
 
-      <div className="block ">
-        <Switch1
-          height={16}
-          width={30}
-          checkedIcon={false}
-          uncheckedIcon={false}
-          onChange={handleCollapsedChange}
-          checked={collapsed}
-          onColor="#219de9"
-          offColor="#bbbbbb"
-        />
-        <span>collapsed</span>
-      </div>
 
       <Router>
         <Switch>

@@ -34,8 +34,8 @@ import { Table } from 'react-bootstrap';
         <tbody>
             {/* Get the last 3 elements from the items list*/}
             {this.state.items.reverse().slice(0, 3).map((itemsArray) => (
-                <tr>
-                    <td colSpan="2">{itemsArray.name}</td>
+                <tr key={itemsArray._id}>
+                    <td  colSpan="2">{itemsArray.name}</td>
                     <td>{itemsArray.addedby}</td>
                 </tr>
             ))}

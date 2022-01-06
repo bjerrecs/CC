@@ -72,7 +72,7 @@ body {
   .collapsed {
     .sidebar-btn {
       display: inline-block;
-      line-height: 40px;
+      line-height: 33px;
       padding: 0;
     }
   }
@@ -115,7 +115,6 @@ body {
 
   .block {
     display: flex;
-    margin-bottom: 24px;
     font-size: 14px;
     color: #545454;
     > span {

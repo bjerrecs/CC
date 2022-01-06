@@ -1,71 +1,47 @@
-import { Form, Container, Button, Breadcrumb } from 'react-bootstrap';
+import { Form, Container, Button } from 'react-bootstrap';
+import React, { useState} from 'react';
 import axios from 'axios';
-import React, {useState} from 'react';
-import PageHeader from '../components/pageheader'
 
 function Sms() {
     const key = process.env.REACT_APP_TELAVOX_KEY
-    const [sent, setSent] = useState(false)
-    const [phonenumber, setPhonenumber] = useState("")
-    const [message, setMessage] = useState("")
+    const [title, setTitle] = useState("");
+    const [body, setBody] = useState("");
+  
+    const onTitleChange = e => setTitle(e.target.value);
+    const onBodyChange = e => setBody(e.target.value);
+  
+    const handleSubmit = e => {
+      e.preventDefault();
+  
+    const data = { title, body }; 
 
     const config = {
-        headers: { Authorization: `Bearer ` + key }
-    };
-
-    const handleSend = async() => {
-        setSent(true)
-        try {
-            await axios.post('https://api.telavox.se/sms/' + phonenumber + '?message=' + message, {
-
-            },config)
-        } catch (error) {
-            console.log(error)
+        headers: {
+        Authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyOTQ1OTE2IiwiYXVkIjoiKiIsImlzcyI6InR2eCIsImlhdCI6MTY0MTQ5NzM3NywianRpIjoiMjQ0NjUwIn0.ztpOKeF2DVGRyXj_Ok-hzgL5CetNToznE-_zHyJIlZRGKqPGs1AKMG7rjWIWzz-WP2sgsywaNsB5J3npRHDu0g`
         }
+    };
+     
+    axios.post(
+        'https://api.telavox.se/sms/+4551757001?message=hello',
+        config
+    ).then(console.log).catch(console.log);
     }
-
-    /*if (sent) {
-        setTimeout(function(){
-            window.location.reload(false);
-        }, 1500); 
-        // 1.5 sec delay before page reload
-
-    }*/
-
-
 
   return (
     <Container >
-            <br />
-            <Breadcrumb>
-                <Breadcrumb.Item href="#">Home</Breadcrumb.Item>
-                <Breadcrumb.Item active>Maintenance Email</Breadcrumb.Item>
-            </Breadcrumb>
+        <Form>
+            <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Label>Phone Number</Form.Label>
+                <Form.Control type="tel" value={title} onChange={onTitleChange} required/>
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Label>Password</Form.Label>
+                <Form.Control type="text" value={body} onChange={onBodyChange} required/>
+            </Form.Group>
 
-            <PageHeader h1="SMS" h3="New Password Template"/>
-        {!sent ? (
-            <Form onSubmit={handleSend}>
+            <Button onClick={handleSubmit}>Create Post</Button>
 
-                <Form.Group className="mb-3">
-                    <Form.Label>Phone Number</Form.Label>
-                    <Form.Control type="text" value={phonenumber} onChange={(e)   => setPhonenumber(e.target.value)} required />
-                </Form.Group>
-
-                <Form.Group className="mb-3">
-                    <Form.Label>Message</Form.Label>
-                    <Form.Control type="text"   value={message} onChange={(e)   => setMessage(e.target.value)} required />
-                </Form.Group>
-
-                <Button type="submit"> Send SMS </Button>
-            </Form>
-        ):(
-            <div>
-            <h1>Email Sent</h1>
-            </div>
-        )}
-
-
-
+        </Form>
     </Container>
   );
 }

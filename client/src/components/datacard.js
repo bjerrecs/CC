@@ -1,7 +1,5 @@
 
 import React from "react";
-import popover from 'react-bootstrap'
-import { GoInfo } from "react-icons/go";
 import './datacard.css'
 class Datacard extends React.Component {
 

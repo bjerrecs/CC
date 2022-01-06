@@ -1,7 +1,7 @@
 import React, { useState} from 'react'
 import axios from 'axios';
 import { Button, OverlayTrigger, Tooltip, Form, Modal, Row, Col, FloatingLabel } from "react-bootstrap";
-import { GoPencil,GoDiffAdded,GoDiffRemoved } from "react-icons/go";
+import { GoPencil } from "react-icons/go";
 
 function UpdateOneItem(props)  {
 
@@ -39,7 +39,6 @@ function UpdateOneItem(props)  {
     }
 
     const handleSendRestock = async() => {
-        console.log('New Restock: ' + restockamountinput)
         try {
             await axios.put('/api/warehouse/item/restock/' + id, { restockamount: newRestockAmount })
             setItemUpdated(true)

@@ -3,7 +3,6 @@ import Dymo from 'dymojs'
 function DymoTest() {
 
     const dymo = new Dymo();
-    console.log(dymo)
     dymo.print('DYMO LabelWriter 450', labelXml);
 
     var labelXml = `
