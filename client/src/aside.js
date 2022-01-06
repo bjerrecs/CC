@@ -53,7 +53,7 @@ const Aside = ({ image, collapsed, rtl, toggled, handleToggleSidebar }) => {
           <MenuItem
             icon={<FaTachometerAlt />}
           >
-            Dashboard
+            <a href="/dashboard">Dashboard</a>
           </MenuItem>
         </Menu>
         <Menu iconShape="circle">
