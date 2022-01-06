@@ -356,7 +356,7 @@ app.post("/api/send_mail/patch", cors(), (req, res) => {
             pass: process.env.MAIL_AUTH_PASS
         },
         from: process.env.MAIL_AUTH_USER,
-        to: mailTo,
+        bcc: mailTo,
         subject: 'Announcement of planned patch window',
         html: `
         <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
