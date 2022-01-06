@@ -1,6 +1,6 @@
 import { useAuth0 } from "@auth0/auth0-react";
 
-function ProfilePicture() {
+function ProfilePicture(props) {
     const { user } = useAuth0(); 
 
     if (user) {
@@ -8,9 +8,20 @@ function ProfilePicture() {
     } else {
         profilepicture = "person.jpg"
     }
-
+    if (props.small == 'true') {
     return (
       <>
+        <img
+            src={profilepicture}
+            width="35"
+            height="35"
+            className="profilePicture"
+        >
+        </img>
+      </>
+    );} else {
+      return (
+        <>
         {user.name}
         <img
             src={profilepicture}
@@ -20,7 +31,8 @@ function ProfilePicture() {
         >
         </img>
       </>
-    );
+      )
+    }
   }
   
   export default ProfilePicture;

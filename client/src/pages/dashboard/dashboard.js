@@ -12,7 +12,7 @@ function Dashboard() {
 
   return (
 
-      <Container>
+      <>
             <PageTitle title="Dashboard"/>
             <br />
             <Breadcrumb>
@@ -31,7 +31,7 @@ function Dashboard() {
             </Col>
           </Row>
 
-      </Container>
+      </>
     );
   }
   

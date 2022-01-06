@@ -1,4 +1,5 @@
-import React from "react";
+import React from 'react';
+import { FaBars } from 'react-icons/fa';
 
 import {
   BrowserRouter as Router,
@@ -33,17 +34,24 @@ import { SharesPage,
 
 import Patch from "./pages/patch";
 import './aside.scss';
-import Layout from "./layout";
 
-function RootRouter() {
+
+const Main = ({
+  collapsed,
+  handleToggleSidebar,
+  handleCollapsedChange,
+}) => {
   return (
-    <div>
+    <main>
+      <div className="btn-toggle" onClick={() => handleToggleSidebar(true)}>
+        <FaBars />
+      </div>
+
       <Router>
         <Switch>
           <PrivateRoute path="/" component={Login} />
         </Switch>
       </Router>
-      <Layout />
       <Router>
       <Switch>
 
@@ -82,8 +90,11 @@ function RootRouter() {
 
     </Switch>
     </Router>
-    </div>
-  );
-}
+      
 
-export default RootRouter;
+
+    </main>
+  );
+};
+
+export default Main;
