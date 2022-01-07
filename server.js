@@ -278,12 +278,20 @@ app.post("/api/warehouse/addone/item", (req, res) => {
 });
 
 //SMS
-app.get('/api/sms',(req,res) => {
+app.post('/api/sms',(req,res) => {
+    let {phone, password} = req.body;
+
     const config = {
-        headers: { Authorization: `Bearer ` + process.env.TELAVOX_KEY }
+        headers: { Authorization: `Bearer ` + process.env.REACT_APP_TELAVOX_KEY }
     };
+
+    const msg = `Hej
+Dit nye password er: ` + password + ` 
+
+Hilsen ServiceDesk`
+
     
-    axios.get('https://api.telavox.se/sms/4551757001?message=hello')
+    axios.get('https://api.telavox.se/sms/+45' + phone + '?message=' + msg, config)
     .then(response => {
         res.send(response.json);
     })

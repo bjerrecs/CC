@@ -2,6 +2,8 @@ import axios from "axios";
 import React, {useState} from "react";
 import { Container, Breadcrumb, Form, Button } from "react-bootstrap";
 import PageTitle from '../../components/title'
+import PageHeader from '../../components/pageheader'
+import CCBreadcrumb from '../../Breadcrumb'
 
 
 function MaintenanceShedule() {
@@ -43,15 +45,8 @@ function MaintenanceShedule() {
 
   return (
       <Container>
-            <PageTitle title="Maintenance Schedule" />
-            <br />
-            <Breadcrumb>
-              <Breadcrumb.Item href="/dashboard">Home</Breadcrumb.Item>
-              <Breadcrumb.Item>Maintenance</Breadcrumb.Item>
-              <Breadcrumb.Item active>Shedule</Breadcrumb.Item>
-            </Breadcrumb> 
-        <h1><b>Maintenance Shedule</b></h1>
-        <br />
+        <CCBreadcrumb item0="Home" item1="Maintenance" active="Schedule New"/>
+        <PageHeader h1="Schedule New Maintenance" />
 
         <Form onSubmit={handleSend}>
 

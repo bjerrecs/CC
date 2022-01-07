@@ -44,9 +44,8 @@ function Patch() {
   return (
     <Container >
             <CCBreadcrumb item0="Home" active="Patch Management Email"/>
-            <div className="CustomPageBackground">
-                <PageHeader h1="Patch Infromation" h3="Maintenance Template"/>
-            </div>
+            <PageHeader h1="Patch Infromation" h3="Maintenance Template"/>
+
             
         {!sent ? (
             <Form onSubmit={handleSend}>
@@ -75,7 +74,7 @@ function Patch() {
                     </Form.Group>
 
                     <Form.Group as={Col} controlId="formGridEmail">
-                        <Form.Label>Day One</Form.Label>
+                        <Form.Label>Day Two</Form.Label>
                         <Form.Control type="date" value={DayTwoDate} onChange={(e)   => setDayTwoDate(e.target.value)} />
                         <br />
                         <Form.Control type="time" value={DayTwoStartTime} onChange={(e)   => setDayTwoStartTime(e.target.value)} />

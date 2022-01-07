@@ -2,6 +2,8 @@ import React from "react";
 import { Container, Breadcrumb, Table } from "react-bootstrap";
 import MaintenanceWindowTable from "../../components/maintenance/windowtable";
 import PageTitle from '../../components/title'
+import PageHeader from '../../components/pageheader'
+import CCBreadcrumb from '../../Breadcrumb'
 
 
 function MaintenanceDashboard() {
@@ -9,15 +11,8 @@ function MaintenanceDashboard() {
 
   return (
       <Container>
-            <PageTitle title="Maintenance Dashboard" />
-            <br />
-            <Breadcrumb>
-              <Breadcrumb.Item href="/dashboard">Home</Breadcrumb.Item>
-              <Breadcrumb.Item>Maintenance</Breadcrumb.Item>
-              <Breadcrumb.Item active>Dashboard</Breadcrumb.Item>
-            </Breadcrumb> 
-        <h1><b>Maintenance Dashboard</b></h1>
-        <br />
+        <CCBreadcrumb item0="Home" item1="Maintenance" active="Dashboard"/>
+        <PageHeader h1="Maintenance Dashboard" h3="View planned maintenance windows"/>
 
         <Table responsive>
             <thead>

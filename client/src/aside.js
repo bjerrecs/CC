@@ -89,7 +89,7 @@ const Aside = ({
 
           <SubMenu title='Maintenance' icon={<FaWrench />} >
             <MenuItem>
-              <a href="/maintenance/dashboard">View Planed</a>
+              <a href="/maintenance/dashboard">Dashboard</a>
             </MenuItem>
             <MenuItem>
               <a href="/maintenance/schedule">Schedule New</a>
@@ -98,13 +98,13 @@ const Aside = ({
 
           <SubMenu title='Reports' icon={<FaBookOpen />} >
             <MenuItem>
-              <a href="">Patch Management</a>
+              <a href="/">Patch Management</a>
             </MenuItem>
             <MenuItem>
-              <a href="">LOAD</a>
+              <a href="/">LOAD</a>
             </MenuItem>
             <MenuItem>
-              <a href="">Zabbix</a>
+              <a href="/">Zabbix</a>
             </MenuItem>
           </SubMenu>
 
@@ -113,7 +113,7 @@ const Aside = ({
             icon={<FaTools />}
           >
             <MenuItem>
-              <a href="/CustomerMap">Map</a>
+              <a href="/">Map</a>
             </MenuItem>
             <MenuItem>
               <a href="/email">Email</a>
@@ -122,7 +122,7 @@ const Aside = ({
               <a href="/patch">Patch</a>
             </MenuItem>
             <MenuItem>
-              <a href="/patch">SMS</a>
+              <a href="/sms">SMS</a>
             </MenuItem>
             <MenuItem>
               <a href="">Powerstack</a>
@@ -132,7 +132,6 @@ const Aside = ({
 
         <Menu iconShape="square">
           <SubMenu title="Admin" icon={<FaUsersCog />}>
-            <MenuItem>Component 1</MenuItem>
             <SubMenu title="Git Version" icon={<FaTools />}>
             <MenuItem>Branch:</MenuItem>
             <MenuItem>Hash:</MenuItem>
