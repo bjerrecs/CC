@@ -32,6 +32,7 @@ import { SharesPage,
 import Patch from "./pages/patch";
 import './aside.scss';
 import CustomerMap from './pages/CustomerMap';
+import NotFoundPage from './NotFoundPage';
 
 
 const Main = () => {
@@ -80,8 +81,8 @@ const Main = () => {
           <PrivateRoute path="/patch" component={Patch} />
           <PrivateRoute path="/sms" component={Sms} />
           <PrivateRoute path="/profile" component={Profile} />
+          <PrivateRoute path="*" component={NotFoundPage}/>
           <PrivateRoute path="/" component={Dashboard} />
-
     </Switch>
     </Router>
       
