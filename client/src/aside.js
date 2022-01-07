@@ -13,10 +13,9 @@ import { FaTachometerAlt, FaWarehouse, FaTools, FaUserAlt, FaWrench, FaBookOpen,
 import { useAuth0 } from "@auth0/auth0-react";
 import ProfilePicture from './components/profile-picture';
 import { LoadingComponent } from './component';
-import generatedGitInfo from './generatedGitInfo.json';
 
 const Aside = ({ 
-  image, collapsed, rtl, toggled, handleToggleSidebar, handleCollapsedChange
+  lscollapsed, collapsed, rtl, toggled, handleToggleSidebar, handleCollapsedChange
 }) => {
   const { user } = useAuth0();
 
@@ -114,6 +113,9 @@ const Aside = ({
             icon={<FaTools />}
           >
             <MenuItem>
+              <a href="/CustomerMap">Map</a>
+            </MenuItem>
+            <MenuItem>
               <a href="/email">Email</a>
             </MenuItem>
             <MenuItem>
@@ -132,8 +134,8 @@ const Aside = ({
           <SubMenu title="Admin" icon={<FaUsersCog />}>
             <MenuItem>Component 1</MenuItem>
             <SubMenu title="Git Version" icon={<FaTools />}>
-            <MenuItem>Branch: {generatedGitInfo.gitBranch}</MenuItem>
-            <MenuItem>Hash: {generatedGitInfo.gitCommitHash}</MenuItem>
+            <MenuItem>Branch:</MenuItem>
+            <MenuItem>Hash:</MenuItem>
             </SubMenu>
           </SubMenu>
         </Menu>

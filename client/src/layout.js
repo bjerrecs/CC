@@ -4,7 +4,7 @@ import Main from './main';
 
 function Layout({ setLocale }) {
   const [rtl, setRtl] = useState(false);
-  const [collapsed, setCollapsed] = useState(false);
+  const [collapsed, setCollapsed] = useState();
   const [lscollapsed, setlsCollapsed] = React.useState(localStorage.getItem('collapsed') === 'true');
   const [image, setImage] = useState(true);
   const [toggled, setToggled] = useState(false);
@@ -12,6 +12,7 @@ function Layout({ setLocale }) {
   const handleCollapsedChange = (checked) => {
     setCollapsed(checked);
     setlsCollapsed(checked);
+    console.log('handleCollapsedChange: ' + checked)
   };
 
   const handleRtlChange = (checked) => {
@@ -24,11 +25,12 @@ function Layout({ setLocale }) {
 
   const handleToggleSidebar = (value) => {
     setToggled(value);
+    console.log('Toggled: ' + value)
   };
 
   React.useEffect(() => {
-    localStorage.setItem('collapsed', collapsed);
-  }, [collapsed]);
+    localStorage.setItem('collapsed', lscollapsed);
+  }, [lscollapsed]);
 
   return (
     <div className={`app ${rtl ? 'rtl' : ''} ${toggled ? 'toggled' : ''}`}>

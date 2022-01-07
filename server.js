@@ -348,7 +348,13 @@ app.post("/api/maintenance/schedule", (req, res) => {
 
 
 app.post("/api/send_mail/patch", cors(), (req, res) => {
-    let {mailTo,saturdaystartdate,saturdaystarttime,saturdayenddate,saturdayendtime,sundaystartdate,sundaystarttime,sundayenddate,sundayendtime} = req.body
+    let {mailTo,
+        DayOneDate,
+        DayOneStartTime,
+        DayOneEndTime,
+        DayTwoDate,
+        DayTwoStartTime,
+        DayTwoEndTime} = req.body
     nodeoutlook.sendEmail({
         auth: {
             user: process.env.MAIL_AUTH_USER,
@@ -356,6 +362,7 @@ app.post("/api/send_mail/patch", cors(), (req, res) => {
         },
         from: process.env.MAIL_AUTH_USER,
         bcc: mailTo,
+        replyTo: 'support@lean-on.com',
         subject: 'Announcement of planned patch window',
         html: `
         <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -380,7 +387,7 @@ app.post("/api/send_mail/patch", cors(), (req, res) => {
                 .header {
                     padding: 5px;
                     width: 75%;
-                    background-color: #404577;
+                    background-color: #191D3B;
                     color: #fff;
                     justify-content: center;
                     justify-self: center;
@@ -429,12 +436,12 @@ app.post("/api/send_mail/patch", cors(), (req, res) => {
                                         <th>Sunday</th>
                                     </tr>
                                     <tr class="text-center">
-                                        <td class="text-center">${saturdaystartdate} ${saturdaystarttime}</td>
-                                        <td class="text-center">${sundaystartdate} ${sundaystarttime}</td>
+                                        <td class="text-center">${DayOneDate} ${DayOneStartTime}</td>
+                                        <td class="text-center">${DayTwoDate} ${DayTwoStartTime}</td>
                                     </tr>
                                     <tr class="text-center">
-                                        <td class="text-center">${saturdayenddate} ${saturdayendtime}</td>
-                                        <td class="text-center">${sundayenddate} ${sundayendtime}</td>
+                                        <td class="text-center">${DayOneDate} ${DayOneEndTime}</td>
+                                        <td class="text-center">${DayTwoDate} ${DayTwoEndTime}</td>
                                     </tr>
                                 </table>
         
@@ -442,7 +449,7 @@ app.post("/api/send_mail/patch", cors(), (req, res) => {
                                     <b>Reason for change activity:</b>
                                 </p>
                                 <p class="textcontainer">Monthly patch window.<br />
-                                During the planned work, your enviorment will be unstable/ unavialable.</p>
+                                During the planned work, your enviorment will be unavialable.</p>
                             </div>
                         </td>
                     </tr>
@@ -452,7 +459,7 @@ app.post("/api/send_mail/patch", cors(), (req, res) => {
                             <p class="textcontainer">
                             Please reply to this email should you have any inquiries regarding this change <br />
                             If no feedback has been received from you within 2 days,<br /> 
-                            the change is automatically regarded as accepted. .
+                            the change is automatically regarded as accepted.
                             </p>
                         </td>
                     </tr>
@@ -471,7 +478,7 @@ app.post("/api/send_mail/patch", cors(), (req, res) => {
 })
 
 app.post("/api/send_mail/maintenance", cors(), (req, res) => {
-    let {text,mailTo,maintenanceReason,maintenanceStartDate,maintenanceStartTime,maintenanceEndDate,maintenanceEndTime} = req.body
+    let {mailTo,maintenanceReason,maintenanceStartDate,maintenanceStartTime,maintenanceEndDate,maintenanceEndTime} = req.body
     nodeoutlook.sendEmail({
         auth: {
             user: process.env.MAIL_AUTH_USER,

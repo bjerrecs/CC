@@ -1,6 +1,7 @@
 import React from 'react';
 import { Badge , ListGroup, Breadcrumb } from 'react-bootstrap';
 import PageHeader from '../components/pageheader'
+import CCBreadcrumb from '../Breadcrumb'
 export default class FetchCompany extends React.Component {
 
   state = {
@@ -52,20 +53,17 @@ export default class FetchCompany extends React.Component {
 
 
     return  <div>
-            <br />
-            <Breadcrumb>
-              <Breadcrumb.Item href="#">Home</Breadcrumb.Item>
-              <Breadcrumb.Item href="/clients">
-                Clients
-              </Breadcrumb.Item>
-              <Breadcrumb.Item>
-                {this.state.company.fullname}
-              </Breadcrumb.Item>
-              <Breadcrumb.Item active>Process Information</Breadcrumb.Item>
-            </Breadcrumb>
 
-            <PageHeader h1={this.state.company.fullname} h3={'Support:' + ServiceDeskLevel}/>
+            <CCBreadcrumb 
+              item0="Home" 
+              item1="Clients" 
+              item2={this.state.company.fullname} 
+              active="Process Information" 
+            />
 
+            <div className="CustomPageBackground">
+              <PageHeader h1={this.state.company.fullname}/>
+            </div>
               <ListGroup as="ol" numbered>
               <ListGroup.Item
                   as="li"

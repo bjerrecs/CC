@@ -1,33 +1,32 @@
-import { Form, Container, Button, Breadcrumb, FloatingLabel } from 'react-bootstrap';
+import { Form, Container, Button, FloatingLabel, Row, Col } from 'react-bootstrap';
 import axios from 'axios';
 import React, {useState} from 'react';
 import PageHeader from '../components/pageheader'
+import CCBreadcrumb from '../Breadcrumb'
 
 function Patch() {
     const [sent, setSent] = useState(false)
     const [mailTo, setmailTo] = useState("")
-    const [saturdaystartdate, setsaturdaystartdate] = useState("")
-    const [saturdaystarttime, setsaturdaystarttime] = useState("")
-    const [saturdayenddate, setsaturdayenddate] = useState("")
-    const [saturdayendtime, setsaturdayendtime] = useState("")
-    const [sundaystartdate, setsundaystartdate] = useState("")
-    const [sundaystarttime, setsundaystarttime] = useState("")
-    const [sundayenddate, setsundayenddate] = useState("")
-    const [sundayendtime, setsundayendtime] = useState("")
+
+    const [DayOneDate, setDayOneDate] = useState("")
+    const [DayOneStartTime, setDayOneStartTime] = useState("")
+    const [DayOneEndTime, setDayOneEndTime] = useState("")
+
+    const [DayTwoDate, setDayTwoDate] = useState("")
+    const [DayTwoStartTime, setDayTwoStartTime] = useState("")
+    const [DayTwoEndTime, setDayTwoEndTime] = useState("")
 
     const handleSend = async() => {
         setSent(true)
         try {
             await axios.post("/api/send_mail/patch", {
                 mailTo,
-                saturdaystartdate,
-                saturdaystarttime,
-                saturdayenddate,
-                saturdayendtime,
-                sundaystartdate,
-                sundaystarttime,
-                sundayenddate,
-                sundayendtime
+                DayOneDate,
+                DayOneStartTime,
+                DayOneEndTime,
+                DayTwoDate,
+                DayTwoStartTime,
+                DayTwoEndTime
             })
         } catch (error) {
             console.log(error)
@@ -42,86 +41,56 @@ function Patch() {
 
     }
 
-
-
   return (
     <Container >
-            <br />
-            <Breadcrumb>
-                <Breadcrumb.Item href="#">Home</Breadcrumb.Item>
-                <Breadcrumb.Item active>Patch Email</Breadcrumb.Item>
-            </Breadcrumb>
-
-            <PageHeader h1="Email Customers" h3="Maintenance Template"/>
+            <CCBreadcrumb item0="Home" active="Patch Management Email"/>
+            <div className="CustomPageBackground">
+                <PageHeader h1="Patch Infromation" h3="Maintenance Template"/>
+            </div>
+            
         {!sent ? (
             <Form onSubmit={handleSend}>
-
-                <br />
-                <hr />
-                <br />
-
-                <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-                    <Form.Label>Recipients</Form.Label>
-                    <FloatingLabel label="name@email.com">
+                <Row className="mb-3">
+                    <Form.Group as={Col}>
+                        <Form.Label>
+                            Recipients (BCC)
+                        </Form.Label>
                         <Form.Control type="text" value={mailTo} onChange={(e)   => setmailTo(e.target.value)} required/>
                         <Form.Text className="text-muted">
-                        For multiple recipients, use comma seperation
+                        For multiple recipients, use comma seperation 
                         </Form.Text>
-                    </FloatingLabel>
-                </Form.Group>
+                    </Form.Group>
+                </Row>
 
-                <br />
-                <hr />
-                <br />
+                <Row className="mb-3">
 
-                <Form.Label>Saturday</Form.Label>
-                <Form.Group className="mb-3">
-                    <FloatingLabel label="Start Date">
-                        <Form.Control type="date" value={saturdaystartdate} onChange={(e)   => setsaturdaystartdate(e.target.value)} required />
-                    </FloatingLabel>
-                    <FloatingLabel label="Start Time">
-                        <Form.Control type="time" value={saturdaystarttime} onChange={(e)   => setsaturdaystarttime(e.target.value)} required />
-                    </FloatingLabel>
-                </Form.Group>
 
-                <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-                    <FloatingLabel label="End Date">
-                        <Form.Control type="date" value={saturdayenddate} onChange={(e)   => setsaturdayenddate(e.target.value)} required />
-                    </FloatingLabel>
-                    <FloatingLabel label="End Time">
-                        <Form.Control type="time" value={saturdayendtime} onChange={(e)   => setsaturdayendtime(e.target.value)} required />
-                    </FloatingLabel>
-                </Form.Group>
+                    <Form.Group as={Col} controlId="formGridEmail">
+                        <Form.Label>Day One</Form.Label>
+                        <Form.Control type="date" value={DayOneDate} onChange={(e)   => setDayOneDate(e.target.value)} />
+                        <br />
+                        <Form.Control type="time" value={DayOneStartTime} onChange={(e)   => setDayOneStartTime(e.target.value)} />
+                        <Form.Control type="time" value={DayOneEndTime} onChange={(e)   => setDayOneEndTime(e.target.value)} />
+                        <br />
+                    </Form.Group>
 
-                <br />
-                <hr />
-                <br />
+                    <Form.Group as={Col} controlId="formGridEmail">
+                        <Form.Label>Day One</Form.Label>
+                        <Form.Control type="date" value={DayTwoDate} onChange={(e)   => setDayTwoDate(e.target.value)} />
+                        <br />
+                        <Form.Control type="time" value={DayTwoStartTime} onChange={(e)   => setDayTwoStartTime(e.target.value)} />
+                        <Form.Control type="time" value={DayTwoEndTime} onChange={(e)   => setDayTwoEndTime(e.target.value)} />
+                        <br />
+                    </Form.Group>
 
-                <Form.Label>Sunday</Form.Label>
-                <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-                    <FloatingLabel label="Start Date">
-                        <Form.Control type="date" value={sundaystartdate} onChange={(e)   => setsundaystartdate(e.target.value)} required />
-                    </FloatingLabel>
-                    <FloatingLabel label="Start Time">
-                        <Form.Control type="time" value={sundaystarttime} onChange={(e)   => setsundaystarttime(e.target.value)} required />
-                    </FloatingLabel>
-                </Form.Group>
 
-                <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-                    <FloatingLabel label="End Date">
-                        <Form.Control type="date" value={sundayenddate} onChange={(e)   => setsundayenddate(e.target.value)} required />
-                    </FloatingLabel>
-                    <FloatingLabel label="End Time">
-                        <Form.Control type="time" value={sundayendtime} onChange={(e)   => setsundayendtime(e.target.value)} required />
-                    </FloatingLabel>
-                </Form.Group>
-
-                <br />
-                <hr />
-                <br />
+                </Row>
 
                 <Button type="submit"> Send Email </Button>
             </Form>
+            
+
+            
         ):(
             <div>
             <h1>Email Sent</h1>

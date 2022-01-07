@@ -150,3 +150,9 @@ a:hover {
 .cclogopad {
   padding-right: 10px;
 }
+
+.CustomPageBackground {
+  background: var(--cc1);
+  color: #fff;
+  padding: 2rem;
+}

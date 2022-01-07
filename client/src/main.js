@@ -31,6 +31,7 @@ import { SharesPage,
 
 import Patch from "./pages/patch";
 import './aside.scss';
+import CustomerMap from './pages/CustomerMap';
 
 
 const Main = () => {
@@ -73,6 +74,7 @@ const Main = () => {
           <PrivateRoute path="/maintenance/schedule" component={MaintenanceShedule} />
 
           <PrivateRoute path="/demoloading" component={LoadingComponent} />
+          
           <PrivateRoute path="/dashboard" component={Dashboard} />
           <PrivateRoute path="/email" component={Email} />
           <PrivateRoute path="/patch" component={Patch} />
