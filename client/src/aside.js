@@ -106,6 +106,9 @@ const Aside = ({
             <MenuItem>
               <a href="/">Zabbix</a>
             </MenuItem>
+            <MenuItem>
+              <a href="/">Microsoft Licenses</a>
+            </MenuItem>
           </SubMenu>
 
           <SubMenu
@@ -116,13 +119,13 @@ const Aside = ({
               <a href="/">Map</a>
             </MenuItem>
             <MenuItem>
-              <a href="/email">Email</a>
+              <a href="/email">Email test</a>
             </MenuItem>
             <MenuItem>
-              <a href="/patch">Patch</a>
+              <a href="/patch">Patch Information</a>
             </MenuItem>
             <MenuItem>
-              <a href="/sms">SMS</a>
+              <a href="/sms">Password SMS</a>
             </MenuItem>
             <MenuItem>
               <a href="">Powerstack</a>

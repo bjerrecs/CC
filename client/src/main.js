@@ -33,6 +33,7 @@ import Patch from "./pages/patch";
 import './aside.scss';
 import CustomerMap from './pages/CustomerMap';
 import NotFoundPage from './NotFoundPage';
+import MSLic from './pages/mslic/mslic';
 
 
 const Main = () => {
@@ -81,6 +82,7 @@ const Main = () => {
           <PrivateRoute path="/patch" component={Patch} />
           <PrivateRoute path="/sms" component={Sms} />
           <PrivateRoute path="/profile" component={Profile} />
+          <PrivateRoute path="/mslic" component={MSLic} />
           <PrivateRoute path="*" component={NotFoundPage}/>
           <PrivateRoute path="/" component={Dashboard} />
     </Switch>
